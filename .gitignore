@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+
+# Regenerable via the pipeline (see README.md) -- not committed to keep the
+# repo small and avoid shipping a data snapshot that goes stale.
+data/raw/
+data/processed/holdings_long.parquet
