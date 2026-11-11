@@ -137,7 +137,7 @@ funds_df = get_funds()
 st.title("Hedge Fund 13F Holdings Dashboard")
 st.caption(
     "Top hedge fund stock holdings sourced directly from SEC EDGAR 13F-HR filings. "
-    "The fund roster is a curated list (not a live ranking feed) — see README.md for methodology and data caveats."
+    "The fund roster is a curated list (not a live ranking feed)."
 )
 
 if df.empty:
