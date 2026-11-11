@@ -43,9 +43,14 @@ ways, with a current-quarter snapshot and trends across the trailing year.
   ETF tickers use a hand-curated CUSIP map
   (`src/performance.py:ETF_TICKER_BY_CUSIP`) covering the ETFs that actually
   land in that top-100 universe, since that file doesn't reliably cover
-  ETPs. Anything that fails to resolve (e.g. SpaceX, which isn't publicly
-  traded) is omitted — see the tab's "omitted" expander — rather than
-  guessed at. This universe is capped at ~100 by design (see planning
+  ETPs. Anything that fails to resolve to a ticker, or resolves but has no
+  usable price history for *any* return window, is omitted (with a reason)
+  rather than shown as a row of blank cells or guessed at -- see the tab's
+  "omitted" expander. Seen in practice: SpaceX (SPCX) IPO'd so recently
+  (Jun 2026) that even its 6-month return has no history to compute from
+  yet; Warner Bros Discovery (WBD) was acquired for cash and delisted in Oct
+  2026, so Yahoo Finance only retains its final quote, not years of prior
+  history. This universe is capped at ~100 by design (see planning
   discussion); expanding it would need broader ticker-resolution logic.
 
 ## Pipeline

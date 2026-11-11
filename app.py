@@ -81,11 +81,28 @@ def get_performance_universe(top_n: int = 100):
     universe = ranking.rank_stocks(df, TARGET_QUARTERS[-1], "equal_weighted", top_n=None)
     universe = universe.sort_values("total_value_usd", ascending=False).head(top_n)
     resolved = performance.resolve_tickers(universe)
-    unresolved = resolved[resolved["ticker"].isna()][["issuer_label", "asset_type"]]
+    no_ticker = resolved[resolved["ticker"].isna()][["issuer_label", "asset_type"]].assign(reason="no ticker found")
     resolved = resolved[resolved["ticker"].notna()]
     returns = performance.fetch_returns(resolved["ticker"].tolist())
     merged = resolved.merge(returns, left_on="ticker", right_index=True, how="left")
-    return merged, unresolved
+
+    # A resolved ticker can still have zero usable price history for EVERY
+    # window -- two different real causes seen in practice: WBD (Warner Bros
+    # Discovery) was acquired for cash and delisted in Oct 2026, so Yahoo
+    # only retains its final quote, not years of history; SPCX (SpaceX)
+    # IPO'd so recently (Jun 2026) that even the 6-month lookback predates
+    # its listing. Rather than a row of blank cells with no explanation,
+    # treat "ticker resolved but no return could be computed" the same as
+    # "no ticker" -- omitted, with a reason, not silently blank.
+    return_cols = list(performance.RETURN_WINDOWS)
+    has_no_data = merged[return_cols].isna().all(axis=1)
+    no_price_data = merged.loc[has_no_data, ["issuer_label", "asset_type"]].assign(
+        reason="no return computable for any window (too recently listed, or delisted/acquired)"
+    )
+    merged = merged.loc[~has_no_data]
+
+    omitted = pd.concat([no_ticker, no_price_data], ignore_index=True)
+    return merged, omitted
 
 
 @st.cache_data
@@ -206,7 +223,7 @@ with tab_performance:
         icon="ℹ️",
     )
     try:
-        universe, unresolved = get_performance_universe()
+        universe, omitted = get_performance_universe()
     except Exception as e:  # noqa: BLE001 -- network-dependent external call; degrade gracefully
         st.error(f"Couldn't fetch price performance right now: {e}")
     else:
@@ -256,9 +273,13 @@ with tab_performance:
                 },
             )
 
-        if not unresolved.empty:
-            with st.expander(f"{len(unresolved)} security(ies) omitted — no ticker could be resolved"):
-                st.dataframe(unresolved.rename(columns={"issuer_label": "Issuer", "asset_type": "Type"}), hide_index=True, use_container_width=True)
+        if not omitted.empty:
+            with st.expander(f"{len(omitted)} security(ies) omitted"):
+                st.dataframe(
+                    omitted.rename(columns={"issuer_label": "Issuer", "asset_type": "Type", "reason": "Reason"}),
+                    hide_index=True,
+                    use_container_width=True,
+                )
 
 with tab_fund:
     st.subheader("Fund drill-down")
