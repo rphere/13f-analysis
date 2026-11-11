@@ -3,7 +3,10 @@ __pycache__/
 *.pyc
 .DS_Store
 
-# Regenerable via the pipeline (see README.md) -- not committed to keep the
-# repo small and avoid shipping a data snapshot that goes stale.
+# Raw cached SEC filings are regenerable via the pipeline (see README.md) and
+# large (~121MB), so not committed. holdings_long.parquet IS committed despite
+# being regenerable too: the deployed Streamlit Cloud app has nowhere to run
+# the fetch pipeline at startup, so it needs this file present in the repo to
+# have any data at all. Re-run the pipeline and commit the refreshed file to
+# update it -- see README.md "Refreshing for a new quarter."
 data/raw/
-data/processed/holdings_long.parquet

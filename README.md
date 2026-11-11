@@ -35,8 +35,8 @@ ways, with a current-quarter snapshot and trends across the trailing year.
 - **The Performance tab shows real market price returns, not 13F data.**
   It's a separate pipeline: the ~100 most widely-held securities (by
   aggregate 13F value, across *all* funds/quarters, ignoring the sidebar)
-  are resolved to tickers and their 6-month/1-year returns are fetched live
-  via `yfinance`. Stock tickers are resolved by name-matching against SEC's
+  are resolved to tickers and their 6-month/1-year/2-year/5-year returns are
+  fetched live via `yfinance`. Stock tickers are resolved by name-matching against SEC's
   free `company_tickers.json`, with a small manual override list
   (`src/performance.py:STOCK_TICKER_OVERRIDES`) for well-known names whose
   13F-reported name is too abbreviated to match (e.g. "APPLIED MATLS").
@@ -76,6 +76,26 @@ first.
    `src/sec_utils.py` (and drop the oldest one if you want to keep a rolling
    4-quarter window).
 2. Re-run steps 2-3 above.
+3. `git add data/processed/holdings_long.parquet && git commit && git push` --
+   unlike `data/raw/`, this file IS committed (see "Deploying" below), so the
+   deployed app won't pick up a refresh until you push the regenerated file.
+
+## Deploying to Streamlit Community Cloud
+
+1. Push this repo to GitHub (already done if you're reading this on
+   `github.com/rphere/13f-analysis`).
+2. At [share.streamlit.io](https://share.streamlit.io), sign in with GitHub,
+   click **New app**, and point it at this repo: branch `main`, main file
+   path `app.py`.
+3. If asked to pick a Python version, choose **3.10 or newer** (the code uses
+   `X | None` type-hint syntax, which needs it).
+4. Deploy. `.streamlit/config.toml` in the repo sets the theme (light,
+   blue accent, sans-serif) so it matches local runs without extra setup.
+
+The deployed app has no way to run the SEC-fetch/build pipeline itself, so it
+depends on `data/processed/funds.csv` and `holdings_long.parquet` already
+being in the repo (both are committed) -- see step 3 above for how to refresh
+that data later.
 
 ## Filling in missing fund data
 
@@ -95,7 +115,7 @@ data/
   raw/                      cached per-fund, per-quarter 13F information-table XML
   processed/
     funds.csv               curated fund list: name, cik, category, aum/perf estimate, source
-    holdings_long.parquet   fund-quarter-holding tidy table (built by build_holdings.py)
+    holdings_long.parquet   fund-quarter-holding tidy table (built by build_holdings.py; committed -- see "Deploying")
 src/
   sec_utils.py               shared SEC EDGAR HTTP helper + target quarters
   resolve_ciks.py             verifies/writes the fund roster's CIKs
@@ -105,4 +125,5 @@ src/
   ranking.py                  scoring functions consumed by the dashboard
   performance.py               ticker resolution + yfinance price-return fetch (Performance tab)
 app.py                        Streamlit dashboard
+.streamlit/config.toml        theme (used locally and on Streamlit Community Cloud)
 ```
