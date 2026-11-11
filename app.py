@@ -203,16 +203,16 @@ with tab_snapshot:
             if top_stocks.empty:
                 st.caption("No stocks in this selection.")
             else:
-                st.plotly_chart(bar_chart(top_stocks), use_container_width=True, config=NO_MODEBAR)
-                st.dataframe(ranked_table(top_stocks), use_container_width=True, hide_index=True, column_config=VALUE_COLUMN_CONFIG)
+                st.plotly_chart(bar_chart(top_stocks), width="stretch", config=NO_MODEBAR)
+                st.dataframe(ranked_table(top_stocks), width="stretch", hide_index=True, column_config=VALUE_COLUMN_CONFIG)
         with col_etfs:
             st.markdown(f"**ETFs** (top {top_n})")
             top_etfs = etfs.head(top_n)
             if top_etfs.empty:
                 st.caption("No ETFs in this selection.")
             else:
-                st.plotly_chart(bar_chart(top_etfs), use_container_width=True, config=NO_MODEBAR)
-                st.dataframe(ranked_table(top_etfs), use_container_width=True, hide_index=True, column_config=VALUE_COLUMN_CONFIG)
+                st.plotly_chart(bar_chart(top_etfs), width="stretch", config=NO_MODEBAR)
+                st.dataframe(ranked_table(top_etfs), width="stretch", hide_index=True, column_config=VALUE_COLUMN_CONFIG)
 
 with tab_performance:
     st.subheader("Price performance")
@@ -263,7 +263,7 @@ with tab_performance:
             )
             st.dataframe(
                 table,
-                use_container_width=True,
+                width="stretch",
                 hide_index=True,
                 column_config={
                     "6-Month Return": st.column_config.NumberColumn(format="%.1f%%"),
@@ -278,7 +278,7 @@ with tab_performance:
                 st.dataframe(
                     omitted.rename(columns={"issuer_label": "Issuer", "asset_type": "Type", "reason": "Reason"}),
                     hide_index=True,
-                    use_container_width=True,
+                    width="stretch",
                 )
 
 with tab_fund:
@@ -315,12 +315,12 @@ with tab_fund:
                         labels={"pct_of_portfolio": "% of portfolio", "label": ""},
                     )
                     fig.update_layout(template="plotly_white", height=max(300, 24 * len(data)), margin=dict(l=0, r=10, t=40, b=10))
-                    st.plotly_chart(fig, use_container_width=True, config=NO_MODEBAR)
+                    st.plotly_chart(fig, width="stretch", config=NO_MODEBAR)
                     display = data.assign(label=row_display_labels(data))[["label", "value_usd", "pct_of_portfolio"]].copy()
                     display["pct_of_portfolio"] = (display["pct_of_portfolio"] * 100).round(2)
                     st.dataframe(
                         display.rename(columns={"label": "Issuer", "value_usd": "Value", "pct_of_portfolio": "% of Portfolio"}),
-                        use_container_width=True,
+                        width="stretch",
                         hide_index=True,
                         column_config=VALUE_COLUMN_CONFIG,
                     )
@@ -352,12 +352,12 @@ with tab_query:
         elif len(non_empty) == 1:
             title, data = non_empty[0]
             st.markdown(f"**{title}**")
-            st.dataframe(_search_result_table(data), use_container_width=True, hide_index=True, column_config=VALUE_COLUMN_CONFIG)
+            st.dataframe(_search_result_table(data), width="stretch", hide_index=True, column_config=VALUE_COLUMN_CONFIG)
         else:
             col_s, col_e = st.columns(2)
             for col, (title, data) in zip([col_s, col_e], non_empty):
                 with col:
                     st.markdown(f"**{title}**")
-                    st.dataframe(_search_result_table(data), use_container_width=True, hide_index=True, column_config=VALUE_COLUMN_CONFIG)
+                    st.dataframe(_search_result_table(data), width="stretch", hide_index=True, column_config=VALUE_COLUMN_CONFIG)
     else:
         st.caption("Type part of a company name to find which funds hold it, across quarters.")
