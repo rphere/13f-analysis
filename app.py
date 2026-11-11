@@ -165,8 +165,8 @@ with st.sidebar:
     st.header("Filters")
     quarter = st.selectbox(
         "Quarter",
-        TARGET_QUARTERS,
-        index=len(TARGET_QUARTERS) - 1,
+        TARGET_QUARTERS[::-1],
+        index=0,
         format_func=lambda q: quarter_label(q) + (" (most recently filed)" if q == TARGET_QUARTERS[-1] else ""),
     )
     fund_names = funds_df["name"].tolist()
