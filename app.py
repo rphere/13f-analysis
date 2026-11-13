@@ -78,7 +78,7 @@ PERF_DIR = Path(__file__).parent / "data" / "processed" / "performance"
 
 
 @st.cache_data
-def _read_performance_snapshot(_mtime: float) -> dict | None:
+def _read_performance_snapshot(mtime: float) -> dict | None:
     if not (PERF_DIR / "meta.json").exists():
         return None
     snap = {f.stem: pd.read_parquet(f) for f in PERF_DIR.glob("*.parquet")}
