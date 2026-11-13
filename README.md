@@ -32,26 +32,34 @@ ways, with a current-quarter snapshot and trends across the trailing year.
   company name — see `ranking.load_data`'s `group_key` column. ETFs are
   **not** merged this way and stay keyed by CUSIP, since many distinct ETFs
   share a generic sponsor/trust name in SEC's data (e.g. "ISHARES TR").
-- **The Performance tab shows real market price returns, not 13F data.**
-  It's a separate pipeline: the ~100 most widely-held securities (by
-  aggregate 13F value, across *all* funds/quarters, ignoring the sidebar)
-  are resolved to tickers and their 6-month/1-year/2-year/5-year returns are
-  fetched live via `yfinance`. Stock tickers are resolved by name-matching against SEC's
-  free `company_tickers.json`, with a small manual override list
-  (`src/performance.py:STOCK_TICKER_OVERRIDES`) for well-known names whose
-  13F-reported name is too abbreviated to match (e.g. "APPLIED MATLS").
-  ETF tickers use a hand-curated CUSIP map
-  (`src/performance.py:ETF_TICKER_BY_CUSIP`) covering the ETFs that actually
-  land in that top-100 universe, since that file doesn't reliably cover
-  ETPs. Anything that fails to resolve to a ticker, or resolves but has no
-  usable price history for *any* return window, is omitted (with a reason)
-  rather than shown as a row of blank cells or guessed at -- see the tab's
-  "omitted" expander. Seen in practice: SpaceX (SPCX) IPO'd so recently
-  (Jun 2026) that even its 6-month return has no history to compute from
-  yet; Warner Bros Discovery (WBD) was acquired for cash and delisted in Oct
-  2026, so Yahoo Finance only retains its final quote, not years of prior
-  history. This universe is capped at ~100 by design (see planning
-  discussion); expanding it would need broader ticker-resolution logic.
+- **The Performance and Insights tabs use real market prices, precomputed.**
+  Nothing is fetched at page load: `src/build_performance.py` prices
+  everything as of the last completed trading day and writes
+  `data/processed/performance/` (the tabs show "as of <date>"). Re-run it to
+  refresh.
+  - *Performance tab:* the ~100 most widely-held securities (by aggregate
+    13F value across *all* funds, ignoring the sidebar) with
+    6-month/1-year/2-year/5-year returns. Anything with no ticker or no usable
+    price history for *any* window is omitted with a reason (e.g. SpaceX,
+    IPO'd Jun 2026).
+  - *Insights tab (fund leaderboard) + Fund Drill-down returns:* the return
+    of each fund's **13F-disclosed long stock/ETF book**, re-weighted at each
+    quarter-end to the newest filing and chained over 6 months / 1 year. This
+    is not a fund's actual net return: options are excluded (13F reports
+    their underlying notional, not their value), and shorts, cash, non-US
+    holdings, intra-quarter trades and fees aren't in a 13F at all. Where
+    Yahoo has no price at a quarter-end (a delisted acquisition like WBD, or
+    a holding with no ticker), the quarter-end price implied by the 13F itself
+    (value ÷ shares) is used. Coverage is shown per fund.
+- **Ticker resolution** (13F has CUSIPs + abbreviated names, not tickers), in
+  order: hand-curated maps (`STOCK_TICKER_OVERRIDES`, `ETF_TICKER_BY_CUSIP` in
+  `src/performance.py`); exact name match against SEC's `company_tickers.json`;
+  an abbreviation-expanding prefix match that only accepts a *unique*
+  company; then an OpenFIGI CUSIP->ticker map
+  (`data/processed/cusip_tickers.csv`, built by `resolve_cusip_tickers.py`).
+- **Options are kept separate.** `put_call` is parsed from each filing, so a
+  stock and its puts/calls on the same CUSIP are distinct rows, labelled
+  "(Call)"/"(Put)" in the tables.
 
 ## Pipeline
 
@@ -67,7 +75,15 @@ python src/fetch_sec_13f.py
 # 3. Parse + combine into one tidy table with pct-of-portfolio computed
 python src/build_holdings.py
 
-# 4. Launch the dashboard
+# 4. Map CUSIPs that name-matching can't resolve to tickers via OpenFIGI
+#    (incremental + cached; ~15 min the first time without an API key --
+#    set OPENFIGI_API_KEY for ~100x faster)
+python src/resolve_cusip_tickers.py
+
+# 5. Price everything as of yesterday's close (~5 min) -> data/processed/performance/
+python src/build_performance.py
+
+# 6. Launch the dashboard
 streamlit run app.py
 ```
 
@@ -80,8 +96,8 @@ first.
 1. Add the new quarter's period-end date to `TARGET_QUARTERS` in
    `src/sec_utils.py` (and drop the oldest one if you want to keep a rolling
    4-quarter window).
-2. Re-run steps 2-3 above.
-3. `git add data/processed/holdings_long.parquet && git commit && git push` --
+2. Re-run steps 2-5 above. (To just refresh prices, re-run step 5 alone.)
+3. `git add data/processed && git commit && git push` --
    unlike `data/raw/`, this file IS committed (see "Deploying" below), so the
    deployed app won't pick up a refresh until you push the regenerated file.
 
@@ -98,8 +114,8 @@ first.
    blue accent, sans-serif) so it matches local runs without extra setup.
 
 The deployed app has no way to run the SEC-fetch/build pipeline itself, so it
-depends on `data/processed/funds.csv` and `holdings_long.parquet` already
-being in the repo (both are committed) -- see step 3 above for how to refresh
+depends on `data/processed/` (`funds.csv`, `holdings_long.parquet`,
+`cusip_tickers.csv`, `performance/`) already being in the repo (all committed) -- see step 3 above for how to refresh
 that data later.
 
 ## Filling in missing fund data
@@ -121,6 +137,8 @@ data/
   processed/
     funds.csv               curated fund list: name, cik, category, aum/perf estimate, source
     holdings_long.parquet   fund-quarter-holding tidy table (built by build_holdings.py; committed -- see "Deploying")
+    cusip_tickers.csv       OpenFIGI CUSIP->ticker cache (built by resolve_cusip_tickers.py)
+    performance/            price snapshot read by the Performance/Insights tabs (built by build_performance.py)
 src/
   sec_utils.py               shared SEC EDGAR HTTP helper + target quarters
   resolve_ciks.py             verifies/writes the fund roster's CIKs
@@ -128,7 +146,9 @@ src/
   parse_13f_xml.py            parses one filing's XML into tidy rows
   build_holdings.py           combines all funds/quarters into holdings_long.parquet
   ranking.py                  scoring functions consumed by the dashboard
-  performance.py               ticker resolution + yfinance price-return fetch (Performance tab)
+  performance.py               ticker resolution, price fetch, 13F-book return calculation
+  resolve_cusip_tickers.py     builds the OpenFIGI CUSIP->ticker cache
+  build_performance.py         writes the as-of-yesterday price snapshot
 app.py                        Streamlit dashboard
 .streamlit/config.toml        theme (used locally and on Streamlit Community Cloud)
 ```

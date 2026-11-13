@@ -3,7 +3,8 @@
 Reads data/raw/{cik}/{quarter}.xml for every fund x quarter, parses each with
 parse_13f_xml, groups duplicate cusip/class lines within a fund-quarter
 (a filer occasionally reports the same security across multiple
-voting-authority rows), and computes each holding's share of that fund's
+voting-authority rows -- but keeps a stock and its puts/calls as separate
+rows, see put_call), and computes each holding's share of that fund's
 total reported 13F portfolio value that quarter. Writes the result to
 data/processed/holdings_long.parquet.
 """
@@ -49,9 +50,12 @@ def build():
             df["cik"] = cik
             df["category"] = fund["category"]
             df["quarter"] = quarter
+            # "" (not None) for ordinary positions so groupby keeps them --
+            # pandas drops NaN group keys by default.
+            df["put_call"] = df["put_call"].fillna("")
 
             grouped = (
-                df.groupby(["fund_name", "cik", "category", "quarter", "cusip", "issuer", "title_of_class"], as_index=False)
+                df.groupby(["fund_name", "cik", "category", "quarter", "cusip", "issuer", "title_of_class", "put_call"], as_index=False)
                 .agg(value_usd=("value_usd", "sum"), shares=("shares", "sum"))
             )
             fund_total = grouped["value_usd"].sum()

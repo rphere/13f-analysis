@@ -79,6 +79,7 @@ def load_data() -> pd.DataFrame:
     holdings = pd.read_parquet(HOLDINGS_PATH)
     holdings["issuer"] = _norm_ws(holdings["issuer"])
     holdings["title_of_class"] = _norm_ws(holdings["title_of_class"].fillna(""))
+    holdings["put_call"] = holdings["put_call"].fillna("") if "put_call" in holdings else ""
     holdings["issuer_lower"] = holdings["issuer"].str.lower()
     holdings["asset_type"] = holdings["issuer"].map(classify_asset_type)
     # Stocks group by cleaned company name (merges share classes like
@@ -112,7 +113,13 @@ def row_display_labels(df: pd.DataFrame) -> pd.Series:
     """
     stock_label = df["issuer"].map(clean_label)
     etf_label = (df["issuer"].map(clean_label) + " " + df["title_of_class"]).str.strip()
-    return stock_label.where(df["asset_type"] != "ETF", etf_label)
+    label = stock_label.where(df["asset_type"] != "ETF", etf_label)
+    # Option rows are separate from the stock row for the same cusip (see
+    # build_holdings) -- mark them, or a fund holding NVDA stock plus NVDA
+    # calls would show two identical "NVIDIA" rows.
+    if "put_call" in df:
+        label = label + df["put_call"].map(lambda pc: f" ({pc})" if pc else "")
+    return label
 
 
 def _group_labels(df: pd.DataFrame) -> pd.DataFrame:

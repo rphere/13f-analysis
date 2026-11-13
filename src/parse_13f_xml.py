@@ -24,7 +24,7 @@ def parse_infotable(xml_bytes: bytes) -> list[dict]:
     for info_table in root.iter():
         if _local(info_table.tag) != "infoTable":
             continue
-        row = {"issuer": None, "title_of_class": None, "cusip": None, "value_usd": None, "shares": None, "investment_discretion": None}
+        row = {"issuer": None, "title_of_class": None, "cusip": None, "value_usd": None, "shares": None, "investment_discretion": None, "put_call": None}
         for child in info_table:
             tag = _local(child.tag)
             if tag == "nameOfIssuer":
@@ -41,6 +41,11 @@ def parse_infotable(xml_bytes: bytes) -> list[dict]:
                         row["shares"] = int(grandchild.text)
             elif tag == "investmentDiscretion":
                 row["investment_discretion"] = child.text
+            elif tag == "putCall":
+                # Present only on option rows ("Put"/"Call"). Its value is the
+                # notional of the UNDERLYING shares, not the option premium --
+                # so it must not be treated as a long stock position.
+                row["put_call"] = child.text
         rows.append(row)
     return rows
 

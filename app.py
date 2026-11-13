@@ -5,6 +5,7 @@ Data must be built first: see README.md for the pipeline (resolve_ciks.py ->
 fetch_sec_13f.py -> build_holdings.py).
 """
 
+import json
 import re
 import sys
 from pathlib import Path
@@ -71,38 +72,29 @@ def compute_rankings(method: str, weights_items: tuple | None, fund_tuple: tuple
     return ranking.rank_by_quarter(sub, TARGET_QUARTERS, method, weights)
 
 
-@st.cache_data(ttl=4 * 3600, show_spinner="Fetching price performance…")
-def get_performance_universe(top_n: int = 100):
-    """The ~top_n most widely-held securities across ALL funds/quarters
-    (ignores every sidebar filter -- see the Performance tab's note), with
-    resolved tickers and 6-month/1-year price returns. Cached for 4 hours:
-    this hits an external price API, and the whole point of this tab is that
-    it's a slow-changing, filter-independent snapshot, not a live recompute."""
-    universe = ranking.rank_stocks(df, TARGET_QUARTERS[-1], "equal_weighted", top_n=None)
-    universe = universe.sort_values("total_value_usd", ascending=False).head(top_n)
-    resolved = performance.resolve_tickers(universe)
-    no_ticker = resolved[resolved["ticker"].isna()][["issuer_label", "asset_type"]].assign(reason="no ticker found")
-    resolved = resolved[resolved["ticker"].notna()]
-    returns = performance.fetch_returns(resolved["ticker"].tolist())
-    merged = resolved.merge(returns, left_on="ticker", right_index=True, how="left")
+PERF_DIR = Path(__file__).parent / "data" / "processed" / "performance"
 
-    # A resolved ticker can still have zero usable price history for EVERY
-    # window -- two different real causes seen in practice: WBD (Warner Bros
-    # Discovery) was acquired for cash and delisted in Oct 2026, so Yahoo
-    # only retains its final quote, not years of history; SPCX (SpaceX)
-    # IPO'd so recently (Jun 2026) that even the 6-month lookback predates
-    # its listing. Rather than a row of blank cells with no explanation,
-    # treat "ticker resolved but no return could be computed" the same as
-    # "no ticker" -- omitted, with a reason, not silently blank.
-    return_cols = list(performance.RETURN_WINDOWS)
-    has_no_data = merged[return_cols].isna().all(axis=1)
-    no_price_data = merged.loc[has_no_data, ["issuer_label", "asset_type"]].assign(
-        reason="no return computable for any window (too recently listed, or delisted/acquired)"
-    )
-    merged = merged.loc[~has_no_data]
 
-    omitted = pd.concat([no_ticker, no_price_data], ignore_index=True)
-    return merged, omitted
+@st.cache_data
+def _read_performance_snapshot(_mtime: float) -> dict | None:
+    if not (PERF_DIR / "meta.json").exists():
+        return None
+    snap = {f.stem: pd.read_parquet(f) for f in PERF_DIR.glob("*.parquet")}
+    snap["meta"] = json.loads((PERF_DIR / "meta.json").read_text())
+    snap["as_of_label"] = pd.Timestamp(snap["meta"]["as_of"]).strftime("%b %-d, %Y")
+    return snap
+
+
+def get_performance_snapshot() -> dict | None:
+    """Precomputed by src/build_performance.py (prices as of the last close)
+    -- nothing is fetched at page load. Keyed on meta.json's mtime, so
+    re-running the build is picked up without restarting the app."""
+    meta = PERF_DIR / "meta.json"
+    return _read_performance_snapshot(meta.stat().st_mtime if meta.exists() else 0.0)
+
+
+def snapshot_missing_notice():
+    st.info("No price snapshot yet. Build it with `python src/build_performance.py`, then reload.")
 
 
 @st.cache_data
@@ -148,6 +140,129 @@ def bar_chart(ranked: pd.DataFrame):
     return fig
 
 
+WINDOW_LABELS = {"return_6mo_pct": "6-Month Return", "return_1yr_pct": "1-Year Return"}
+
+
+PCT = st.column_config.NumberColumn(format="%+.1f%%")
+PTS = st.column_config.NumberColumn(format="%+.1f pts")
+METHOD_NOTE = (
+    "- Over each window, the fund is assumed to hold its **most recent quarter-end 13F portfolio** "
+    "(buy-and-hold), switching to the next quarter's holdings at each quarter-end; the latest filed "
+    "quarter is carried forward to the as-of date. Period returns are chained.\n"
+    "- Every **long stock/ETF position** counts, weighted by reported value. Prices are daily closes from "
+    "Yahoo Finance; where Yahoo has none at a quarter-end (e.g. a stock delisted after an acquisition, or "
+    "a holding with no ticker), the **quarter-end price implied by the 13F itself** (reported value ÷ "
+    "shares) is used instead. Anything still unpriced is dropped and the rest re-weighted — *Priced* is "
+    "the share that was kept, in the weakest quarter.\n"
+    "- Options are excluded (13F reports their underlying notional, not their value). Shorts, cash, "
+    "non-US holdings, intra-quarter trades and fees don't appear in a 13F at all — so this measures "
+    "**the stock/ETF picks a fund discloses**, not what its investors actually earned."
+)
+
+
+def render_fund_returns(fund_name: str):
+    """Fund Drill-down: returns for the ONE fund picked there."""
+    st.divider()
+    snap = get_performance_snapshot()
+    st.markdown(f"**13F stock & ETF returns** (as of {snap['as_of_label']})" if snap else "**13F stock & ETF returns**")
+    if snap is None:
+        snapshot_missing_notice()
+        return
+    st.caption("Return of only the stocks and ETFs this fund lists in its 13F, weighted by reported value — not the "
+               "fund's actual net return. Ignores the sidebar quarter. See the Insights tab to compare funds.")
+
+    summary = snap["fund_returns"]
+    fund_summary = summary[summary["fund_name"] == fund_name]
+    if fund_summary.empty:
+        st.caption("No returns computed for this fund.")
+        return
+    cols = st.columns(len(fund_summary))
+    for col, row in zip(cols, fund_summary.itertuples()):
+        with col:
+            if pd.isna(row.fund_return_pct):
+                st.metric(WINDOW_LABELS[row.window], "—")
+                st.caption(row.note or "Not enough holdings history.")
+                continue
+            st.metric(
+                WINDOW_LABELS[row.window],
+                f"{row.fund_return_pct:+.1f}%",
+                delta=f"{row.fund_return_pct - row.benchmark_return_pct:+.1f} pts vs S&P 500 ({row.benchmark_return_pct:+.1f}%)",
+            )
+            st.caption(f"Priced {row.coverage:.1%} of the long stock/ETF book (weakest quarter).")
+            if row.note:
+                st.warning(row.note, icon="⚠️")
+
+    opts = snap["fund_option_share"]
+    opts = opts[opts["fund_name"] == fund_name].sort_values("quarter")
+    if not opts.empty and opts["option_share"].iloc[-1] >= 0.01:
+        st.caption(f"{opts['option_share'].iloc[-1]:.0%} of this fund's latest reported 13F value is options (puts/calls), which are excluded.")
+
+    gaps = snap["fund_gaps"]
+    gaps = gaps[gaps["fund_name"] == fund_name].sort_values("weight", ascending=False)
+    if not gaps.empty:
+        with st.expander(f"{len(gaps)} current position(s) not priced — {gaps['weight'].sum():.1%} of the long book"):
+            st.dataframe(
+                gaps.assign(weight=gaps["weight"] * 100)[["group_key", "cusip", "ticker", "weight", "reason"]].rename(
+                    columns={"group_key": "Issuer", "cusip": "CUSIP", "ticker": "Ticker", "weight": "% of Long Book", "reason": "Reason"}),
+                hide_index=True, width="stretch",
+                column_config={"% of Long Book": st.column_config.NumberColumn(format="%.2f%%")},
+            )
+
+    with st.expander("How this is calculated"):
+        st.markdown(METHOD_NOTE)
+        seg = snap["fund_segments"]
+        seg = seg[seg["fund_name"] == fund_name].drop(columns="fund_name")
+        seg = seg.assign(window=seg["window"].map(WINDOW_LABELS), holdings_quarter=seg["holdings_quarter"].map(quarter_label),
+                         coverage=seg["coverage"] * 100).rename(columns={
+            "window": "Window", "from": "From", "to": "To", "holdings_quarter": "Holdings Used",
+            "return_pct": "Period Return", "coverage": "Priced", "via_13f_prices": "Priced via 13F"})
+        seg["Priced via 13F"] = seg["Priced via 13F"] * 100
+        st.dataframe(seg, hide_index=True, width="stretch", column_config={
+            "Period Return": st.column_config.NumberColumn(format="%.1f%%"),
+            "Priced": st.column_config.NumberColumn(format="%.1f%%"),
+            "Priced via 13F": st.column_config.NumberColumn(format="%.1f%%", help="Share of the book priced with a "
+                                                            "13F-implied quarter-end price because Yahoo had none.")})
+
+
+def render_leaderboard(fund_names: list[str]):
+    """Insights tab: every sidebar-selected fund ranked side by side."""
+    snap = get_performance_snapshot()
+    st.subheader(f"Fund leaderboard (as of {snap['as_of_label']})" if snap else "Fund leaderboard")
+    if snap is None:
+        snapshot_missing_notice()
+        return
+    st.caption("Which funds' disclosed **stock & ETF picks** did best — each fund's 13F long book, re-weighted every "
+               "quarter, vs the S&P 500 over the same dates. Not the funds' actual net returns. Respects the "
+               "sidebar fund filter; ignores the sidebar quarter.")
+    summary = snap["fund_returns"]
+    wide = summary.pivot(index="fund_name", columns="window")
+    bench = summary.groupby("window")["benchmark_return_pct"].first()
+    r1, r6 = wide[("fund_return_pct", "return_1yr_pct")], wide[("fund_return_pct", "return_6mo_pct")]
+    board = pd.DataFrame({
+        "Fund": wide.index,
+        "1-Year Return": r1.values,
+        "vs S&P 500 (1-Yr)": (r1 - bench["return_1yr_pct"]).values,
+        "6-Month Return": r6.values,
+        "vs S&P 500 (6-Mo)": (r6 - bench["return_6mo_pct"]).values,
+        "Priced": (wide[("coverage", "return_1yr_pct")] * 100).values,
+        "Note": wide[("note", "return_1yr_pct")].values,
+    })
+    board = board[board["Fund"].isin(fund_names)].sort_values("1-Year Return", ascending=False, na_position="last")
+    if board.empty:
+        st.info("Select at least one fund in the sidebar.")
+        return
+    board.insert(0, "Rank", range(1, len(board) + 1))
+    st.dataframe(board, hide_index=True, width="stretch", column_config={
+        "1-Year Return": PCT, "6-Month Return": PCT, "vs S&P 500 (1-Yr)": PTS, "vs S&P 500 (6-Mo)": PTS,
+        "Priced": st.column_config.NumberColumn(format="%.1f%%", help="Share of the fund's long stock/ETF book (by value) "
+                                                "that could be priced, in its weakest quarter. Lower = less reliable."),
+    })
+    st.caption(f"S&P 500 (SPY) over the same dates: 1-year {bench['return_1yr_pct']:+.1f}%, 6-month "
+               f"{bench['return_6mo_pct']:+.1f}%. Click a column header to re-sort. Per-fund detail is in Fund Drill-down.")
+    with st.expander("How this is calculated"):
+        st.markdown(METHOD_NOTE)
+
+
 df = get_data()
 funds_df = get_funds()
 
@@ -187,7 +302,7 @@ fund_tuple = tuple(sorted(selected_funds))
 filtered = df[df["fund_name"].isin(selected_funds)] if selected_funds else df.iloc[0:0]
 rankings_by_quarter = compute_rankings(method, weights_items, fund_tuple)
 
-tab_snapshot, tab_fund, tab_query, tab_performance = st.tabs(["Snapshot", "Fund Drill-down", "Search", "Performance"])
+tab_snapshot, tab_fund, tab_query, tab_performance, tab_insights = st.tabs(["Snapshot", "Fund Drill-down", "Search", "Performance", "Insights"])
 
 with tab_snapshot:
     st.subheader(f"Top holdings — {quarter_label(quarter)}")
@@ -215,18 +330,18 @@ with tab_snapshot:
                 st.dataframe(ranked_table(top_etfs), width="stretch", hide_index=True, column_config=VALUE_COLUMN_CONFIG)
 
 with tab_performance:
-    st.subheader("Price performance")
+    perf_snap = get_performance_snapshot()
+    st.subheader(f"Price performance (as of {perf_snap['as_of_label']})" if perf_snap else "Price performance")
     st.info(
         "This tab is **independent of the sidebar filters** above — it always shows real stock/ETF price "
         "performance for the ~100 most widely-held securities across *all* tracked funds and quarters, "
         "not just your current fund/quarter/ranking selection. Use the filters below instead.",
         icon="ℹ️",
     )
-    try:
-        universe, omitted = get_performance_universe()
-    except Exception as e:  # noqa: BLE001 -- network-dependent external call; degrade gracefully
-        st.error(f"Couldn't fetch price performance right now: {e}")
+    if perf_snap is None:
+        snapshot_missing_notice()
     else:
+        universe, omitted = perf_snap["security_returns"], perf_snap["security_omitted"]
         col_filter, col_search = st.columns([1, 2])
         with col_filter:
             asset_filter = st.radio("Show", ["All", "Stocks", "ETFs"], horizontal=True, key="perf_asset_filter")
@@ -248,7 +363,7 @@ with tab_performance:
 
             # num_funds already comes along for free: the universe this tab
             # fetches prices for IS the 13F ranking's output (see
-            # get_performance_universe), which computes # of funds holding
+            # performance.security_universe), which computes # of funds holding
             # each security as part of that ranking -- no separate join needed.
             table = view[["display_label", "ticker", "num_funds", "return_6mo_pct", "return_1yr_pct", "return_2yr_pct", "return_5yr_pct"]].rename(
                 columns={
@@ -325,6 +440,8 @@ with tab_fund:
                         column_config=VALUE_COLUMN_CONFIG,
                     )
 
+        render_fund_returns(pick_fund)
+
 def _search_result_table(data: pd.DataFrame) -> pd.DataFrame:
     display = data.assign(label=row_display_labels(data))[["fund_name", "quarter", "label", "value_usd", "pct_of_portfolio"]].copy()
     display["quarter"] = display["quarter"].map(quarter_label)
@@ -361,3 +478,6 @@ with tab_query:
                     st.dataframe(_search_result_table(data), width="stretch", hide_index=True, column_config=VALUE_COLUMN_CONFIG)
     else:
         st.caption("Type part of a company name to find which funds hold it, across quarters.")
+
+with tab_insights:
+    render_leaderboard(selected_funds)
