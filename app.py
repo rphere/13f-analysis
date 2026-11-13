@@ -9,6 +9,7 @@ import json
 import re
 import sys
 from pathlib import Path
+from urllib.parse import quote_plus
 
 sys.path.insert(0, str(Path(__file__).parent / "src"))
 
@@ -17,6 +18,7 @@ import plotly.express as px  # noqa: E402
 import streamlit as st  # noqa: E402
 
 import performance  # noqa: E402
+import picks  # noqa: E402
 import ranking  # noqa: E402
 from ranking import row_display_labels  # noqa: E402
 from sec_utils import TARGET_QUARTERS, quarter_label  # noqa: E402
@@ -222,6 +224,63 @@ def render_fund_returns(fund_name: str):
             "Priced": st.column_config.NumberColumn(format="%.1f%%"),
             "Priced via 13F": st.column_config.NumberColumn(format="%.1f%%", help="Share of the book priced with a "
                                                             "13F-implied quarter-end price because Yahoo had none.")})
+
+
+PICKS_NOTE = (
+    "Each candidate gets a **radar score** = 45% performance + 35% under-the-radar breadth + 20% accumulation, "
+    "each a percentile within stocks or within ETFs:\n"
+    "- **Performance:** average percentile of the 6-month, 1-year, 2-year and 5-year price returns. A name needs at "
+    "least 3 of the 4 windows, and must be up over both 6 months and 1 year, so it's still working, not a spike "
+    "that already crashed.\n"
+    "- **Under-the-radar breadth:** how many tracked funds hold it (and how many hold it as a *conviction* "
+    "position, at least 0.05% of their long book), relative to its total 13F dollar value. Many holders with a "
+    "small dollar footprint means funds like it more than its size would suggest.\n"
+    "- **Accumulation:** how many funds were added since the oldest tracked quarter.\n\n"
+    "**Excluded:** the ~100 largest holdings by total 13F value (Mag-7, big-cap tech, and the rest of the "
+    "Performance tab), plus a list of famous tickers as a safety net. Stocks need at least 5 holders, 2 of them "
+    "conviction holders. ETFs need at least 4 holders and a sector, commodity or country theme, so no broad index, "
+    "style/factor, bond or leveraged products. At most one ETF per theme family.\n\n"
+    "Based on 13F filings (up to 45 days stale) and past prices. Not investment advice."
+)
+
+
+def _pick_card(row):
+    ticker = row["ticker"]
+    url = f"https://www.google.com/search?q={quote_plus(ticker + ' stock')}"
+    with st.container(border=True):
+        st.markdown(f"#### [{ticker} ↗]({url})")
+        name = strip_etf_word(row["issuer_label"]).title()
+        st.caption(f"{name} · {row['theme']}" if isinstance(row.get("theme"), str) else name)
+        delta = int(row["num_funds"] - row["num_funds_prev"])
+        cols = st.columns(5)
+        cols[0].markdown(f"**{int(row['num_funds'])}** funds" + (f"  \n{delta:+d} in 1y" if delta else ""))
+        for col, key, label in zip(cols[1:], picks.RETURN_COLS, ["6M", "1Y", "2Y", "5Y"]):
+            v = row[key]
+            col.markdown(f"**{label}**  \n" + ("—" if pd.isna(v) else f":{'green' if v >= 0 else 'red'}[{v:+.0f}%]"))
+        st.caption(row["why"])
+
+
+def render_radar_picks():
+    """Insights tab, above the leaderboard: 3 stock + 3 ETF picks (see src/picks.py)."""
+    snap = get_performance_snapshot()
+    st.subheader(f"Under-the-radar picks (as of {snap['as_of_label']})" if snap else "Under-the-radar picks")
+    if snap is None or "pick_candidates" not in snap:
+        st.info("No picks pool yet. Build it with `python src/build_performance.py --only picks`, then reload.")
+        return
+    st.caption("Names many tracked funds hold **relative to how big they are**, with strong returns over 6 months "
+               "to 5 years. Mega-caps and well-known tech are excluded. Uses all funds, so it ignores the sidebar "
+               "filters. Click a ticker to search it on Google.")
+    top = picks.score_picks(snap["pick_candidates"])
+    for col, (asset_type, title) in zip(st.columns(2), [("Stock", "Stocks"), ("ETF", "ETFs")]):
+        with col:
+            st.markdown(f"**{title}**")
+            if top[asset_type].empty:
+                st.caption("No candidates passed the filters.")
+            for _, row in top[asset_type].iterrows():
+                _pick_card(row)
+    with st.expander("How picks are chosen"):
+        st.markdown(PICKS_NOTE)
+    st.divider()
 
 
 def render_leaderboard(fund_names: list[str]):
@@ -480,4 +539,5 @@ with tab_query:
         st.caption("Type part of a company name to find which funds hold it, across quarters.")
 
 with tab_insights:
+    render_radar_picks()
     render_leaderboard(selected_funds)

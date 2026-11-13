@@ -42,6 +42,11 @@ ways, with a current-quarter snapshot and trends across the trailing year.
     6-month/1-year/2-year/5-year returns. Anything with no ticker or no usable
     price history for *any* window is omitted with a reason (e.g. SpaceX,
     IPO'd Jun 2026).
+  - *Insights tab, under-the-radar picks:* 3 stocks + 3 ETFs that many tracked
+    funds hold relative to their total 13F dollar footprint, with strong
+    6-month to 5-year returns. Mega-caps (the top-100 Performance universe),
+    famous tech, broad-index/bond/leveraged ETFs are excluded. Scoring is in
+    `src/picks.py` (see its docstrings and the tab's "How picks are chosen").
   - *Insights tab (fund leaderboard) + Fund Drill-down returns:* the return
     of each fund's **13F-disclosed long stock/ETF book**, re-weighted at each
     quarter-end to the newest filing and chained over 6 months / 1 year. This
@@ -82,6 +87,8 @@ python src/resolve_cusip_tickers.py
 
 # 5. Price everything as of yesterday's close (~5 min) -> data/processed/performance/
 python src/build_performance.py
+#    (just the Insights-tab picks pool, a few minutes:)
+python src/build_performance.py --only picks
 
 # 6. Launch the dashboard
 streamlit run app.py

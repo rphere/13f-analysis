@@ -11,14 +11,18 @@ nowhere to run it).
 
 Run: python src/build_performance.py
      (after build_holdings.py, and ideally resolve_cusip_tickers.py)
+     python src/build_performance.py --only picks
+     (just the Insights-tab picks pool, ~minutes; skips the fund repricing)
 """
 
+import argparse
 import json
 from pathlib import Path
 
 import pandas as pd
 
 import performance
+import picks
 import ranking
 from sec_utils import TARGET_QUARTERS
 
@@ -26,11 +30,32 @@ ROOT = Path(__file__).resolve().parent.parent
 OUT_DIR = ROOT / "data" / "processed" / "performance"
 
 
+def build_picks(df: pd.DataFrame, end: pd.Timestamp):
+    print("Pricing the under-the-radar picks pool…")
+    cands = picks.build_candidates(df, TARGET_QUARTERS, end=end)
+    OUT_DIR.mkdir(parents=True, exist_ok=True)
+    cands.to_parquet(OUT_DIR / "pick_candidates.parquet", index=False)
+    # Touch meta.json (the app's snapshot cache key) so a picks-only rebuild
+    # is picked up without restarting the app.
+    meta_path = OUT_DIR / "meta.json"
+    meta = json.loads(meta_path.read_text()) if meta_path.exists() else {}
+    meta["picks_built_at"] = pd.Timestamp.now(tz="UTC").isoformat(timespec="seconds")
+    meta_path.write_text(json.dumps(meta, indent=2))
+    print(f"{len(cands)} candidates priced ({cands['asset_type'].value_counts().to_dict()})")
+
+
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--only", choices=["picks"], help="rebuild just this part of the snapshot")
+    args = parser.parse_args()
+
     df = ranking.load_data()
     # yfinance `end` is exclusive: today's date -> data through yesterday's
     # close, so a run during market hours never mixes in a partial day.
     end = pd.Timestamp.now(tz="America/New_York").tz_localize(None).normalize()
+    if args.only == "picks":
+        build_picks(df, end)
+        return
 
     print("Pricing every fund's 13F long book…")
     summary, segments, gaps = performance.all_fund_returns(df, TARGET_QUARTERS, end=end)
@@ -50,6 +75,7 @@ def main():
     option_share.to_parquet(OUT_DIR / "fund_option_share.parquet", index=False)
     securities.to_parquet(OUT_DIR / "security_returns.parquet", index=False)
     omitted.to_parquet(OUT_DIR / "security_omitted.parquet", index=False)
+    build_picks(df, end)
     (OUT_DIR / "meta.json").write_text(json.dumps({
         "as_of": as_of.strftime("%Y-%m-%d"),
         "built_at": pd.Timestamp.now(tz="UTC").isoformat(timespec="seconds"),
