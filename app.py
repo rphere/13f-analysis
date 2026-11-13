@@ -171,7 +171,7 @@ def render_fund_returns(fund_name: str):
         snapshot_missing_notice()
         return
     st.caption("Return of only the stocks and ETFs this fund lists in its 13F, weighted by reported value — not the "
-               "fund's actual net return. Ignores the sidebar quarter. See the Insights tab to compare funds.")
+               "fund's actual net return. See the Insights tab to compare funds.")
 
     summary = snap["fund_returns"]
     fund_summary = summary[summary["fund_name"] == fund_name]
@@ -268,8 +268,7 @@ def render_radar_picks():
         st.info("No picks pool yet. Build it with `python src/build_performance.py --only picks`, then reload.")
         return
     st.caption("Names many tracked funds hold **relative to how big they are**, with strong returns over 6 months "
-               "to 5 years. Mega-caps and well-known tech are excluded. Uses all funds, so it ignores the sidebar "
-               "filters. Click a ticker to search it on Google.")
+               "to 5 years. Mega-caps and well-known tech are excluded. Click a ticker to search it on Google.")
     top = picks.score_picks(snap["pick_candidates"])
     for col, (asset_type, title) in zip(st.columns(2), [("Stock", "Stocks"), ("ETF", "ETFs")]):
         with col:
@@ -283,16 +282,15 @@ def render_radar_picks():
     st.divider()
 
 
-def render_leaderboard(fund_names: list[str]):
-    """Insights tab: every sidebar-selected fund ranked side by side."""
+def render_leaderboard():
+    """Insights tab: every tracked fund ranked side by side."""
     snap = get_performance_snapshot()
     st.subheader(f"Fund leaderboard (as of {snap['as_of_label']})" if snap else "Fund leaderboard")
     if snap is None:
         snapshot_missing_notice()
         return
     st.caption("Which funds' disclosed **stock & ETF picks** did best — each fund's 13F long book, re-weighted every "
-               "quarter, vs the S&P 500 over the same dates. Not the funds' actual net returns. Respects the "
-               "sidebar fund filter; ignores the sidebar quarter.")
+               "quarter, vs the S&P 500 over the same dates. Not the funds' actual net returns.")
     summary = snap["fund_returns"]
     wide = summary.pivot(index="fund_name", columns="window")
     bench = summary.groupby("window")["benchmark_return_pct"].first()
@@ -306,10 +304,7 @@ def render_leaderboard(fund_names: list[str]):
         "Priced": (wide[("coverage", "return_1yr_pct")] * 100).values,
         "Note": wide[("note", "return_1yr_pct")].values,
     })
-    board = board[board["Fund"].isin(fund_names)].sort_values("1-Year Return", ascending=False, na_position="last")
-    if board.empty:
-        st.info("Select at least one fund in the sidebar.")
-        return
+    board = board.sort_values("1-Year Return", ascending=False, na_position="last")
     board.insert(0, "Rank", range(1, len(board) + 1))
     st.dataframe(board, hide_index=True, width="stretch", column_config={
         "1-Year Return": PCT, "6-Month Return": PCT, "vs S&P 500 (1-Yr)": PTS, "vs S&P 500 (6-Mo)": PTS,
@@ -335,35 +330,37 @@ if df.empty:
     st.warning("No holdings data found yet. Run the pipeline first: `python src/fetch_sec_13f.py && python src/build_holdings.py`")
     st.stop()
 
-with st.sidebar:
-    st.header("Filters")
-    quarter = st.selectbox(
-        "Quarter",
-        TARGET_QUARTERS[::-1],
-        index=0,
-        format_func=lambda q: quarter_label(q) + (" (most recently filed)" if q == TARGET_QUARTERS[-1] else ""),
-    )
-    fund_names = funds_df["name"].tolist()
-    selected_funds = st.multiselect("Funds", fund_names, default=fund_names)
+fund_names = funds_df["name"].tolist()
+QUARTERS_NEWEST_FIRST = TARGET_QUARTERS[::-1]
 
-    method_label = st.radio(
-        "Ranking method",
-        ["AUM-weighted", "Performance-weighted"],
-        help="AUM-weighted surfaces stocks favored by large funds. Performance-weighted surfaces "
-        "stocks favored by top-performing funds.",
-    )
-    method_map = {"AUM-weighted": "aum_weighted", "Performance-weighted": "performance_weighted"}
-    method = method_map[method_label]
-    top_n = st.slider("Show top N per group", 5, 50, 20)
 
-weights_items = None
-fund_tuple = tuple(sorted(selected_funds))
-filtered = df[df["fund_name"].isin(selected_funds)] if selected_funds else df.iloc[0:0]
-rankings_by_quarter = compute_rankings(method, weights_items, fund_tuple)
+def format_quarter(q: str) -> str:
+    return quarter_label(q) + (" (most recently filed)" if q == TARGET_QUARTERS[-1] else "")
+
 
 tab_snapshot, tab_fund, tab_query, tab_performance, tab_insights = st.tabs(["Snapshot", "Fund Drill-down", "Search", "Performance", "Insights"])
 
 with tab_snapshot:
+    # Filters live here (not the sidebar): Snapshot is the only tab they apply to.
+    col_q, col_m, col_n = st.columns([2, 2, 3])
+    with col_q:
+        quarter = st.selectbox("Quarter", QUARTERS_NEWEST_FIRST, format_func=format_quarter, key="snap_quarter")
+    with col_m:
+        method_label = st.radio(
+            "Ranking method",
+            ["AUM-weighted", "Performance-weighted"],
+            horizontal=True,
+            help="AUM-weighted surfaces stocks favored by large funds. Performance-weighted surfaces "
+            "stocks favored by top-performing funds.",
+        )
+    with col_n:
+        top_n = st.slider("Show top N per group", 5, 50, 20)
+    method = {"AUM-weighted": "aum_weighted", "Performance-weighted": "performance_weighted"}[method_label]
+    selected_funds = st.session_state.get("snap_funds", fund_names)
+    with st.expander(f"Funds ({len(selected_funds)} of {len(fund_names)} selected)"):
+        selected_funds = st.multiselect("Funds", fund_names, default=fund_names, key="snap_funds", label_visibility="collapsed")
+    rankings_by_quarter = compute_rankings(method, None, tuple(sorted(selected_funds)))
+
     st.subheader(f"Top holdings — {quarter_label(quarter)}")
     full_ranked = rankings_by_quarter[quarter]
     if full_ranked.empty:
@@ -391,12 +388,8 @@ with tab_snapshot:
 with tab_performance:
     perf_snap = get_performance_snapshot()
     st.subheader(f"Price performance (as of {perf_snap['as_of_label']})" if perf_snap else "Price performance")
-    st.info(
-        "This tab is **independent of the sidebar filters** above — it always shows real stock/ETF price "
-        "performance for the ~100 most widely-held securities across *all* tracked funds and quarters, "
-        "not just your current fund/quarter/ranking selection. Use the filters below instead.",
-        icon="ℹ️",
-    )
+    st.caption("Real stock/ETF price performance for the ~100 most widely-held securities (by total 13F value "
+               "across all tracked funds).")
     if perf_snap is None:
         snapshot_missing_notice()
     else:
@@ -457,49 +450,50 @@ with tab_performance:
 
 with tab_fund:
     st.subheader("Fund drill-down")
-    if not selected_funds:
-        st.info("Select at least one fund in the sidebar.")
+    col_f, col_fq = st.columns([3, 2])
+    with col_f:
+        pick_fund = st.selectbox("Fund", fund_names, key="drill_fund")
+    with col_fq:
+        drill_quarter = st.selectbox("Quarter", QUARTERS_NEWEST_FIRST, format_func=format_quarter, key="drill_quarter")
+    fh = cached_fund_holdings(pick_fund, drill_quarter)
+    if fh.empty:
+        st.info("No holdings for this fund/quarter.")
     else:
-        pick_fund = st.selectbox("Fund", selected_funds)
-        fh = cached_fund_holdings(pick_fund, quarter)
-        if fh.empty:
-            st.info("No holdings for this fund/quarter.")
-        else:
-            fh_stocks = fh[fh["asset_type"] == "Stock"]
-            fh_etfs = fh[fh["asset_type"] == "ETF"]
-            col_s, col_e = st.columns(2)
-            for col, title, data in [(col_s, "Stock holdings", fh_stocks), (col_e, "ETF holdings", fh_etfs)]:
-                with col:
-                    st.markdown(f"**{title}**")
-                    if data.empty:
-                        st.caption("None.")
-                        continue
-                    # row_display_labels (not plain clean_label(issuer)) because SEC
-                    # data often reports a generic issuer name shared by many distinct
-                    # ETFs (e.g. "ISHARES TR") -- without title_of_class, a fund
-                    # holding several different iShares funds would show the same
-                    # label for all of them.
-                    plot_df = data.assign(label=row_display_labels(data)).sort_values("pct_of_portfolio")
-                    fig = px.bar(
-                        plot_df,
-                        x="pct_of_portfolio",
-                        y="label",
-                        orientation="h",
-                        color_discrete_sequence=[SEQUENTIAL_BLUE_MID],
-                        labels={"pct_of_portfolio": "% of portfolio", "label": ""},
-                    )
-                    fig.update_layout(template="plotly_white", height=max(300, 24 * len(data)), margin=dict(l=0, r=10, t=40, b=10))
-                    st.plotly_chart(fig, width="stretch", config=NO_MODEBAR)
-                    display = data.assign(label=row_display_labels(data))[["label", "value_usd", "pct_of_portfolio"]].copy()
-                    display["pct_of_portfolio"] = (display["pct_of_portfolio"] * 100).round(2)
-                    st.dataframe(
-                        display.rename(columns={"label": "Issuer", "value_usd": "Value", "pct_of_portfolio": "% of Portfolio"}),
-                        width="stretch",
-                        hide_index=True,
-                        column_config=VALUE_COLUMN_CONFIG,
-                    )
+        fh_stocks = fh[fh["asset_type"] == "Stock"]
+        fh_etfs = fh[fh["asset_type"] == "ETF"]
+        col_s, col_e = st.columns(2)
+        for col, title, data in [(col_s, "Stock holdings", fh_stocks), (col_e, "ETF holdings", fh_etfs)]:
+            with col:
+                st.markdown(f"**{title}**")
+                if data.empty:
+                    st.caption("None.")
+                    continue
+                # row_display_labels (not plain clean_label(issuer)) because SEC
+                # data often reports a generic issuer name shared by many distinct
+                # ETFs (e.g. "ISHARES TR") -- without title_of_class, a fund
+                # holding several different iShares funds would show the same
+                # label for all of them.
+                plot_df = data.assign(label=row_display_labels(data)).sort_values("pct_of_portfolio")
+                fig = px.bar(
+                    plot_df,
+                    x="pct_of_portfolio",
+                    y="label",
+                    orientation="h",
+                    color_discrete_sequence=[SEQUENTIAL_BLUE_MID],
+                    labels={"pct_of_portfolio": "% of portfolio", "label": ""},
+                )
+                fig.update_layout(template="plotly_white", height=max(300, 24 * len(data)), margin=dict(l=0, r=10, t=40, b=10))
+                st.plotly_chart(fig, width="stretch", config=NO_MODEBAR)
+                display = data.assign(label=row_display_labels(data))[["label", "value_usd", "pct_of_portfolio"]].copy()
+                display["pct_of_portfolio"] = (display["pct_of_portfolio"] * 100).round(2)
+                st.dataframe(
+                    display.rename(columns={"label": "Issuer", "value_usd": "Value", "pct_of_portfolio": "% of Portfolio"}),
+                    width="stretch",
+                    hide_index=True,
+                    column_config=VALUE_COLUMN_CONFIG,
+                )
 
-        render_fund_returns(pick_fund)
+    render_fund_returns(pick_fund)
 
 def _search_result_table(data: pd.DataFrame) -> pd.DataFrame:
     display = data.assign(label=row_display_labels(data))[["fund_name", "quarter", "label", "ticker", "value_usd", "pct_of_portfolio"]].copy()
@@ -524,10 +518,10 @@ with tab_query:
     query = st.text_input("Issuer name contains, or exact ticker…").strip()
     if query:
         # Exact (not substring) ticker match: "a" shouldn't hit every ticker containing an A.
-        tickers = filtered["cusip"].map(ticker_by_cusip())
-        by_name = filtered["issuer_lower"].str.contains(query.lower(), regex=False, na=False)
+        tickers = df["cusip"].map(ticker_by_cusip())
+        by_name = df["issuer_lower"].str.contains(query.lower(), regex=False, na=False)
         by_ticker = tickers.str.upper().eq(query.upper()).fillna(False)
-        matches = filtered[by_name | by_ticker].assign(ticker=tickers)
+        matches = df[by_name | by_ticker].assign(ticker=tickers)
         m_stocks = matches[matches["asset_type"] == "Stock"]
         m_etfs = matches[matches["asset_type"] == "ETF"]
 
@@ -553,4 +547,4 @@ with tab_query:
 
 with tab_insights:
     render_radar_picks()
-    render_leaderboard(selected_funds)
+    render_leaderboard()

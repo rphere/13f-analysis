@@ -38,7 +38,7 @@ ways, with a current-quarter snapshot and trends across the trailing year.
   `data/processed/performance/` (the tabs show "as of <date>"). Re-run it to
   refresh.
   - *Performance tab:* the ~100 most widely-held securities (by aggregate
-    13F value across *all* funds, ignoring the sidebar) with
+    13F value across *all* funds) with
     6-month/1-year/2-year/5-year returns. Anything with no ticker or no usable
     price history for *any* window is omitted with a reason (e.g. SpaceX,
     IPO'd Jun 2026).
