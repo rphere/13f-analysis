@@ -502,19 +502,32 @@ with tab_fund:
         render_fund_returns(pick_fund)
 
 def _search_result_table(data: pd.DataFrame) -> pd.DataFrame:
-    display = data.assign(label=row_display_labels(data))[["fund_name", "quarter", "label", "value_usd", "pct_of_portfolio"]].copy()
+    display = data.assign(label=row_display_labels(data))[["fund_name", "quarter", "label", "ticker", "value_usd", "pct_of_portfolio"]].copy()
     display["quarter"] = display["quarter"].map(quarter_label)
     display["pct_of_portfolio"] = (display["pct_of_portfolio"] * 100).round(2)
     return display.sort_values(["label", "quarter"]).rename(
-        columns={"fund_name": "Fund", "quarter": "Quarter", "label": "Issuer", "value_usd": "Value", "pct_of_portfolio": "% of Portfolio"}
+        columns={"fund_name": "Fund", "quarter": "Quarter", "label": "Issuer", "ticker": "Ticker", "value_usd": "Value",
+                 "pct_of_portfolio": "% of Portfolio"}
     )
 
 
+def ticker_by_cusip() -> pd.Series:
+    """CUSIP -> ticker, precomputed by build_performance.py (empty if not built)."""
+    snap = get_performance_snapshot()
+    if snap is None or "ticker_lookup" not in snap:
+        return pd.Series(dtype=str)
+    return snap["ticker_lookup"].set_index("cusip")["ticker"]
+
+
 with tab_query:
-    st.subheader("Search by issuer name")
-    query = st.text_input("Issuer name contains…")
+    st.subheader("Search by issuer name or ticker")
+    query = st.text_input("Issuer name contains, or exact ticker…").strip()
     if query:
-        matches = filtered[filtered["issuer_lower"].str.contains(query.lower(), regex=False, na=False)]
+        # Exact (not substring) ticker match: "a" shouldn't hit every ticker containing an A.
+        tickers = filtered["cusip"].map(ticker_by_cusip())
+        by_name = filtered["issuer_lower"].str.contains(query.lower(), regex=False, na=False)
+        by_ticker = tickers.str.upper().eq(query.upper()).fillna(False)
+        matches = filtered[by_name | by_ticker].assign(ticker=tickers)
         m_stocks = matches[matches["asset_type"] == "Stock"]
         m_etfs = matches[matches["asset_type"] == "ETF"]
 
@@ -536,7 +549,7 @@ with tab_query:
                     st.markdown(f"**{title}**")
                     st.dataframe(_search_result_table(data), width="stretch", hide_index=True, column_config=VALUE_COLUMN_CONFIG)
     else:
-        st.caption("Type part of a company name to find which funds hold it, across quarters.")
+        st.caption("Type part of a company name (e.g. brightspring) or a ticker (e.g. BTSG) to find which funds hold it, across quarters.")
 
 with tab_insights:
     render_radar_picks()

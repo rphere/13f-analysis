@@ -87,7 +87,8 @@ python src/resolve_cusip_tickers.py
 
 # 5. Price everything as of yesterday's close (~5 min) -> data/processed/performance/
 python src/build_performance.py
-#    (just the Insights-tab picks pool, a few minutes:)
+#    (just the Insights-tab picks pool + the Search tab's CUSIP->ticker
+#    lookup, ticker_lookup.parquet, a few minutes:)
 python src/build_performance.py --only picks
 
 # 6. Launch the dashboard

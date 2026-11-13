@@ -12,7 +12,8 @@ nowhere to run it).
 Run: python src/build_performance.py
      (after build_holdings.py, and ideally resolve_cusip_tickers.py)
      python src/build_performance.py --only picks
-     (just the Insights-tab picks pool, ~minutes; skips the fund repricing)
+     (just the Insights-tab picks pool + Search ticker lookup, ~minutes;
+     skips the fund repricing)
 """
 
 import argparse
@@ -30,17 +31,32 @@ ROOT = Path(__file__).resolve().parent.parent
 OUT_DIR = ROOT / "data" / "processed" / "performance"
 
 
+def touch_meta(key: str):
+    """Stamp meta.json (the app's snapshot cache key) so a partial rebuild is
+    picked up without restarting the app."""
+    meta_path = OUT_DIR / "meta.json"
+    meta = json.loads(meta_path.read_text()) if meta_path.exists() else {}
+    meta[key] = pd.Timestamp.now(tz="UTC").isoformat(timespec="seconds")
+    meta_path.write_text(json.dumps(meta, indent=2))
+
+
+def build_ticker_lookup(df: pd.DataFrame):
+    """CUSIP -> ticker for every holding, so the Search tab can match tickers
+    without resolving them (an SEC fetch) at page load."""
+    lookup = performance.ticker_by_cusip(df).rename_axis("cusip").reset_index()
+    OUT_DIR.mkdir(parents=True, exist_ok=True)
+    lookup.to_parquet(OUT_DIR / "ticker_lookup.parquet", index=False)
+    touch_meta("tickers_built_at")
+    print(f"Ticker lookup: {len(lookup)} of {df['cusip'].nunique()} CUSIPs resolved")
+
+
 def build_picks(df: pd.DataFrame, end: pd.Timestamp):
+    build_ticker_lookup(df)
     print("Pricing the under-the-radar picks pool…")
     cands = picks.build_candidates(df, TARGET_QUARTERS, end=end)
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     cands.to_parquet(OUT_DIR / "pick_candidates.parquet", index=False)
-    # Touch meta.json (the app's snapshot cache key) so a picks-only rebuild
-    # is picked up without restarting the app.
-    meta_path = OUT_DIR / "meta.json"
-    meta = json.loads(meta_path.read_text()) if meta_path.exists() else {}
-    meta["picks_built_at"] = pd.Timestamp.now(tz="UTC").isoformat(timespec="seconds")
-    meta_path.write_text(json.dumps(meta, indent=2))
+    touch_meta("picks_built_at")
     print(f"{len(cands)} candidates priced ({cands['asset_type'].value_counts().to_dict()})")
 
 

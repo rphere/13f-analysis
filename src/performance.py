@@ -326,14 +326,18 @@ def _long_book(fund_rows: pd.DataFrame) -> pd.DataFrame:
     longs = fund_rows[fund_rows["put_call"] == ""]
     book = longs.groupby(["quarter", "cusip", "group_key", "asset_type"], as_index=False)["value_usd"].sum()
     book["weight"] = book["value_usd"] / book.groupby("quarter")["value_usd"].transform("sum")
-    # Resolve every (cusip, name) pair, then keep any ticker found per CUSIP:
-    # filers occasionally label one CUSIP differently (seen: 962166104 as
-    # both "WEYERHAEUSER CO" and "WEYERHAEUSER CO MTN BE"), and only one of
-    # the names may be matchable.
-    ids = book.drop_duplicates(["cusip", "group_key"])[["cusip", "group_key", "asset_type"]]
+    return book.assign(ticker=book["cusip"].map(ticker_by_cusip(book)))
+
+
+def ticker_by_cusip(rows: pd.DataFrame) -> pd.Series:
+    """CUSIP -> ticker for every CUSIP in rows (needs cusip, group_key,
+    asset_type); unresolved CUSIPs are absent. Resolves every (cusip, name)
+    pair, then keeps any ticker found per CUSIP: filers occasionally label
+    one CUSIP differently (seen: 962166104 as both "WEYERHAEUSER CO" and
+    "WEYERHAEUSER CO MTN BE"), and only one of the names may be matchable."""
+    ids = rows.drop_duplicates(["cusip", "group_key"])[["cusip", "group_key", "asset_type"]]
     ids = resolve_tickers(ids.assign(issuer_label=ids["group_key"]))
-    ticker_by_cusip = ids.dropna(subset=["ticker"]).drop_duplicates("cusip").set_index("cusip")["ticker"]
-    return book.assign(ticker=book["cusip"].map(ticker_by_cusip))
+    return ids.dropna(subset=["ticker"]).drop_duplicates("cusip").set_index("cusip")["ticker"]
 
 
 def fund_returns(fund_rows: pd.DataFrame, quarters: list[str], book: pd.DataFrame, close: pd.DataFrame,
