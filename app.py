@@ -9,7 +9,6 @@ import json
 import re
 import sys
 from pathlib import Path
-from urllib.parse import quote_plus
 
 sys.path.insert(0, str(Path(__file__).parent / "src"))
 
@@ -255,16 +254,16 @@ def _research_reports(mtime: float) -> dict:
 
 def _pick_card(row):
     ticker = row["ticker"]
-    url = f"https://www.google.com/search?q={quote_plus(ticker + ' stock')}"
     reports = _research_reports(REPORTS_MANIFEST.stat().st_mtime if REPORTS_MANIFEST.exists() else 0.0)
     report = reports.get(ticker, {})
     with st.container(border=True):
-        st.markdown(f"#### [{ticker} ↗]({url})")
-        if report.get("url"):
-            stamp = pd.Timestamp(report["generated"]).strftime("%b %-d, %Y")
-            st.markdown(f"[📄 Research report ↗]({report['url']}) · {stamp}")
+        # The ticker links to its research report (a claude.ai artifact), when one exists.
+        st.markdown(f"#### [{ticker} ↗]({report['url']})" if report.get("url") else f"#### {ticker}")
         name = strip_etf_word(row["issuer_label"]).title()
-        st.caption(f"{name} · {row['theme']}" if isinstance(row.get("theme"), str) else name)
+        parts = [name, row["theme"]] if isinstance(row.get("theme"), str) else [name]
+        if report.get("url"):
+            parts.append("Research report " + pd.Timestamp(report["generated"]).strftime("%b %-d, %Y"))
+        st.caption(" · ".join(parts))
         delta = int(row["num_funds"] - row["num_funds_prev"])
         cols = st.columns(5)
         cols[0].markdown(f"**{int(row['num_funds'])}** funds" + (f"  \n{delta:+d} in 1y" if delta else ""))
@@ -282,8 +281,7 @@ def render_radar_picks():
         st.info("No picks pool yet. Build it with `python src/build_performance.py --only picks`, then reload.")
         return
     st.caption("Names many tracked funds hold **relative to how big they are**, with strong returns over 6 months "
-               "to 5 years. Mega-caps and well-known tech are excluded. Click a ticker to search it on Google, or open "
-               "its research report.")
+               "to 5 years. Mega-caps and well-known tech are excluded. Click a ticker to open its research report.")
     top = picks.score_picks(snap["pick_candidates"])
     for col, (asset_type, title) in zip(st.columns(2), [("Stock", "Stocks"), ("ETF", "ETFs")]):
         with col:
