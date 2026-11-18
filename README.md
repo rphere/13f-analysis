@@ -164,15 +164,13 @@ app.py                        Streamlit dashboard
 ## Research reports for the Insights picks
 
 Each under-the-radar pick on the Insights tab links to an interactive research
-report, shown inside the app at `/report?ticker=<TICKER>` (`views/report.py`;
-`app.py` routes between it and the dashboard in `dashboard.py`).
-
-The narrative for each report (history, challenges, growth, 13F view, outlook,
-sources, glossary) lives in `reports/data/<TICKER>.json`. Running
+report, published as a claude.ai artifact. The narrative for each report
+(history, challenges, growth, 13F view, outlook, sources, glossary) lives in
+`reports/data/<TICKER>.json`. Running
 `.venv/bin/python reports/build_reports.py [TICKER ...]` fills
 `reports/template.html` with that narrative plus month-end prices (Yahoo
 Finance), the pick's radar score and its 13F holders, writes
 `reports/html/<TICKER>.html`, and stamps the generation time in
-`reports/manifest.json`. Commit `reports/` and push to update the deployed
-app. When the picks change, write a data file for each new ticker first: a
-pick without a report simply shows no report link.
+`reports/manifest.json`. Republish the rebuilt HTML to the ticker's artifact
+(its `url` in the manifest), then commit and push so the app shows the new
+date. A pick with no `url` in the manifest shows no report link.
