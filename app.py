@@ -351,8 +351,8 @@ def format_quarter(q: str) -> str:
     return quarter_label(q) + (" (most recently filed)" if q == TARGET_QUARTERS[-1] else "")
 
 
-tab_snapshot, tab_insights, tab_fund, tab_query, tab_performance = st.tabs(
-    ["Snapshot", ":blue[:material/auto_awesome: **Insights**]", "Fund Drill-down", "Search", "Performance"]
+tab_insights, tab_snapshot, tab_fund, tab_query, tab_performance = st.tabs(
+    [":blue[✨ **Insights**]", "Snapshot", "Fund Drill-down", "Search", "Performance"]
 )
 
 with tab_snapshot:
