@@ -260,10 +260,7 @@ def _pick_card(row):
         # The ticker links to its research report (a claude.ai artifact), when one exists.
         st.markdown(f"#### [{ticker} ↗]({report['url']})" if report.get("url") else f"#### {ticker}")
         name = strip_etf_word(row["issuer_label"]).title()
-        parts = [name, row["theme"]] if isinstance(row.get("theme"), str) else [name]
-        if report.get("url"):
-            parts.append("Research report " + pd.Timestamp(report["generated"]).strftime("%b %-d, %Y"))
-        st.caption(" · ".join(parts))
+        st.caption(f"{name} · {row['theme']}" if isinstance(row.get("theme"), str) else name)
         delta = int(row["num_funds"] - row["num_funds_prev"])
         cols = st.columns(5)
         cols[0].markdown(f"**{int(row['num_funds'])}** funds" + (f"  \n{delta:+d} in 1y" if delta else ""))
