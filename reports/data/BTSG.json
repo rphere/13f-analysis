@@ -1,0 +1,202 @@
+{
+  "title": "BrightSpring Health Services Research Report",
+  "name": "BrightSpring Health Services",
+  "exchange": "Nasdaq",
+  "accent": "#0f766e",
+  "accent_dark": "#2cc6b3",
+  "hero": "#0c4a45",
+  "price_start": "2024-01-01",
+  "tagline": "BrightSpring is a home and community health company that KKR assembled from a pharmacy chain and a 50-year-old care provider. Specialty and infusion pharmacy now brings in almost 90% of its revenue, and the stock is up about five-fold from a January 2024 IPO priced below its range.",
+  "kpis": [
+    ["$4.21B", "Q3 2026 revenue, +26% YoY"],
+    ["$228M", "Q3 2026 adj. EBITDA, +42%"],
+    ["$15.9–16.1B", "2026 revenue guidance (raised)"],
+    ["1.79x", "net leverage, Sep 30, 2026"],
+    ["8 funds", "tracked 13F holders (Q2 2026)"]
+  ],
+  "chapters": [
+    {
+      "id": "founding", "nav": "Origins", "title": "Origins: from ResCare to BrightSpring",
+      "lede": "BrightSpring has no founder story in the startup sense. It was built by private equity. KKR and Walgreens Boots Alliance bought the PharMerica pharmacy business in 2017 and in 2019 merged it with BrightSpring Health Holdings, the former ResCare, a disability and home-care provider founded in 1974. The idea was to combine pharmacy with in-home care for complex, mostly Medicare and Medicaid patients and become the lower-cost alternative to hospitals and nursing homes.",
+      "blocks": [
+        {"type": "people", "items": [
+          ["JR", "Jon Rousseau", "Chairman, President and CEO. He leads the strategy of growing specialty pharmacy and home health while selling off lower-margin businesses."],
+          ["JP", "Jennifer Phipps", "CFO. She set out the 2026–2028 framework of 15–20% growth and has driven leverage down from about 3x to under 2x."],
+          ["KK", "KKR & Walgreens", "The private-equity sponsor and its partner. They bought PharMerica in 2017 and still controlled a majority of the shares after the 2024 IPO."]
+        ]},
+        {"type": "timeline", "start": 4, "items": [
+          ["1974", "ResCare founded", "ResCare starts as a provider of residential and community services for people with intellectual and developmental disabilities. It later grows into home care and workforce services."],
+          ["Dec 2017", "KKR & Walgreens buy PharMerica", "KKR and Walgreens Boots Alliance take PharMerica, a long-term-care pharmacy, private for about $1.4B."],
+          ["Mar 2019", "BrightSpring is formed", "The PharMerica owner acquires BrightSpring Health Holdings, the renamed ResCare, and the combined company becomes BrightSpring Health Services."],
+          ["Oct 2021", "First IPO attempt pulled", "BrightSpring postpones its planned IPO, citing market conditions."],
+          ["Jan 2024", "IPO at $13", "The IPO prices at $13, below the $15–18 range, raising about $656M from common stock plus $389M from tangible equity units (TEUs). KKR and Walgreens keep majority control."],
+          ["Jan 2025", "Community Living sale announced", "BrightSpring agrees to sell its Community Living disability-services business, the original ResCare core, to National Mentor Holdings (Sevita)."],
+          ["Late 2025", "Amedisys branches", "It buys 107 home health and hospice branches divested in the UnitedHealth–Amedisys merger, for $239M in cash."],
+          ["Mar 30, 2026", "Community Living sale closes", "The $835M sale (before adjustments) closes, and the proceeds go mainly to paying down debt."],
+          ["Oct 30, 2026", "Third guidance raise", "Q3 revenue rises 26% and adjusted EBITDA 42%. 2026 guidance goes up again, and the stock jumps about 7%."]
+        ]}
+      ]
+    },
+    {
+      "id": "challenges", "nav": "Early challenges", "title": "Early challenges",
+      "lede": "BrightSpring came to market as a heavily indebted, sponsor-controlled company that depends on government payers, so investors were wary. Tap a card to see how each problem has played out.",
+      "blocks": [
+        {"type": "cards", "items": [
+          ["Capital markets", "A pulled IPO, then a discounted one", "The 2021 IPO was shelved, and the 2024 deal priced $2 below the bottom of its range.", "The discount became the opportunity. Shares have compounded from $13 to the high $60s as the company beat and raised guidance quarter after quarter."],
+          ["Balance sheet", "LBO-sized debt", "As a KKR buyout, BrightSpring carried heavy debt into the IPO, and leverage was 2.99x at the end of 2025.", "IPO proceeds, EBITDA growth and the $835M Community Living sale brought net leverage down to 1.79x by September 30, 2026."],
+          ["Reimbursement", "Living on Medicare and Medicaid", "Most revenue depends on government payers, whose rates, audits and managed-care shifts BrightSpring doesn't control.", "Selling Community Living cut Medicaid exposure, and its top 10 Medicaid states were about 6% of revenue in Q1 2026. Medicare home-health rate cuts remain a live risk."],
+          ["Drug pricing", "The Inflation Reduction Act and generics", "Medicare drug-price negotiation and brand-to-generic switches threatened about $600M of pharmacy revenue.", "Management says it has cut the profit impact of the IRA to about $15M, because lower drug prices shrink revenue more than margin."],
+          ["Governance", "A controlled company", "With KKR and Walgreens holding a majority, outside shareholders face the overhang of future sell-downs.", "Part of the IPO proceeds paid to end the sponsors' monitoring agreement. Sponsor share sales remain a recurring supply risk for the stock."],
+          ["Portfolio", "Too many businesses", "The 2019 combination brought disability services, workforce programs, pharmacy and home care, with very different margins.", "Management has narrowed the company to two segments, pharmacy and provider services, by selling Community Living and buying home health and hospice."]
+        ]}
+      ]
+    },
+    {
+      "id": "growth", "nav": "Growth", "title": "Growth",
+      "lede": "Revenue growth now comes mainly from specialty pharmacy, especially oncology drugs with limited distribution, and from home health, where the Amedisys branches added scale. Profit is growing faster than revenue as the mix shifts and fixed costs spread.",
+      "blocks": [
+        {"type": "bars", "tabs": [
+          {"label": "Quarterly revenue", "fmt": "usdM", "note": "Net revenue in US$ millions. Q3 2025 is derived from the reported 26% growth rate, so it's marked ≈.", "data": [["Q3 2025", 3344, "Derived from +26% YoY", 1], ["Q3 2026", 4213, "Pharmacy $3,732M · Provider $481M"]]},
+          {"label": "Adj. EBITDA", "fmt": "usdM", "note": "Adjusted EBITDA in US$ millions. The FY 2026 bar is the midpoint of the raised $850–860M guidance, which excludes Community Living.", "data": [["Q3 2025", 160, "Prior-year quarter"], ["Q3 2026", 228, "+42% YoY"], ["FY 2026 guide", 855, "Midpoint of $850–860M"]]},
+          {"label": "Annual revenue", "fmt": "usdM", "note": "2023 and 2024 are approximate reported totals and include Community Living. The 2026 bar is the guidance midpoint, which excludes Community Living, so the step-up understates underlying growth.", "data": [["2023", 8830, "Approx. reported", 1], ["2024", 11270, "Approx. reported", 1], ["2026 guide", 16015, "Midpoint of $15.90–16.13B"]]}
+        ]},
+        {"type": "row", "items": [
+          {"type": "hbars", "eyebrow": "Q3 2026 revenue by segment ($M)", "fmt": "usdM", "items": [["Pharmacy Solutions", 3732, "Specialty (Onco360), infusion (CarePathRx) and home & community pharmacy"], ["Provider Services", 481, "Home health, hospice and rehab"]], "note": "Pharmacy is about 89% of revenue, while provider services earns higher margins."},
+          {"type": "hbars", "eyebrow": "Q3 2026 growth by line (YoY)", "fmt": "pct", "items": [["Home health", 52.4, "Includes about $76M from acquired Amedisys branches", "var(--s3)"], ["Home health, organic", 12, "Excluding acquisitions", "var(--s3)"], ["Total revenue", 26, "Company total"], ["Home & community pharmacy", -6.3, "Down to $553M, reflecting IRA and generic headwinds", "var(--bad)"]], "max": 60, "note": "Red bar = a decline. Bar length shows the size of the change."}
+        ]},
+        {"type": "callout", "html": "<b>Watch-out:</b> margins are thin because most revenue is pass-through drug cost. Q3 adjusted EBITDA was about 5.4% of revenue, so small changes in drug reimbursement can move profit noticeably."}
+      ]
+    },
+    {
+      "id": "stock", "nav": "Stock", "title": "Stock trajectory",
+      "lede": "The stock listed in January 2024 at $13 and has risen almost without interruption as results beat expectations and the company sold assets and paid down debt. Hover over the line, switch to the S&P 500 comparison, or click an event.",
+      "blocks": [
+        {"type": "price", "events": [
+          ["2024-01-26", "IPO at $13", "The IPO priced below its $15–18 range. The first months were choppy."],
+          ["2025-01-31", "Community Living sale announced", "The market rewarded the move to a simpler, less Medicaid-heavy company."],
+          ["2025-10-31", "Amedisys branches added", "107 home health and hospice branches for $239M."],
+          ["2026-03-31", "Sale closes, leverage falls", "Net leverage drops sharply once the $835M proceeds arrive."],
+          ["2026-10-30", "Q3 beat and raise", "Revenue rose 26%, EBITDA guidance went up, and the stock jumped about 7% to around $64.50."]
+        ], "note": "Month-end closing prices from Yahoo Finance, with the last point at the latest close. Event dots sit on the nearest month-end. This is not investment advice."}
+      ]
+    },
+    {
+      "id": "business", "nav": "Business", "title": "How BrightSpring makes money",
+      "lede": "BrightSpring runs two segments. Pharmacy Solutions dispenses expensive specialty and infusion drugs, and Provider Services sends clinicians into patients' homes. The pitch is that one company can manage medication and care together for high-cost patients.",
+      "blocks": [
+        {"type": "segments", "items": [
+          {"title": "Specialty pharmacy (Onco360)", "big": "140+", "sub": "limited-distribution drug launches to date", "color": "var(--s1)", "text": "Onco360 dispenses oncology and rare-disease drugs that manufacturers restrict to a few pharmacies. In 2026 BrightSpring expects to join about 16–20 new brand launches, mostly in oncology.", "pills": [["g", "Oncology growing ~15%"], ["g", "Narrower networks"]], "more": "Newer limited-distribution networks often have only one or two pharmacies, against three or more before, so each win brings a bigger share of a drug's volume. Onco360 says 88% of its 2024 additions were ultra-narrow or exclusive networks."},
+          {"title": "Infusion & home/community pharmacy", "big": "$553M", "sub": "home & community pharmacy revenue, Q3 2026 (−6.3%)", "color": "var(--s2)", "text": "CarePathRx runs infusion and hospital pharmacy services, and the PharMerica heritage business serves group homes and long-term-care settings.", "pills": [["w", "IRA & generic headwinds"]], "more": "This is the part of the business most exposed to Medicare drug-price negotiation and brand-to-generic switching."},
+          {"title": "Home health & hospice", "big": "+52%", "sub": "home health revenue growth, Q3 2026", "color": "var(--s3)", "text": "Clinicians deliver skilled nursing, therapy and end-of-life care at home. The Amedisys branches added about $76M of revenue in the quarter.", "pills": [["g", "Organic growth +12%"], ["w", "CMS rate risk"]], "more": "Management expects the acquired branches to add about $35M of 2026 adjusted EBITDA. The purchase-price accounting was still provisional at September 30, 2026."},
+          {"title": "Divested: Community Living", "big": "$835M", "sub": "sale price before adjustments (closed Mar 30, 2026)", "color": "var(--ink-3)", "text": "This was the original ResCare disability-services business. Selling it cut Medicaid exposure and debt.", "pills": [["g", "Debt paydown"]], "more": "It is reported as a discontinued operation, and 2026 guidance excludes it."}
+        ]}
+      ]
+    },
+    {
+      "id": "priorities", "nav": "Priorities", "title": "What management prioritizes",
+      "lede": "BrightSpring's investor messaging comes back to the same five priorities. Tap one to see what it means and how it shows up in the numbers.",
+      "blocks": [
+        {"type": "values", "label": "Priority", "items": [
+          ["Care in the lowest-cost setting", "Treat complex patients at home or in the community instead of hospitals and nursing homes.", "Home health and hospice grow through acquisitions and organically (+12%), and pharmacy services follow the patient home."],
+          ["Win limited-distribution drugs", "Be the pharmacy that drug makers choose when they restrict distribution.", "Onco360 has joined 140+ launches and expects about 16–20 more in 2026, with oncology growing about 15%."],
+          ["Simplify the portfolio", "Keep the two segments with the best growth and margin profile.", "The company sold Community Living for $835M and bought 107 home health and hospice branches."],
+          ["Deleverage", "Get the balance sheet down from LBO levels.", "Net leverage fell from 2.99x at the end of 2025 to 1.79x at September 30, 2026."],
+          ["Operate efficiently with AI", "Use automation in pharmacy and clinical operations to grow earnings faster than revenue.", "Management pitched an AI efficiency push at a March 2026 conference. Adjusted EBITDA grew 42% against 26% revenue growth in Q3."]
+        ]}
+      ]
+    },
+    {
+      "id": "radar", "nav": "13F view", "title": "Why it's on the radar: the 13F view",
+      "lede": "BTSG made the Insights tab because many of the tracked funds own it even though its total 13F footprint is small, and the holder count is rising. Here is who owns it and how that changed.",
+      "blocks": [
+        {"type": "radar", "html": "<b>The standout:</b> Viking Global, a fundamental long/short fund, opened a new <b>~$113M</b> position in Q2 2026, about 0.32% of its long book. That is the only large conviction stake. Most other holders are quant and multi-strategy funds with small weights."}
+      ]
+    },
+    {
+      "id": "outlook", "nav": "Outlook", "title": "Future outlook: opportunities & risks",
+      "lede": "Analysts are almost all positive. They see BrightSpring as a specialty-pharmacy growth story with a cleaner balance sheet. The debate is about how much of that is now in the price after a five-fold run, and how exposed thin pharmacy margins are to drug-pricing and Medicare policy.",
+      "blocks": [
+        {"type": "targets", "avg": 82.33, "items": [
+          ["BTIG", 90, "Buy · reiterated Aug 13, 2026"],
+          ["UBS", 85, "Raised · Jul 2026"],
+          ["Low of recent range", 77, "Lowest target in Benzinga's Sep 2026 snapshot"],
+          ["Stephens", 64, "Raised to $64 · 2026"]
+        ], "note": "Benzinga's Sep 27, 2026 snapshot put the average target at about $82.33, with a range of $77–90. MarketBeat (July 2026) counted 19 Buy ratings, 1 Hold and no Sells. Targets were set on different dates, before the Q3 raise."},
+        {"type": "oppRisk",
+          "opp": [
+            ["Oncology launch pipeline", "About 16–20 limited-distribution launches in 2026, in networks narrow enough to give each pharmacy a bigger share."],
+            ["Multi-year growth framework", "The CFO set out 15–20% growth for 2026–2028, driven by volume and new drugs."],
+            ["Home health scale", "The Amedisys branches add about $35M of EBITDA, and organic home-health growth is 12%."],
+            ["Room for tuck-ins", "With leverage under 2x, cash flow can fund specialty-pharmacy and home-health acquisitions, which management says it is pursuing."],
+            ["Aging demographics", "More seniors with complex, chronic conditions push care and medication toward the home."],
+            ["Operating leverage", "EBITDA grew 42% on 26% revenue growth, and AI and automation could widen that gap."]
+          ],
+          "risk": [
+            ["Drug-pricing policy", "IRA negotiation and generic conversions are about a $600M revenue headwind, and future rounds of negotiation could hit specialty drugs."],
+            ["Medicare home-health rates", "CMS can cut home-health payment rates, and analysts flagged that uncertainty on the Q4 2025 call."],
+            ["Thin margins", "At about 5% EBITDA margins, small changes in reimbursement or drug mix move profit a lot."],
+            ["Integration", "The acquired branches still need to be fully integrated, and the purchase accounting was still provisional at Q3."],
+            ["Sponsor overhang", "KKR and Walgreens may keep selling shares, which adds supply to the market."],
+            ["Valuation after a 5x run", "Much of the good news is in the price, and the stock is close to the low end of recent targets."]
+          ]},
+        {"type": "bullbear", "items": [
+          ["Bear case", "Drug-price negotiation spreads to more specialty drugs, CMS trims home-health rates, and growth slows to single digits. The stock re-rates toward the low $50s or below."],
+          ["Cautious", "The business is fine, but after a five-fold run the stock needs another round of guidance raises just to stand still. Targets around $64 reflect that."],
+          ["Middle (consensus ~$82)", "Growth of 15–20% continues, leverage stays below 2x, and tuck-in deals add modestly. The market pays a steady premium for visible growth."],
+          ["Constructive (UBS ~$85)", "Oncology launches and narrower networks keep specialty growing in the mid-teens while home health compounds. Margins expand."],
+          ["Bull case (BTIG $90)", "BrightSpring becomes the leading independent specialty and home-care platform, and acquisitions plus operating leverage drive EBITDA well past $1B."]
+        ]},
+        {"type": "catalysts", "items": [
+          ["By Dec 1, 2026", "Amedisys purchase-price accounting finalized", "Clears up the acquired branches' contribution."],
+          ["~Late Feb 2027", "Q4 2026 results and 2027 guidance", "This is the first full-year outlook without Community Living, and a test of the 15–20% framework."],
+          ["Through 2027", "Limited-distribution drug launches", "Each oncology launch won adds revenue that compounds."],
+          ["Mid / late 2027", "CMS home-health payment rules", "The proposed rule usually comes mid-year and the final rule around November."],
+          ["Any time", "KKR / Walgreens secondary offerings", "Sponsor share sales can weigh on the stock for days or weeks."]
+        ]},
+        {"type": "callout", "html": "This summarizes published analyst and media views. It is not investment advice."}
+      ]
+    }
+  ],
+  "sources": [
+    [["BrightSpring Q3 2026 results (SEC 8-K exhibit)", "https://www.sec.gov/Archives/edgar/data/0001865782/000186578226000011/btsg-ex99_1.htm"], ["Zacks: Q3 beat, 2026 view raised", "https://zacks.com/stock/news/3020993/brightspring-q3-earnings-beat-on-specialty-growth-26-view-raised"], ["StockStory: Q3 2026 reaction", "https://stockstory.org/us/stocks/nasdaq/btsg/news/earnings/brightspring-health-services-nasdaqbtsg-reports-upbeat-q3-2026-stock-soars"]],
+    [["BrightSpring Q2 2026 results", "https://investorrelations.brightspringhealth.com/news-releases/news-release-details/brightspring-health-services-inc-reports-second-quarter-2026"], ["Panabee: Q3 2026 regulatory headwinds", "https://www.panabee.com/news/brightspring-earnings-q3-2026-report"], ["MarketBeat: Q4 2025 call highlights", "https://www.marketbeat.com/instant-alerts/brightspring-health-services-q4-earnings-call-highlights-2026-02-27/"]],
+    [["BrightSpring 10-Q (2024): IPO and history", "https://www.sec.gov/Archives/edgar/data/1865782/000095017024119820/btsg-20240930.htm"], ["iPoScoop: IPO pricing", "https://www.iposcoop.com/?p=32117"], ["McKnight's: PharMerica and KKR background", "https://www.mcknights.com/?p=145167"], ["CB Insights profile", "https://www.cbinsights.com/company/brightspring-health-services"]],
+    [["MarketBeat: specialty tuck-ins (Jun 2026)", "https://www.marketbeat.com/instant-alerts/brightspring-health-services-sees-specialty-pharmacy-tuck-in-deals-fueling-growth-2026-06-11/"], ["MarketBeat: AI and specialty growth (Mar 2026)", "https://www.marketbeat.com/instant-alerts/brightspring-health-services-maps-ai-efficiency-push-specialty-pharmacy-growth-at-conference-2026-03-13/"], ["Onco360", "https://onco360.com/2025avbcc/"], ["Rallies: 2026 guidance and IRA impact", "https://rallies.ai/news/brightspring-forecasts-760m790m-ebitda-with-1823-core-growth-mitigates-ira-impact-to-15m"]],
+    [["Benzinga: price targets", "https://www.benzinga.com/quote/BTSG/price-targets"], ["MarketBeat: price targets", "https://www.marketbeat.com/stocks/NASDAQ/BTSG/price-target/"], ["StreetInsider: Stephens raises to $64", "https://www.streetinsider.com/Analyst+Comments/BrightSpring+Health+%28BTSG%29+PT+Raised+to+%2464+at+Stephens/26420702.html"], ["MarketBeat: BTIG Buy (Aug 2026)", "https://www.marketbeat.com/instant-alerts/brightspring-health-services-nasdaqbtsg-earns-buy-rating-from-btig-research-2026-08-03/"]]
+  ],
+  "glossary": [
+    ["Metrics", "Adjusted EBITDA", "Earnings before interest, taxes, depreciation and amortization, with one-off items removed. It is BrightSpring's main profit measure."],
+    ["Metrics", "Net leverage", "Debt minus cash, divided by a year of adjusted EBITDA. 1.79x means about 1.8 years of EBITDA would pay off the net debt."],
+    ["Metrics", "Organic growth", "Growth from existing operations, excluding businesses bought or sold."],
+    ["Metrics", "Guidance", "The company's own forecast for the year. A raise means management expects to do better than it said before."],
+    ["Metrics", "Discontinued operations", "A business that has been sold or is held for sale. It is reported separately and left out of guidance."],
+    ["Metrics", "Purchase-price allocation", "Accounting that assigns an acquisition's price to the assets and goodwill acquired. It is provisional until finalized."],
+    ["Pharmacy", "Specialty pharmacy", "A pharmacy that handles expensive, complex drugs, often for cancer or rare diseases, that need special handling and patient support."],
+    ["Pharmacy", "Limited-distribution drug (LDD)", "A drug the manufacturer lets only a few chosen pharmacies dispense. Being chosen is a competitive advantage."],
+    ["Pharmacy", "Infusion pharmacy", "Prepares drugs given by IV, at home or in clinics."],
+    ["Pharmacy", "Brand-to-generic conversion", "When a brand drug's patent expires and cheaper generics replace it. The price drop cuts pharmacy revenue."],
+    ["Pharmacy", "Onco360", "BrightSpring's oncology-focused specialty pharmacy."],
+    ["Pharmacy", "CarePathRx", "BrightSpring's infusion and hospital pharmacy services business."],
+    ["Pharmacy", "PharMerica", "The long-term-care pharmacy business KKR and Walgreens bought in 2017 and built BrightSpring around."],
+    ["Care", "Home health", "Skilled nursing and therapy given in a patient's home, mostly paid for by Medicare."],
+    ["Care", "Hospice", "End-of-life care focused on comfort rather than cure, mostly paid for by Medicare."],
+    ["Care", "Community Living", "Residential and day services for people with intellectual and developmental disabilities, funded mainly by Medicaid. BrightSpring sold it in 2026."],
+    ["Care", "Lower-cost setting", "Care delivered at home or in the community instead of in hospitals or nursing homes, usually at lower cost."],
+    ["Policy", "Medicare", "US federal health insurance for people aged 65+ and some disabled people."],
+    ["Policy", "Medicaid", "Joint federal and state health coverage for low-income people. Rates vary by state."],
+    ["Policy", "CMS", "Centers for Medicare & Medicaid Services, the agency that sets Medicare payment rates, including for home health."],
+    ["Policy", "IRA drug-price negotiation", "The Inflation Reduction Act lets Medicare negotiate prices on certain high-spend drugs, which lowers prices from 2026."],
+    ["Policy", "Managed care", "Insurer-run plans, like Medicare Advantage and Medicaid managed care, that pay providers on the government's behalf."],
+    ["Policy", "Post-payment audit", "A payer reviews claims after paying them and can claw money back."],
+    ["Stock", "IPO", "Initial public offering. BrightSpring's priced at $13 in January 2024."],
+    ["Stock", "Tangible equity unit (TEU)", "A hybrid security sold alongside the IPO that combined a prepaid stock purchase contract with a small bond. It converts into shares."],
+    ["Stock", "Controlled company", "A listed company where one holder or group, here KKR and Walgreens, owns a majority of the votes."],
+    ["Stock", "Secondary offering", "Existing holders, such as sponsors, sell shares to the public. It adds supply, though the company raises no money."],
+    ["Stock", "LBO", "Leveraged buyout: buying a company mostly with borrowed money, as private-equity firms like KKR do."],
+    ["Stock", "Price target", "An analyst's estimate of where the stock will trade in about 12 months."],
+    ["Stock", "Consensus", "The average of all analysts' ratings or targets."],
+    ["13F", "13F filing", "A quarterly SEC report in which investment managers with over $100M list their US-listed long equity positions."],
+    ["13F", "Conviction position", "In this dashboard, a holding that is at least 0.05% of a fund's 13F long book."],
+    ["13F", "Radar score", "This dashboard's pick score: 45% performance, 35% under-the-radar breadth and 20% accumulation, each a percentile."]
+  ]
+}

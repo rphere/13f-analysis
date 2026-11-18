@@ -1,0 +1,872 @@
+{
+  "title": "TG Therapeutics Research Report",
+  "name": "TG Therapeutics",
+  "exchange": "Nasdaq",
+  "accent": "#7c3aed",
+  "accent_dark": "#b197fc",
+  "hero": "#3b1d6e",
+  "price_start": "2019-01-01",
+  "tagline": "TG Therapeutics turned a collapsed cancer program into a roughly $1B multiple sclerosis business. Its drug Briumvi is a one-hour infusion given twice a year. The stock fell about 90% in 2022 and has since risen more than fifteen-fold.",
+  "kpis": [
+    [
+      "$259.9M",
+      "Q3 2026 total revenue"
+    ],
+    [
+      "$232.6M",
+      "Briumvi US net sales, +52% YoY"
+    ],
+    [
+      "~$1B",
+      "2026 global revenue guidance (raised)"
+    ],
+    [
+      "$100M",
+      "stock bought back in Q3 2026"
+    ],
+    [
+      "YE26 / 1Q27",
+      "subcutaneous Briumvi Phase 3 readout"
+    ]
+  ],
+  "chapters": [
+    {
+      "id": "founding",
+      "nav": "Founding",
+      "title": "The founding story",
+      "lede": "TG Therapeutics was built around one antibody, ublituximab, a re-engineered anti-CD20 drug licensed in 2012. Chairman and CEO Michael Weiss first bet on blood cancers. When that program collapsed in 2022, the company was left with its multiple sclerosis trials, and those became the entire business.",
+      "blocks": [
+        {
+          "type": "people",
+          "items": [
+            [
+              "MW",
+              "Michael Weiss",
+              "Chairman and CEO. He steered the company through the 2022 cancer withdrawal and into a successful MS launch."
+            ],
+            [
+              "UB",
+              "Ublituximab",
+              "The molecule behind everything. It is an anti-CD20 antibody engineered to kill B cells efficiently, which allows a short one-hour infusion."
+            ],
+            [
+              "NP",
+              "Partners",
+              "Ex-US rights to Briumvi are licensed to a European partner. TG keeps the US market, where most of the revenue is."
+            ]
+          ]
+        },
+        {
+          "type": "timeline",
+          "start": 5,
+          "items": [
+            [
+              "2012",
+              "Ublituximab licensed",
+              "TG licenses the anti-CD20 antibody that would become Briumvi and builds the company around it."
+            ],
+            [
+              "2014–19",
+              "Blood-cancer bet",
+              "TG pairs ublituximab with umbralisib, an oral PI3K-delta inhibitor, for chronic lymphocytic leukemia and lymphoma. It also runs the ULTIMATE Phase 3 trials in MS."
+            ],
+            [
+              "Feb 2021",
+              "Ukoniq approved",
+              "Umbralisib (Ukoniq) gets FDA accelerated approval for two lymphomas, and the stock nears $50."
+            ],
+            [
+              "Apr 2022",
+              "The collapse",
+              "Overall-survival concerns in the UNITY-CLL trial lead TG to withdraw its cancer applications and pull Ukoniq from the market. The FDA also delays the MS decision."
+            ],
+            [
+              "Jun 2022",
+              "Bottom: ~$4",
+              "The stock falls about 90% from its peak, leaving MS as the only program."
+            ],
+            [
+              "Dec 2022",
+              "Briumvi approved",
+              "The FDA approves Briumvi (ublituximab) for relapsing forms of multiple sclerosis."
+            ],
+            [
+              "2023–24",
+              "Launch against giants",
+              "Briumvi goes up against Roche's Ocrevus and Novartis's Kesimpta and wins share with its one-hour infusion. Ex-US rights are partnered."
+            ],
+            [
+              "2025",
+              "Scale",
+              "Sales compound, and subcutaneous Briumvi enters Phase 3."
+            ],
+            [
+              "Nov 2026",
+              "A $1B company",
+              "Q3 Briumvi US sales rise 52%. Global 2026 guidance goes up to about $1B, and TG buys back $100M of stock."
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "challenges",
+      "nav": "Early challenges",
+      "title": "Early challenges",
+      "lede": "Few biotechs survive having their lead cancer drug withdrawn and then out-launch two of the world's biggest drug makers. Tap a card to see how TG got through each problem.",
+      "blocks": [
+        {
+          "type": "cards",
+          "items": [
+            [
+              "Safety",
+              "A drug pulled for safety",
+              "Ukoniq was withdrawn in 2022 after a possible increase in the risk of death, and the FDA tightened scrutiny of the whole PI3K drug class.",
+              "TG voluntarily withdrew all its cancer applications, cut costs and put everything behind the MS program."
+            ],
+            [
+              "Regulatory",
+              "A delayed MS decision",
+              "The FDA pushed back Briumvi's MS decision just as the cancer program fell apart.",
+              "Briumvi was approved in December 2022. The ULTIMATE trials, run against an active comparator, made the data hard to dispute."
+            ],
+            [
+              "Competition",
+              "David vs. two Goliaths",
+              "Roche's Ocrevus and Novartis's Kesimpta already dominated anti-CD20 MS treatment.",
+              "TG competed on convenience, with a one-hour infusion every six months after the first doses, and with price and service for infusion centers."
+            ],
+            [
+              "Funding",
+              "Cash burn before launch",
+              "With no approved product in mid-2022, the company had to fund a launch while its market value was at its lowest.",
+              "Fast Briumvi uptake turned TG profitable. It now buys back stock, about $100M in Q3 2026 alone."
+            ],
+            [
+              "Format",
+              "No self-injected version",
+              "Kesimpta is a monthly self-injection and Roche has a subcutaneous Ocrevus. Briumvi is only infused.",
+              "A subcutaneous Briumvi Phase 3 reads out at the end of 2026 or early 2027. TG models quarterly dosing and is targeting a 2028 launch."
+            ],
+            [
+              "Concentration",
+              "A one-drug company",
+              "Almost all revenue comes from Briumvi in one country.",
+              "TG is running Phase 2 programs in myasthenia gravis and treatment-resistant schizophrenia, plus azer-cel, a cell therapy for autoimmune disease."
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "growth",
+      "nav": "Growth",
+      "title": "Growth",
+      "lede": "Briumvi took less than four years to go from launch to about $900M of US sales. Growth is still above 50% but is slowing as the base gets larger.",
+      "blocks": [
+        {
+          "type": "bars",
+          "tabs": [
+            {
+              "label": "Briumvi US sales, annual",
+              "fmt": "usdM",
+              "note": "US$ millions. 2023–2025 are approximate reported totals (≈). The 2026 bar is the midpoint of the raised $915–920M guidance.",
+              "data": [
+                [
+                  "2023",
+                  89,
+                  "First full launch year",
+                  1
+                ],
+                [
+                  "2024",
+                  310,
+                  "Approx. reported",
+                  1
+                ],
+                [
+                  "2025",
+                  570,
+                  "Approx. reported",
+                  1
+                ],
+                [
+                  "2026 guide",
+                  917,
+                  "Midpoint of $915–920M"
+                ]
+              ]
+            },
+            {
+              "label": "Briumvi US sales, quarterly",
+              "fmt": "usdM",
+              "note": "US$ millions. The 2025 quarters are derived from the reported growth rates, so they're marked ≈.",
+              "data": [
+                [
+                  "Q2 2025",
+                  139,
+                  "Derived from +64% YoY",
+                  1
+                ],
+                [
+                  "Q3 2025",
+                  153,
+                  "Derived from +52% YoY",
+                  1
+                ],
+                [
+                  "Q2 2026",
+                  227.7,
+                  "+64% YoY"
+                ],
+                [
+                  "Q3 2026",
+                  232.6,
+                  "+52% YoY"
+                ]
+              ]
+            },
+            {
+              "label": "YoY growth",
+              "fmt": "pct",
+              "note": "Year-over-year growth in Briumvi US net sales.",
+              "data": [
+                [
+                  "Q2 2026",
+                  64,
+                  "US sales $227.7M"
+                ],
+                [
+                  "Q3 2026",
+                  52,
+                  "US sales $232.6M"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "type": "row",
+          "items": [
+            {
+              "type": "facts",
+              "eyebrow": "Q3 2026 snapshot",
+              "items": [
+                [
+                  "Total global revenue",
+                  "$259.9M, ahead of the ~$245–247M consensus"
+                ],
+                [
+                  "Briumvi US net sales",
+                  "$232.6M (+52%)"
+                ],
+                [
+                  "EPS",
+                  "$0.35"
+                ],
+                [
+                  "Share buyback",
+                  "About $100M in Q3"
+                ],
+                [
+                  "Stock reaction",
+                  "+5.9% after earnings"
+                ]
+              ]
+            },
+            {
+              "type": "facts",
+              "eyebrow": "2026 guidance (raised Nov 2026)",
+              "items": [
+                [
+                  "Global revenue",
+                  "About $1B (was about $950M)"
+                ],
+                [
+                  "Briumvi US net sales",
+                  "$915–920M (was $890–905M)"
+                ],
+                [
+                  "Subcutaneous Phase 3",
+                  "Topline at year-end 2026 or 1Q 2027"
+                ],
+                [
+                  "Subcutaneous launch target",
+                  "2028"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "html": "<b>Watch-out:</b> growth fell from 64% to 52% in one quarter. The market is now valuing TG on how long Briumvi can keep taking share, and on whether a subcutaneous version can defend it once Ocrevus faces biosimilars later this decade."
+        }
+      ]
+    },
+    {
+      "id": "stock",
+      "nav": "Stock",
+      "title": "Stock trajectory",
+      "lede": "Few stocks have had a round trip like this. TG rose to about $48 on the Ukoniq approval, fell to about $4 when the cancer program collapsed, and climbed more than fifteen-fold on Briumvi. Hover over the line, switch to the S&P 500 comparison, or click an event.",
+      "blocks": [
+        {
+          "type": "price",
+          "events": [
+            [
+              "2021-02-05",
+              "Ukoniq approved",
+              "Accelerated approval in two lymphomas. The stock was near its high."
+            ],
+            [
+              "2022-04-15",
+              "Cancer program pulled",
+              "Overall-survival concerns: TG withdraws its applications and Ukoniq."
+            ],
+            [
+              "2022-06-30",
+              "The bottom",
+              "About $4, down roughly 90% from the peak."
+            ],
+            [
+              "2022-12-28",
+              "Briumvi approved",
+              "The FDA approves it for relapsing MS, and the turnaround begins."
+            ],
+            [
+              "2026-02-27",
+              "Early-2026 guidance dip",
+              "Initial 2026 guidance trailed consensus despite projected growth of about 54%, and the stock fell into the $20s."
+            ],
+            [
+              "2026-11-10",
+              "Q3 beat, $1B guide",
+              "Shares rose about 6% on the raised guidance."
+            ]
+          ],
+          "note": "Month-end closing prices from Yahoo Finance, with the last point at the latest close. Event dots sit on the nearest month-end. This is not investment advice."
+        }
+      ]
+    },
+    {
+      "id": "market",
+      "nav": "Market",
+      "title": "The MS market & pipeline",
+      "lede": "Anti-CD20 antibodies, which deplete the B cells that drive MS attacks, have become the leading high-efficacy treatment for relapsing MS. Three drugs compete, and convenience is now the main battleground.",
+      "blocks": [
+        {
+          "type": "segments",
+          "items": [
+            {
+              "title": "Briumvi (TG)",
+              "big": "1 hour",
+              "sub": "infusion, twice a year after the first doses",
+              "color": "var(--acc)",
+              "text": "TG's MS drug has the shortest infusion in the class. It is popular with infusion centers and patients who don't want monthly shots.",
+              "pills": [
+                [
+                  "g",
+                  "+52% growth"
+                ],
+                [
+                  "w",
+                  "Infusion only, for now"
+                ]
+              ]
+            },
+            {
+              "title": "Ocrevus (Roche)",
+              "big": "Leader",
+              "sub": "the incumbent anti-CD20",
+              "color": "var(--s1)",
+              "text": "The category's original blockbuster, with an infused version and a subcutaneous version.",
+              "pills": [
+                [
+                  "w",
+                  "Sales still growing"
+                ]
+              ],
+              "more": "Biosimilar competition to Ocrevus later in the decade could pressure prices across the class."
+            },
+            {
+              "title": "Kesimpta (Novartis)",
+              "big": "Monthly",
+              "sub": "self-injection at home",
+              "color": "var(--s2)",
+              "text": "Its home self-injection gives Novartis a format advantage that TG doesn't yet have.",
+              "pills": [
+                [
+                  "w",
+                  "Sales still growing"
+                ]
+              ]
+            },
+            {
+              "title": "Subcutaneous Briumvi",
+              "big": "Phase 3",
+              "sub": "topline at year-end 2026 or 1Q 2027",
+              "color": "var(--s3)",
+              "text": "This is TG's answer to the format gap. Pharmacokinetic modeling supports quarterly dosing, and the launch target is 2028.",
+              "pills": [
+                [
+                  "g",
+                  "Key catalyst"
+                ]
+              ]
+            },
+            {
+              "title": "Beyond MS",
+              "big": "3 programs",
+              "sub": "myasthenia gravis · schizophrenia · azer-cel",
+              "color": "var(--ink-3)",
+              "text": "These are Phase 2 work in generalized myasthenia gravis and treatment-resistant schizophrenia, plus azer-cel, a cell therapy for autoimmune disease.",
+              "pills": [
+                [
+                  "w",
+                  "Early stage"
+                ]
+              ],
+              "more": "Kyverna's KYV-101 is an emerging rival to azer-cel in MS, though its early data come from only a handful of patients."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "priorities",
+      "nav": "Priorities",
+      "title": "What the company prizes",
+      "lede": "TG's strategy since 2022 has been narrow: win in B-cell therapy for MS, then use the cash it generates for new formats, new indications and buybacks. Tap a priority to see how it shows up in practice.",
+      "blocks": [
+        {
+          "type": "values",
+          "label": "Priority",
+          "items": [
+            [
+              "Convenience as the competitive edge",
+              "Compete on patient and clinic time, not just efficacy.",
+              "Briumvi's one-hour infusion, and a subcutaneous version modeled for quarterly dosing."
+            ],
+            [
+              "Focus",
+              "Put everything behind the program that works.",
+              "After 2022 TG dropped oncology entirely and concentrated on MS."
+            ],
+            [
+              "Execution against bigger rivals",
+              "Win infusion centers and neurologists one at a time.",
+              "US sales went from about $89M in 2023 to a guided $915–920M in 2026."
+            ],
+            [
+              "Expanding B-cell biology",
+              "Use what it knows about B cells in other immune diseases.",
+              "Phase 2 programs in myasthenia gravis and schizophrenia, and azer-cel."
+            ],
+            [
+              "Shareholder returns",
+              "Return cash once the business is self-funding.",
+              "It bought back about $100M of stock in Q3 2026."
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "radar",
+      "nav": "13F view",
+      "title": "Why it's on the radar: the 13F view",
+      "lede": "TGTX made the Insights tab because 8 of the tracked funds hold it, four as conviction positions, and it has the strongest six-month return of the three stock picks.",
+      "blocks": [
+        {
+          "type": "radar",
+          "html": "<b>Big buyers in Q2 2026:</b> D. E. Shaw lifted its stake to about $187M and Two Sigma to about $136M, each roughly tripling in value. Bridgewater holds it at about 0.10% of its book, one of its larger healthcare weights in this dataset."
+        }
+      ]
+    },
+    {
+      "id": "outlook",
+      "nav": "Outlook",
+      "title": "Future outlook: opportunities & risks",
+      "lede": "Analysts are split more sharply on TG than on the other picks. Targets range from $20 to $86, and the stock trades above the consensus. The key questions are how long Briumvi can keep gaining share and whether the subcutaneous trial succeeds.",
+      "blocks": [
+        {
+          "type": "targets",
+          "avg": 51.45,
+          "items": [
+            [
+              "B. Riley",
+              86,
+              "Raised from $55 · Jul 27, 2026"
+            ],
+            [
+              "HC Wainwright",
+              77,
+              "Raised from $70 · Jul 2026"
+            ],
+            [
+              "JPMorgan",
+              72,
+              "Raised from $65 · Aug 7, 2026"
+            ],
+            [
+              "Bank of America",
+              20,
+              "Underperform · raised from $17"
+            ]
+          ],
+          "note": "Benzinga's consensus was about $51.45 as of Oct 22, 2026, and Google Finance's 3-month average was about $59.43. Walnut's July 2026 count was 7 Buy, 0 Hold and 1 Sell. Targets were set on different dates in 2026."
+        },
+        {
+          "type": "oppRisk",
+          "opp": [
+            [
+              "Subcutaneous Briumvi",
+              "A successful Phase 3 would close the format gap with Kesimpta and Ocrevus and could support quarterly at-home dosing from 2028."
+            ],
+            [
+              "Continued share gains",
+              "Growth of 50%+ shows Briumvi is still taking patients, both new starts and switches."
+            ],
+            [
+              "Profitability + buybacks",
+              "A self-funding business can return cash. TG bought back about $100M in Q3."
+            ],
+            [
+              "Ex-US royalties",
+              "The European partnership adds revenue without TG building its own sales force there."
+            ],
+            [
+              "Pipeline optionality",
+              "Myasthenia gravis, schizophrenia and azer-cel could each add a second leg."
+            ],
+            [
+              "M&A appeal",
+              "A profitable, growing neurology franchise could interest larger drug makers."
+            ]
+          ],
+          "risk": [
+            [
+              "Single-product risk",
+              "Almost all revenue comes from one drug in one country."
+            ],
+            [
+              "Format competition",
+              "Kesimpta's self-injection and subcutaneous Ocrevus target patients who prefer to avoid infusions."
+            ],
+            [
+              "Biosimilars & pricing",
+              "Eventual Ocrevus biosimilars and Medicare price negotiation could compress prices across the class."
+            ],
+            [
+              "Trial risk",
+              "A subcutaneous Phase 3 miss would hurt the long-term story."
+            ],
+            [
+              "Slowing growth",
+              "Growth fell from 64% to 52% in a quarter, and the rate of slowdown drives the valuation."
+            ],
+            [
+              "Valuation gap",
+              "The stock trades above the consensus target, and BofA's $20 target implies about 70% downside."
+            ]
+          ]
+        },
+        {
+          "type": "bullbear",
+          "items": [
+            [
+              "Bear case (BofA $20)",
+              "Briumvi growth fades as the subcutaneous rivals and later biosimilars arrive. The subcutaneous trial disappoints and the pipeline is too early to fill the gap."
+            ],
+            [
+              "Cautious (consensus ~$51)",
+              "Briumvi is a good franchise, but the price already assumes a lot. Fair value is closer to $50 until the subcutaneous data are in."
+            ],
+            [
+              "Middle (~$60)",
+              "US sales pass $1B in 2027, buybacks continue, and the subcutaneous trial succeeds, but the competition limits the multiple."
+            ],
+            [
+              "Constructive (JPM $72, HCW $77)",
+              "Subcutaneous success plus share gains drive several more years of double-digit growth and strong margins."
+            ],
+            [
+              "Bull case (B. Riley $86)",
+              "Briumvi becomes the anti-CD20 of choice in both formats, a pipeline program works, and TG becomes a takeover target."
+            ]
+          ]
+        },
+        {
+          "type": "catalysts",
+          "items": [
+            [
+              "YE 2026 / 1Q 2027",
+              "Subcutaneous Briumvi Phase 3 topline",
+              "The biggest binary event: success defends the franchise against home-dosing rivals."
+            ],
+            [
+              "~Feb / Mar 2027",
+              "Q4 results and 2027 guidance",
+              "This sets growth expectations for Briumvi's fifth year."
+            ],
+            [
+              "2027",
+              "Subcutaneous BLA filing",
+              "Needed for the targeted 2028 launch."
+            ],
+            [
+              "2027",
+              "Phase 2 data: myasthenia gravis, schizophrenia, azer-cel",
+              "The first evidence of a second product."
+            ],
+            [
+              "Ongoing",
+              "Buybacks",
+              "The pace of repurchases signals management's confidence."
+            ]
+          ]
+        },
+        {
+          "type": "callout",
+          "html": "This summarizes published analyst and media views. It is not investment advice."
+        }
+      ]
+    }
+  ],
+  "sources": [
+    [
+      [
+        "TG Therapeutics Q3 2026 results (SEC 8-K)",
+        "https://www.sec.gov/Archives/edgar/data/0001001316/000162828026071870/q3-26earningsprxexx991.htm"
+      ],
+      [
+        "Stocktwits: CEO sees >$1B 2026 revenue",
+        "https://stocktwits.com/news-articles/markets/equity/tg-therapeutics-ceo-sees-global-revenue-exceeding-1b-in-2026-briumvi-sales-q3/cNGrO9jR9eH"
+      ],
+      [
+        "Q3 2026 call transcript",
+        "https://www.mitrade.com/insights/news/live-news/article-8-2243369-20261110"
+      ],
+      [
+        "Webull: Q3 call transcript",
+        "https://www.webull.com/news/15894292795158528"
+      ]
+    ],
+    [
+      [
+        "BioSpace: FDA pulls approval for Ukoniq",
+        "https://www.biospace.com/fda-pulls-approval-for-tg-therapeutics-cancer-drug"
+      ],
+      [
+        "BioPharma Dive: TG withdraws Ukoniq",
+        "https://www.biopharmadive.com/news/tg-ukoniq-withdraw-application-sale-fda/622214/"
+      ],
+      [
+        "Federal Register: Ukoniq withdrawal",
+        "https://www.govinfo.gov/content/pkg/FR-2022-05-31/pdf/2022-11631.pdf"
+      ]
+    ],
+    [
+      [
+        "Zacks: Briumvi strength",
+        "https://www.zacks.com/stock/news/2947554/will-briumvi-s-strength-continue-to-aid-tgtx-s-top-line-in-q2"
+      ],
+      [
+        "GlobalData: next battleground for anti-CD20s",
+        "https://www.globaldata.com/media/pharma/real-world-data-point-to-patient-experience-as-next-battleground-for-anti-cd20-therapies-in-rms-says-globaldata/"
+      ],
+      [
+        "Seeking Alpha: slowing growth and new competition",
+        "https://seekingalpha.com/article/4845298-tg-therapeutics-concerns-about-slowing-growth-and-new-competition"
+      ],
+      [
+        "Panabee: 2026 guidance vs consensus",
+        "https://www.panabee.com/news/tg-therapeutics-earnings-q4-2025"
+      ]
+    ],
+    [
+      [
+        "Benzinga: price targets",
+        "https://www.benzinga.com/quote/TGTX/price-targets"
+      ],
+      [
+        "MarketBeat: forecast",
+        "https://www.marketbeat.com/stocks/NASDAQ/TGTX/forecast/"
+      ],
+      [
+        "MarketBeat: HC Wainwright raises target",
+        "https://www.marketbeat.com/instant-alerts/hc-wainwright-forecasts-strong-price-appreciation-for-tg-therapeutics-nasdaqtgtx-stock-2026-07-13/"
+      ],
+      [
+        "Walnut: TGTX forecast",
+        "https://walnutinvest.com/stocks/tgtx/forecast"
+      ],
+      [
+        "Stocktwits: target hike and schizophrenia trial",
+        "https://stocktwits.com/news-articles/markets/equity/tgtx-stock-rises-on-wall-street-price-target-hike-new-schizophrenia-trial-launch/cZmlHmHR7ZZ"
+      ]
+    ]
+  ],
+  "glossary": [
+    [
+      "Disease",
+      "Multiple sclerosis (MS)",
+      "An autoimmune disease in which the immune system attacks the protective coating of nerves, causing relapses and disability."
+    ],
+    [
+      "Disease",
+      "Relapsing MS (RMS)",
+      "Forms of MS with distinct attacks followed by partial or full recovery. Briumvi is approved for these."
+    ],
+    [
+      "Disease",
+      "Myasthenia gravis",
+      "An autoimmune disease that causes muscle weakness. TG is testing B-cell therapy in it."
+    ],
+    [
+      "Disease",
+      "CLL",
+      "Chronic lymphocytic leukemia, the blood cancer TG's first program targeted."
+    ],
+    [
+      "Science",
+      "B cell",
+      "An immune cell that makes antibodies. B cells are thought to drive MS attacks."
+    ],
+    [
+      "Science",
+      "Anti-CD20",
+      "An antibody that targets CD20 on B cells and depletes them. Briumvi, Ocrevus and Kesimpta all work this way."
+    ],
+    [
+      "Science",
+      "Ublituximab",
+      "The anti-CD20 antibody sold as Briumvi."
+    ],
+    [
+      "Science",
+      "Umbralisib (Ukoniq)",
+      "TG's oral PI3K-delta inhibitor for lymphoma. It was withdrawn in 2022."
+    ],
+    [
+      "Science",
+      "PI3K-delta inhibitor",
+      "A class of cancer pills that block a signaling enzyme. The FDA tightened its scrutiny of the class in 2022."
+    ],
+    [
+      "Science",
+      "CAR-T / cell therapy",
+      "Immune cells engineered to attack a target. Azer-cel is TG's version for autoimmune disease."
+    ],
+    [
+      "Science",
+      "Subcutaneous (SC)",
+      "Given as an injection under the skin, often at home, instead of an IV infusion."
+    ],
+    [
+      "Science",
+      "Pharmacokinetics (PK)",
+      "How a drug is absorbed and cleared. PK modeling supports TG's quarterly subcutaneous dosing plan."
+    ],
+    [
+      "Drugs",
+      "Briumvi",
+      "TG's anti-CD20 MS drug. It is given as a one-hour infusion twice a year after the first doses."
+    ],
+    [
+      "Drugs",
+      "Ocrevus",
+      "Roche's anti-CD20 MS drug (ocrelizumab), the category leader."
+    ],
+    [
+      "Drugs",
+      "Kesimpta",
+      "Novartis's anti-CD20 MS drug (ofatumumab), a monthly self-injection."
+    ],
+    [
+      "Drugs",
+      "BTK inhibitor",
+      "An oral drug class in MS development. Analysts see it competing mostly with other pills rather than with anti-CD20 drugs."
+    ],
+    [
+      "Drugs",
+      "Biosimilar",
+      "A near-copy of a biologic drug that arrives after the original's exclusivity ends."
+    ],
+    [
+      "Regulatory",
+      "FDA",
+      "The US Food and Drug Administration, which approves drugs."
+    ],
+    [
+      "Regulatory",
+      "Accelerated approval",
+      "An early FDA approval based on surrogate data. It can be withdrawn if confirmatory trials fail, as happened with Ukoniq."
+    ],
+    [
+      "Regulatory",
+      "BLA",
+      "Biologics License Application: the filing that asks the FDA to approve a biologic drug."
+    ],
+    [
+      "Regulatory",
+      "PDUFA date",
+      "The FDA's target date for deciding on an application."
+    ],
+    [
+      "Trials",
+      "Phase 2 / Phase 3",
+      "Mid-stage and late-stage trials. Phase 3 results support an approval filing."
+    ],
+    [
+      "Trials",
+      "Topline data",
+      "The first headline results of a trial, before the full data set."
+    ],
+    [
+      "Trials",
+      "Overall survival",
+      "How long patients live. Concerns about it led to Ukoniq's withdrawal."
+    ],
+    [
+      "Trials",
+      "Active comparator",
+      "A trial that compares a drug with an existing treatment rather than a placebo. ULTIMATE compared ublituximab with teriflunomide."
+    ],
+    [
+      "Stock",
+      "Net product revenue",
+      "Sales after discounts, rebates and returns."
+    ],
+    [
+      "Stock",
+      "Buyback",
+      "A company buying its own shares, which reduces the share count."
+    ],
+    [
+      "Stock",
+      "Price target",
+      "An analyst's estimate of where the stock will trade in about 12 months."
+    ],
+    [
+      "Stock",
+      "Binary event",
+      "A single result, such as trial data or an FDA decision, that can move a stock sharply either way."
+    ],
+    [
+      "13F",
+      "13F filing",
+      "A quarterly SEC report in which investment managers with over $100M list their US-listed long equity positions."
+    ],
+    [
+      "13F",
+      "Conviction position",
+      "In this dashboard, a holding that is at least 0.05% of a fund's 13F long book."
+    ],
+    [
+      "13F",
+      "Radar score",
+      "This dashboard's pick score: 45% performance, 35% under-the-radar breadth and 20% accumulation, each a percentile."
+    ]
+  ]
+}

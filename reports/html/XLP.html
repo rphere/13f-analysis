@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Consumer Staples Select Sector SPDR Research Report</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+/* Layout: sticky chapter nav, solid-accent hero with KPI tiles, then numbered chapters of cards and SVG charts (same structure as the Nubank report). */
+:root{
+  --acc:#15803d; --acc-ink:#ffffff; --hero:#123d24;
+  --ink:#15171c; --ink-2:#4a4f5a; --ink-3:#7d8390;
+  --bg:#f7f8f9; --card:#ffffff; --line:#e3e6ea; --grid:#eef0f3;
+  --acc-soft:color-mix(in srgb,var(--acc) 12%,var(--card));
+  --s1:#2a78d6; --s2:#e0663a; --s3:#1a9e73; --good:#1a8f4c; --warn:#b97800; --bad:#c2410c;
+  --display:Manrope,"Segoe UI",system-ui,sans-serif; --body:"IBM Plex Sans",system-ui,-apple-system,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){ --acc:#5fd38d; --ink:#eef0f3; --ink-2:#c0c5ce; --ink-3:#8c93a0;
+    --bg:#121417; --card:#1b1e23; --line:#2e333b; --grid:#262a31; --s1:#4a93e8; --s2:#e8794e; --s3:#2bb487; --good:#3cb371; --warn:#e0a32a; --bad:#f07b4a; color-scheme:dark;}
+}
+:root[data-theme="dark"]{ --acc:#5fd38d; --ink:#eef0f3; --ink-2:#c0c5ce; --ink-3:#8c93a0;
+  --bg:#121417; --card:#1b1e23; --line:#2e333b; --grid:#262a31; --s1:#4a93e8; --s2:#e8794e; --s3:#2bb487; --good:#3cb371; --warn:#e0a32a; --bad:#f07b4a; color-scheme:dark;}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{margin:0;font-family:var(--body);background:var(--bg);color:var(--ink);line-height:1.55;font-size:16px}
+h1,h2,h3,h4{font-family:var(--display);text-wrap:balance}
+a{color:var(--acc)}
+:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+nav{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav .in{max-width:1080px;margin:0 auto;display:flex;gap:4px;overflow-x:auto;padding:10px 16px}
+nav a{white-space:nowrap;text-decoration:none;color:var(--ink-2);font-size:13px;font-weight:500;padding:6px 10px;border-radius:999px}
+nav a.on,nav a:hover{background:var(--acc-soft);color:var(--acc)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px 80px}
+header.hero{background:var(--hero);color:#fff;padding:48px 16px 40px}
+header.hero .in{max-width:1080px;margin:0 auto}
+.hero .eyebrow{color:rgba(255,255,255,.75)}
+.hero h1{font-size:clamp(30px,5vw,48px);margin:4px 0 8px;letter-spacing:-.02em;line-height:1.1}
+.hero p{margin:0;max-width:680px;opacity:.92;font-size:17px}
+.stamp{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.stamp span{font-size:12px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:4px 10px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:24px}
+.kpi{background:rgba(255,255,255,.11);border:1px solid rgba(255,255,255,.2);border-radius:12px;padding:14px}
+.kpi b{display:block;font-family:var(--display);font-size:24px;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+.kpi span{font-size:12px;opacity:.85}
+section{padding-top:56px;scroll-margin-top:60px}
+h2{font-size:28px;letter-spacing:-.01em;margin:0 0 6px}
+.lede{color:var(--ink-2);margin:0 0 22px;max-width:70ch}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+.stack{display:grid;gap:16px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--acc)}
+.founder{display:flex;gap:14px;align-items:flex-start}
+.av{flex:none;width:48px;height:48px;border-radius:50%;background:var(--acc);color:var(--acc-ink);display:grid;place-items:center;font-weight:700;font-family:var(--display)}
+.founder h4{margin:0;font-size:16px}.founder p{margin:4px 0 0;font-size:14px;color:var(--ink-2)}
+.note{font-size:12px;color:var(--ink-3)}
+.tl{display:flex;overflow-x:auto;padding:8px 0 4px}
+.tl button{flex:1 0 104px;background:none;border:0;cursor:pointer;padding:28px 6px 8px;position:relative;color:var(--ink-2);font:inherit;font-size:13px;text-align:center}
+.tl button::before{content:"";position:absolute;top:12px;left:0;right:0;height:3px;background:var(--line)}
+.tl button::after{content:"";position:absolute;top:6px;left:50%;width:15px;height:15px;margin-left:-7.5px;border-radius:50%;background:var(--card);border:3px solid var(--acc)}
+.tl button.on{color:var(--acc);font-weight:700}
+.tl button.on::after{background:var(--acc)}
+.tl-detail{margin-top:10px;min-height:96px}
+.tl-detail h3{margin:0 0 4px;font-size:18px}
+.ch{cursor:pointer;transition:transform .15s;text-align:left;font:inherit;color:inherit;width:100%}
+.ch:hover{transform:translateY(-2px)}
+.ch .tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+.ch h4{margin:6px 0 4px;font-size:16px}
+.ch p{margin:0;font-size:14px;color:var(--ink-2)}
+.ch .more{display:none;margin-top:10px;font-size:14px;border-top:1px dashed var(--line);padding-top:10px;color:var(--ink)}
+.ch.open .more{display:block}
+.ch .hint{font-size:12px;color:var(--acc);margin-top:8px}
+.tabs{display:inline-flex;flex-wrap:wrap;background:var(--grid);border-radius:999px;padding:3px;margin-bottom:12px}
+.tabs button{border:0;background:none;padding:6px 14px;border-radius:999px;font:inherit;font-size:13px;cursor:pointer;color:var(--ink-2)}
+.tabs button.on{background:var(--card);color:var(--ink);font-weight:600;box-shadow:0 1px 3px rgba(0,0,0,.12)}
+svg text{fill:var(--ink-3);font-size:11px;font-family:var(--body);font-variant-numeric:tabular-nums}
+svg .val{fill:var(--ink);font-weight:600}
+.chartbox{position:relative}
+.tip{position:absolute;pointer-events:none;background:var(--ink);color:var(--bg);font-size:12px;padding:7px 10px;border-radius:8px;opacity:0;transition:opacity .1s;z-index:20;max-width:280px}
+.tip b{display:block;font-size:13px}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--ink-2);margin-top:8px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.evlist{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin-top:14px}
+.ev{border:1px solid var(--line);border-radius:12px;padding:10px 12px;font-size:13px;cursor:pointer;background:var(--card);text-align:left;font-family:inherit;color:var(--ink-2)}
+.ev b{display:block;color:var(--ink)}
+.ev .p{font-weight:700;color:var(--acc);font-variant-numeric:tabular-nums}
+.ev.on{border-color:var(--acc);background:var(--acc-soft)}
+.seg{border-top:4px solid var(--c,var(--acc))}
+.seg .big{font-family:var(--display);font-size:30px;font-weight:800;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.pill{display:inline-block;font-size:11px;font-weight:600;padding:3px 8px;border-radius:999px;background:var(--grid);color:var(--ink-2);margin:2px 4px 2px 0}
+.pill.g{background:color-mix(in srgb,var(--good) 16%,transparent);color:var(--good)}
+.pill.w{background:color-mix(in srgb,var(--warn) 18%,transparent);color:var(--warn)}
+.val-card{text-align:left;cursor:pointer;border:1px solid var(--line);background:var(--card);border-radius:14px;padding:16px;font:inherit;color:inherit}
+.val-card .n{font-size:13px;font-weight:700;color:var(--acc)}
+.val-card h4{margin:6px 0 0;font-size:16px;line-height:1.3}
+.val-card.on{background:var(--acc);color:var(--acc-ink);border-color:var(--acc)}
+.val-card.on .n{color:var(--acc-ink)}
+.callout{border-left:4px solid var(--acc);background:var(--acc-soft);padding:14px 16px;border-radius:0 12px 12px 0;font-size:15px}
+.tblwrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:13px;font-variant-numeric:tabular-nums}
+td,th{padding:7px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{color:var(--ink-3);font-weight:600}
+td.r,th.r{text-align:right}
+details summary{cursor:pointer;color:var(--acc);font-size:13px;margin-top:10px}
+.src li{font-size:13px;margin-bottom:4px}
+.meter{height:8px;background:var(--grid);border-radius:999px;overflow:hidden;margin-top:6px}
+.meter div{height:100%;background:var(--acc)}
+.sig{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px}
+.sig b{font-family:var(--display);font-size:22px;font-variant-numeric:tabular-nums}
+input[type=range]{width:100%;accent-color:var(--acc);margin:12px 0 4px}
+input[type=search]{width:100%;padding:10px 14px;border:1px solid var(--line);border-radius:12px;font:inherit;background:var(--bg);color:var(--ink);margin-bottom:12px}
+.gitem{border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+footer{border-top:1px solid var(--line);margin-top:56px;padding-top:16px}
+</style>
+</head>
+<body>
+<nav aria-label="Chapters"><div class="in" id="nav"></div></nav>
+<header class="hero" id="overview"><div class="in" id="hero"></div></header>
+<div class="wrap" id="main"></div>
+<div class="tip" id="tip" role="tooltip"></div>
+
+<script>
+const R = {"title": "Consumer Staples Select Sector SPDR Research Report", "name": "Consumer Staples Select Sector SPDR ETF", "exchange": "NYSE Arca", "accent": "#15803d", "accent_dark": "#5fd38d", "hero": "#123d24", "price_start": "2019-01-01", "tagline": "XLP is the low-cost, defensive classic: the S&P 500's grocery, household-goods, beverage and tobacco companies, led by Walmart, Costco, Coca-Cola and Procter & Gamble. After years of lagging, it has had a strong 2026, even as investors pulled money out of it.", "kpis": [["0.08%", "expense ratio"], ["+18%", "YTD return (Oct 22, 2026)"], ["−$1.75B", "YTD net outflows (Oct 22, 2026)"], ["~33%", "in Walmart, Costco, Coca-Cola, P&G"], ["7 funds", "tracked 13F holders (Q2 2026)"]], "chapters": [{"id": "about", "nav": "What it is", "title": "What XLP is and where it came from", "lede": "XLP launched in December 1998 as one of the original Select Sector SPDRs, which split the S&P 500 into sector funds. It holds the S&P 500's consumer staples companies, about 37 of them, with weights capped for diversification. It is one of the cheapest and most heavily traded sector ETFs, which is why big funds use it.", "blocks": [{"type": "timeline", "start": 8, "items": [["Dec 1998", "Launch", "State Street launches the Select Sector SPDRs, including XLP, to slice the S&P 500 by sector."], ["2000–02", "Dot-com bust", "Staples hold up while tech collapses, which establishes their defensive reputation."], ["2008", "Financial crisis", "Staples fall far less than the market. People keep buying toothpaste."], ["2010s", "Bond proxies", "With rates near zero, investors buy staples for their dividends, and valuations climb."], ["2018–19", "Brand pressure", "Private labels and online upstarts squeeze big food and household brands."], ["2022", "Inflation hedge", "Staples outperform as the market falls and brands push through price increases."], ["2023–25", "GLP-1 & volume worries", "Weight-loss drugs, price fatigue and tariff fears weigh on packaged-food volumes, and staples lag the AI-led market."], ["Aug 2026", "Holdings snapshot", "Walmart is about 9.7%, Costco about 8.9%, Coca-Cola about 7.4% and P&G about 7.1%. Target is up about 67% YTD while Walmart is down about 5%."], ["Oct–Nov 2026", "Late-year surge", "XLP goes from +6.6% YTD in September to about +18% by late October as investors move toward defensives."]]}, {"type": "facts", "eyebrow": "Fund facts", "items": [["Issuer", "State Street (SPDR)"], ["Index", "Consumer Staples Select Sector Index (the S&P 500's staples stocks, capped)"], ["Expense ratio", "0.08%"], ["Holdings", "About 37"], ["Use by institutions", "Very liquid, often used for hedging, pair trades and defensive tilts"], ["Name", "Now marketed as the State Street Consumer Staples Select Sector SPDR ETF"]]}]}, {"id": "inside", "nav": "What's inside", "title": "What's inside", "lede": "XLP is about one-third retailers (Walmart, Costco and Target) and two-thirds brands: beverages, household products, food and tobacco. In 2026 those two groups have moved very differently.", "blocks": [{"type": "row", "items": [{"type": "hbars", "eyebrow": "Top holdings (% of fund, Aug 24, 2026)", "fmt": "pct1", "max": 12, "items": [["Walmart", 9.7, "Retail; down about 5% YTD at the snapshot"], ["Costco", 8.9, "Membership warehouse retail"], ["Coca-Cola", 7.4, "Beverages"], ["Procter & Gamble", 7.1, "Household & personal care"]], "note": "Schwab snapshot, Aug 24, 2026. Weights change with prices and quarterly rebalances."}, {"type": "segments", "items": [{"title": "Retailers vs. brands", "big": "+67% vs −5%", "sub": "Target vs. Walmart YTD (Aug 2026)", "color": "var(--s2)", "text": "Returns inside the sector have varied widely, so stock-level results drive the fund more than a single sector story would suggest.", "pills": [["w", "Wide dispersion"]]}]}]}, {"type": "callout", "html": "<b>Why funds hold XLP:</b> at 0.08% and with deep liquidity, it is a cheap way to add or hedge defensive exposure. That is why quant and multi-strategy funds dominate its 13F holders."}]}, {"id": "returns", "nav": "Year by year", "title": "Year by year", "lede": "Staples rarely win a bull market, but they usually lose less in bad years. 2022 is the classic example.", "blocks": [{"type": "annual", "note": "Calendar-year price change from month-end closes, without dividends. Hover over a bar to see the S&P 500 (SPY) return for the same year. The current year is year-to-date."}]}, {"id": "stock", "nav": "Price", "title": "Price trajectory", "lede": "XLP's chart rises slowly and steadily, with small drawdowns. The steep part at the end is the late-2026 move into defensives. Switch to the S&P 500 comparison to see how far behind the AI-led market staples fell before that.", "blocks": [{"type": "price", "events": [["2020-03-31", "COVID dip", "A shallow drawdown, since people still bought groceries."], ["2022-12-30", "Defensive year", "Staples beat a falling market in 2022."], ["2024-12-31", "Lagging the AI boom", "Staples trail the S&P 500 badly through 2023–24."], ["2026-09-30", "+6.6% YTD", "A modest year through September."], ["2026-10-30", "Defensive surge", "About +18% YTD by late October."]], "note": "Month-end closing prices from Yahoo Finance, not adjusted for dividends, with the last point at the latest close. This is not investment advice."}]}, {"id": "macro", "nav": "The macro story", "title": "What drives it: the macro story", "lede": "Staples are supposed to be boring. This cycle has instead brought weight-loss drugs, tariffs and a sector valuation near a ten-year low. Tap a card for the current read on each.", "blocks": [{"type": "cards", "hint": "Tap for the 2026 read", "items": [["Demand", "GLP-1 weight-loss drugs", "People taking GLP-1s eat and snack less, which hurts packaged-food and beverage volumes.", "TD Cowen called GLP-1 expansion the most obvious headwind to accelerate in 2026. RBC says the drugs are reshaping categories."], ["Trade", "Tariffs", "Staples face less direct tariff impact than most sectors because they tend to produce where they sell.", "Franklin Templeton worries more about second-order effects, where a new round of tariffs rekindles inflation. Some farm-product tariffs were rolled back."], ["Valuation", "Near a 10-year low", "The sector's multiple relative to the market is near its lowest in a decade.", "Franklin Templeton sees limited downside from here. RBC notes the sector's premium to the S&P 500 has been eroding for over 20 years."], ["Pricing power", "Volumes vs. price", "After years of price increases, shoppers are trading down to private labels.", "Volume recovery is the key ask. Barron's called rekindling demand in 2026 'a tall order' for food makers."], ["Retail", "The winners are retailers", "Walmart and Costco gained share with value and scale, and Target rebounded sharply in 2026.", "Retailers now carry much of the index's return, so XLP is less of a pure brand play than it used to be."], ["Rotation", "Defensive demand", "When growth stocks wobble, investors move to staples.", "XLP's late-2026 rally came alongside YTD outflows of $1.75B. The price gain came from the holdings rallying, not from new money into the fund."]]}]}, {"id": "radar", "nav": "13F view", "title": "Why it's on the radar: the 13F view", "lede": "XLP made the Insights tab with 7 tracked holders, up from 5 a year earlier, and steady positive returns over every window. Its 13F story is about trading activity more than conviction.", "blocks": [{"type": "radar", "html": "<b>Huge swings, hedge-style:</b> Two Sigma held about $490M in Q3 2025, cut it to about $40M, and was back near $94M by Q2 2026. Millennium went from $18M to $265M and back to $27M. Swings like these are typical of hedge and pair-trade positions, so read the holder count as interest in the sector, not as stock-picking conviction."}]}, {"id": "outlook", "nav": "Outlook", "title": "Future outlook: opportunities & risks", "lede": "Strategists disagree on staples. Some see cheap valuations and a defensive hedge late in the cycle. Others see a structural volume problem from GLP-1s and private labels. Wells Fargo stays unfavorable, while Franklin Templeton is adding exposure.", "blocks": [{"type": "oppRisk", "opp": [["Cheap vs. history", "The sector's relative multiple is near a 10-year low, which Franklin Templeton says leaves limited downside."], ["Defensive hedge", "If the AI-led market corrects, staples historically lose much less, as in 2022."], ["Retail leaders", "Walmart and Costco keep taking share with scale and value."], ["Low tariff exposure", "Local production limits the direct tariff hit."], ["Very low cost", "At 0.08%, XLP is one of the cheapest ways to hold the sector."], ["Dividends", "Mature cash-generating companies with long dividend records."]], "risk": [["GLP-1 volume drag", "Analysts expect the weight-loss-drug effect on food and beverage volumes to persist."], ["Private-label trade-down", "Shoppers resisting brand price increases cap pricing power."], ["Second-order tariffs", "Broad new tariffs could revive inflation and squeeze margins."], ["Long-run de-rating", "RBC: the sector's valuation premium has been eroding for more than 20 years."], ["Outflows", "Investors pulled $1.75B YTD even as the price rose."], ["Lags in rallies", "When growth stocks lead, staples usually trail."]]}, {"type": "bullbear", "items": [["Bear case (Wells Fargo: unfavorable)", "GLP-1s and private labels keep volumes falling, brands lose pricing power, and the late-2026 rally fades."], ["Cautious", "Retailers keep winning but brands stagnate. XLP returns roughly its dividend."], ["Middle", "Staples act as a steady, low-volatility part of a portfolio, with mid-single-digit returns."], ["Constructive (Franklin Templeton)", "Cheap valuations plus a defensive rotation keep staples outperforming into 2027."], ["Bull case", "A broader market correction sends money into staples, and valuations return to their long-run premium."]]}, {"type": "catalysts", "items": [["Mid-Nov 2026", "Walmart and Target Q3 results", "Read-through on consumer health and retail share gains."], ["Dec 2026", "Costco November/December sales and Q1 FY27 results", "Costco is about 9% of the fund."], ["Early 2027", "Holiday-season retail data", "Volume trends for brands vs. private label."], ["Feb 2027", "CAGNY conference", "Staples companies set annual targets, the sector's main event."], ["Ongoing", "Tariff and inflation news", "Second-order inflation is the main macro risk."]]}, {"type": "callout", "html": "This summarizes published strategist and media views. It is not investment advice."}]}], "sources": [[["SSGA: XLP fund page", "https://www.ssga.com/us/en/individual/etfs/funds/consumer-staples-select-sector-spdr-fund-xlp"], ["StockAnalysis: XLP", "https://stockanalysis.com/etf/xlp/"], ["Schwab: XLP summary", "https://www.schwab.wallst.com/Prospect/Research/etfs/summary.asp?symbol=xlp"], ["ETF Central: XLP", "https://www.etfcentral.com/fund/XLP"], ["Fox Business: XLP quote", "https://www.foxbusiness.com/quote?stockTicker=XLP"]], [["RBC Capital Markets: The Great Recalibration", "https://www.rbccm.com/en/insights/2026/08/the-great-recalibration-what-comes-next-for-consumer-staples"], ["Franklin Templeton: ramping up on staples", "https://www.franklintempleton.com/articles/2026/equity/global-equity-pulse-ramping-up-on-consumer-staples"], ["Wells Fargo: CAGNY 2026 review", "https://saf.wellsfargoadvisors.com/emx/dctm/Research/ASG/Equity_Strategy/cagny_2026_consumer_staples_030526.pdf"]], [["Supermarket Perimeter: food outlook 2026", "https://www.supermarketperimeter.com/articles/13778-food-industry-outlook-improves-little-for-2026"], ["Barron's via Tiger: food makers need to rekindle demand", "https://www-web.itiger.com/news/2594224979"], ["Janus Henderson: ultra-processed to health-conscious", "https://www.janushenderson.com/en-gb/adviser/article/rethinking-food-the-shift-from-ultra-processed-to-health-conscious-choices/"], ["MarketBeat: staples giants showing strength", "https://www.marketbeat.com/articles/defensive-plays-3-consumer-staples-giants-showing-strength/"]]], "glossary": [["ETF", "ETF", "Exchange-traded fund: a basket of securities that trades on an exchange like a single stock."], ["ETF", "Select Sector SPDR", "State Street's family of ETFs that split the S&P 500 into its sectors."], ["ETF", "Expense ratio", "The annual fee as a share of assets. 0.08% costs 80 cents a year per $1,000 invested."], ["ETF", "Net flows", "Money added to minus money withdrawn from a fund. Outflows mean investors are selling shares back."], ["ETF", "Liquidity", "How easily large amounts trade without moving the price. XLP is very liquid."], ["ETF", "Capped weighting", "Limits on single-stock weights to meet diversification rules."], ["Sector", "Consumer staples", "Companies selling necessities such as food, drinks, household goods and tobacco, which people buy in good times and bad."], ["Sector", "Consumer discretionary", "Companies selling things people can put off buying, like cars and travel. It is the opposite of staples."], ["Sector", "Defensive sector", "A sector whose earnings hold up in downturns, such as staples, utilities or healthcare."], ["Sector", "Private label", "Store brands, like Costco's Kirkland, that compete with name brands on price."], ["Sector", "Pricing power", "The ability to raise prices without losing many customers."], ["Sector", "Volume vs. price/mix", "Sales growth from selling more units, as opposed to charging more or selling pricier products."], ["Sector", "GLP-1", "Weight-loss and diabetes drugs like Ozempic and Wegovy that reduce appetite."], ["Sector", "CAGNY", "The Consumer Analyst Group of New York conference, held each February, where staples companies set their targets."], ["Markets", "Rotation", "Investors moving money from one sector or style to another, for example from growth stocks to defensives."], ["Markets", "Bond proxy", "A stock bought mainly for steady dividends, so it trades partly like a bond."], ["Markets", "Relative valuation", "A sector's price-to-earnings multiple compared with the overall market's."], ["Markets", "De-rating", "When investors pay a lower multiple for the same earnings."], ["Markets", "Drawdown", "The percentage drop from a peak to a later low."], ["Markets", "Second-order effect", "An indirect impact, like tariffs raising inflation in general rather than a company's own costs."], ["Markets", "Hedge", "A position meant to offset risk elsewhere in a portfolio."], ["Markets", "Pair trade", "Buying one asset and shorting a related one to bet on the gap between them."], ["13F", "13F filing", "A quarterly SEC report in which investment managers with over $100M list their US-listed long equity positions, including ETFs."], ["13F", "Quant / multi-strategy fund", "Funds like Two Sigma, Citadel and Millennium that run many models or teams. Their ETF positions often swing quarter to quarter."], ["13F", "Radar score", "This dashboard's pick score: 45% performance, 35% under-the-radar breadth and 20% accumulation, each a percentile."]], "ticker": "XLP", "kind": "ETF", "last_price": 91.18000030517578, "prices_asof": "Nov 18, 2026", "prices": {"XLP": [["2019-01-31", 53.39], ["2019-02-28", 54.34], ["2019-03-31", 56.11], ["2019-04-30", 57.71], ["2019-05-31", 55.61], ["2019-06-30", 58.07], ["2019-07-31", 59.43], ["2019-08-31", 60.72], ["2019-09-30", 61.42], ["2019-10-31", 61.16], ["2019-11-30", 62.0], ["2019-12-31", 62.98], ["2020-01-31", 63.18], ["2020-02-29", 57.99], ["2020-03-31", 54.47], ["2020-04-30", 58.26], ["2020-05-31", 59.23], ["2020-06-30", 58.64], ["2020-07-31", 62.7], ["2020-08-31", 65.58], ["2020-09-30", 64.1], ["2020-10-31", 62.26], ["2020-11-30", 66.91], ["2020-12-31", 67.45], ["2021-01-31", 64.09], ["2021-02-28", 63.3], ["2021-03-31", 68.31], ["2021-04-30", 69.58], ["2021-05-31", 70.81], ["2021-06-30", 69.97], ["2021-07-31", 71.51], ["2021-08-31", 72.26], ["2021-09-30", 68.84], ["2021-10-31", 71.25], ["2021-11-30", 70.29], ["2021-12-31", 77.11], ["2022-01-31", 75.97], ["2022-02-28", 74.9], ["2022-03-31", 75.89], ["2022-04-30", 77.64], ["2022-05-31", 74.47], ["2022-06-30", 72.18], ["2022-07-31", 74.49], ["2022-08-31", 73.11], ["2022-09-30", 66.73], ["2022-10-31", 72.74], ["2022-11-30", 77.19], ["2022-12-31", 74.55], ["2023-01-31", 73.74], ["2023-02-28", 72.03], ["2023-03-31", 74.71], ["2023-04-30", 77.44], ["2023-05-31", 72.67], ["2023-06-30", 74.17], ["2023-07-31", 75.75], ["2023-08-31", 72.76], ["2023-09-30", 68.81], ["2023-10-31", 67.86], ["2023-11-30", 70.66], ["2023-12-31", 72.03], ["2024-01-31", 72.92], ["2024-02-29", 74.45], ["2024-03-31", 76.36], ["2024-04-30", 75.5], ["2024-05-31", 77.34], ["2024-06-30", 76.58], ["2024-07-31", 77.85], ["2024-08-31", 82.51], ["2024-09-30", 83.0], ["2024-10-31", 80.12], ["2024-11-30", 83.22], ["2024-12-31", 78.61], ["2025-01-31", 78.98], ["2025-02-28", 83.08], ["2025-03-31", 81.67], ["2025-04-30", 81.83], ["2025-05-31", 82.83], ["2025-06-30", 80.97], ["2025-07-31", 79.78], ["2025-08-31", 80.78], ["2025-09-30", 78.37], ["2025-10-31", 76.28], ["2025-11-30", 79.37], ["2025-12-31", 77.68], ["2026-01-31", 83.51], ["2026-02-28", 90.01], ["2026-03-31", 81.98], ["2026-04-30", 84.31], ["2026-05-31", 82.91], ["2026-06-30", 83.07], ["2026-07-31", 85.05], ["2026-08-31", 84.98], ["2026-09-30", 80.6], ["2026-10-31", 89.42], ["2026-11-18", 91.18]], "SPY": [["2019-01-31", 269.93], ["2019-02-28", 278.68], ["2019-03-31", 282.48], ["2019-04-30", 294.02], ["2019-05-31", 275.27], ["2019-06-30", 293.0], ["2019-07-31", 297.43], ["2019-08-31", 292.45], ["2019-09-30", 296.77], ["2019-10-31", 303.33], ["2019-11-30", 314.31], ["2019-12-31", 321.86], ["2020-01-31", 321.73], ["2020-02-29", 296.26], ["2020-03-31", 257.75], ["2020-04-30", 290.48], ["2020-05-31", 304.32], ["2020-06-30", 308.36], ["2020-07-31", 326.52], ["2020-08-31", 349.31], ["2020-09-30", 334.89], ["2020-10-31", 326.54], ["2020-11-30", 362.06], ["2020-12-31", 373.88], ["2021-01-31", 370.07], ["2021-02-28", 380.36], ["2021-03-31", 396.33], ["2021-04-30", 417.3], ["2021-05-31", 420.04], ["2021-06-30", 428.06], ["2021-07-31", 438.51], ["2021-08-31", 451.56], ["2021-09-30", 429.14], ["2021-10-31", 459.25], ["2021-11-30", 455.56], ["2021-12-31", 474.96], ["2022-01-31", 449.91], ["2022-02-28", 436.63], ["2022-03-31", 451.64], ["2022-04-30", 412.0], ["2022-05-31", 412.93], ["2022-06-30", 377.25], ["2022-07-31", 411.99], ["2022-08-31", 395.18], ["2022-09-30", 357.18], ["2022-10-31", 386.21], ["2022-11-30", 407.68], ["2022-12-31", 382.43], ["2023-01-31", 406.48], ["2023-02-28", 396.26], ["2023-03-31", 409.39], ["2023-04-30", 415.93], ["2023-05-31", 417.85], ["2023-06-30", 443.28], ["2023-07-31", 457.79], ["2023-08-31", 450.35], ["2023-09-30", 427.48], ["2023-10-31", 418.2], ["2023-11-30", 456.4], ["2023-12-31", 475.31], ["2024-01-31", 482.88], ["2024-02-29", 508.08], ["2024-03-31", 523.07], ["2024-04-30", 501.98], ["2024-05-31", 527.37], ["2024-06-30", 544.22], ["2024-07-31", 550.81], ["2024-08-31", 563.68], ["2024-09-30", 573.76], ["2024-10-31", 568.64], ["2024-11-30", 602.55], ["2024-12-31", 586.08], ["2025-01-31", 601.82], ["2025-02-28", 594.18], ["2025-03-31", 559.39], ["2025-04-30", 554.54], ["2025-05-31", 589.39], ["2025-06-30", 617.85], ["2025-07-31", 632.08], ["2025-08-31", 645.05], ["2025-09-30", 666.18], ["2025-10-31", 682.06], ["2025-11-30", 683.39], ["2025-12-31", 681.92], ["2026-01-31", 691.97], ["2026-02-28", 685.99], ["2026-03-31", 650.34], ["2026-04-30", 718.66], ["2026-05-31", 756.48], ["2026-06-30", 746.77], ["2026-07-31", 747.03], ["2026-08-31", 767.05], ["2026-09-30", 762.63], ["2026-10-31", 755.72], ["2026-11-18", 730.2]]}, "generated": "2026-11-18T23:24:26+00:00", "generated_label": "Nov 18, 2026, 23:24 UTC", "picks_asof": "Nov 11, 2026", "holders": {"latest_label": "2026 Q2", "latest": [{"fund": "Two Sigma Investments", "value": 93571959.0, "weight": 0.0006774799991627705, "shares": 1126423, "change": "Added 798% of shares"}, {"fund": "Citadel Advisors", "value": 76696953.0, "weight": 8.765247908242608e-05, "shares": 923281, "change": "Added 5404% of shares"}, {"fund": "Renaissance Technologies", "value": 29672604.0, "weight": 0.0004086129652852391, "shares": 357200, "change": "Trimmed 29% of shares"}, {"fund": "Millennium Management", "value": 27096769.0, "weight": 9.807235547560042e-05, "shares": 326192, "change": "Trimmed 90% of shares"}, {"fund": "AQR Capital Management", "value": 4182235.0, "weight": 1.457999398969352e-05, "shares": 50346, "change": "Added 17% of shares"}, {"fund": "D. E. Shaw & Co., Inc.", "value": 3815904.0, "weight": 1.8153465350546204e-05, "shares": 45936, "change": "New position"}, {"fund": "Point72 Asset Management", "value": 1246050.0, "weight": 1.3741884948287982e-05, "shares": 15000, "change": "New position"}], "exited": [], "by_quarter": [["2025 Q3", 5, "AQR Capital Management, Citadel Advisors, Millennium Management, Renaissance Technologies, Two Sigma Investments"], ["2025 Q4", 6, "AQR Capital Management, Citadel Advisors, Millennium Management, Point72 Asset Management, Renaissance Technologies, Two Sigma Investments"], ["2026 Q1", 5, "AQR Capital Management, Citadel Advisors, Millennium Management, Renaissance Technologies, Two Sigma Investments"], ["2026 Q2", 7, "AQR Capital Management, Citadel Advisors, D. E. Shaw & Co., Inc., Millennium Management, Point72 Asset Management, Renaissance Technologies, Two Sigma Investments"]]}, "score": {"score": 0.6773148148148148, "performance": 0.5833333333333334, "breadth": 0.7407407407407407, "accumulation": 0.7777777777777778, "why": "Held by 7 funds (+2 in a year) with only $236M of total 13F value; +11% 6-mo, +21% 1-yr, +20% 2-yr, +43% 5-yr."}};
+
+const $ = s => document.querySelector(s);
+const esc = s => String(s);
+const tip = $('#tip');
+function showTip(e, html){tip.innerHTML=html;tip.style.opacity=1;const x=e.pageX+14,y=e.pageY-10;tip.style.left=Math.min(x,document.documentElement.clientWidth-250)+'px';tip.style.top=y+'px';}
+function hideTip(){tip.style.opacity=0}
+const NS='http://www.w3.org/2000/svg';
+function el(tag,attrs,parent){const n=document.createElementNS(NS,tag);for(const k in attrs)n.setAttribute(k,attrs[k]);if(parent)parent.appendChild(n);return n;}
+function txt(parent,x,y,s,attrs={}){const t=el('text',{x,y,...attrs},parent);t.textContent=s;return t;}
+const FMT={
+  usdB:v=>'$'+(v>=10?v.toFixed(1):v.toFixed(2))+'B',
+  usdM:v=>v>=1000?'$'+(v/1000).toFixed(1)+'B':'$'+Math.round(v)+'M',
+  pct:v=>(v>0?'+':'')+v.toFixed(0)+'%',
+  pct1:v=>v.toFixed(1)+'%',
+  num:v=>String(v),
+  usd:v=>'$'+v.toFixed(2)
+};
+const fmtDate=d=>d.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
+const redraw=[];
+
+/* ---------- hero + nav ---------- */
+$('#hero').innerHTML=`<div class="eyebrow">${R.kind==='ETF'?'ETF research report':'Company research report'} · Insights tab pick</div>
+  <h1>${R.name} (${R.exchange}: ${R.ticker})</h1><p>${R.tagline}</p>
+  <div class="kpis">${R.kpis.map(k=>`<div class="kpi"><b>${k[0]}</b><span>${k[1]}</span></div>`).join('')}</div>
+  <div class="stamp"><span>Report generated ${R.generated_label}</span><span>Prices as of ${R.prices_asof}</span><span>13F holdings as of ${R.holders.latest_label}</span></div>`;
+const chapters=R.chapters;
+$('#nav').innerHTML=`<a href="#overview">Overview</a>`+chapters.map(c=>`<a href="#${c.id}">${c.nav}</a>`).join('')+`<a href="#sources">Sources</a><a href="#glossary">Glossary</a>`;
+
+/* ---------- block renderers ---------- */
+let uid=0;
+const B={};
+
+B.people=(b,host)=>{host.className='grid3';host.innerHTML=b.items.map(p=>`<div class="card founder"><div class="av">${p[0]}</div><div><h4>${p[1]}</h4><p>${p[2]}</p></div></div>`).join('');};
+
+B.timeline=(b,host)=>{host.className='card';const id='tl'+(++uid);
+  host.innerHTML=`<div class="eyebrow">Click a milestone</div><div class="tl" id="${id}" role="tablist"></div><div class="tl-detail" id="${id}d" aria-live="polite"></div>`;
+  const tl=host.querySelector('.tl'),det=host.querySelector('.tl-detail');
+  const sel=i=>{[...tl.children].forEach((x,j)=>{x.classList.toggle('on',i===j);x.setAttribute('aria-selected',i===j)});det.innerHTML=`<h3>${b.items[i][0]}: ${b.items[i][1]}</h3><p style="margin:0;color:var(--ink-2);max-width:70ch">${b.items[i][2]}</p>`;};
+  b.items.forEach((t,i)=>{const x=document.createElement('button');x.setAttribute('role','tab');x.textContent=t[0];x.onclick=()=>sel(i);tl.appendChild(x);});
+  sel(b.start||0);};
+
+B.cards=(b,host)=>{host.className='grid3';
+  b.items.forEach(c=>{const d=document.createElement('button');d.className='card ch';d.setAttribute('aria-expanded','false');
+    d.innerHTML=`<span class="tag">${c[0]}</span><h4>${c[1]}</h4><p>${c[2]}</p><div class="more">${c[3]}</div><div class="hint">${b.hint||'Tap for how they handled it'} →</div>`;
+    d.onclick=()=>{const o=d.classList.toggle('open');d.setAttribute('aria-expanded',o);d.querySelector('.hint').textContent=o?'Tap to close':(b.hint||'Tap for how they handled it')+' →'};host.appendChild(d);});};
+
+function barChart(host,data,fmt,{h=270,color='var(--acc)'}={}){
+  host.innerHTML='';const W=Math.max(host.clientWidth,300),H=h,m={t:24,r:8,b:34,l:8};
+  const svg=el('svg',{viewBox:`0 0 ${W} ${H}`,width:'100%',height:H,role:'img'},host);
+  const vals=data.map(d=>d[1]);const max=Math.max(...vals,0)*1.14||1,min=Math.min(...vals,0)*1.14;
+  const Y=v=>m.t+(max-v)/(max-min)*(H-m.t-m.b);const bw=(W-m.l-m.r)/data.length;
+  for(let g=0;g<=3;g++){const y=m.t+(H-m.t-m.b)*g/3;el('line',{x1:m.l,x2:W-m.r,y1:y,y2:y,stroke:'var(--grid)'},svg);}
+  el('line',{x1:m.l,x2:W-m.r,y1:Y(0),y2:Y(0),stroke:'var(--ink-3)','stroke-width':1},svg);
+  data.forEach((d,i)=>{const x=m.l+i*bw+bw*.18,w=bw*.64,y0=Y(0),y1=Y(d[1]);const top=Math.min(y0,y1),bh=Math.max(Math.abs(y1-y0),1);
+    const neg=d[1]<0;const fill=neg?'var(--bad)':(d[3]?`color-mix(in srgb,${color} 50%,transparent)`:color);
+    const r=el('rect',{x,y:top,width:w,height:bh,rx:4,fill},svg);
+    r.animate&&r.animate([{opacity:.2},{opacity:1}],{duration:500,delay:i*40,fill:'backwards'});
+    txt(svg,x+w/2,H-m.b+16,d[0],{'text-anchor':'middle'});
+    txt(svg,x+w/2,neg?top+bh+13:top-6,fmt(d[1])+(d[3]?' ≈':''),{'text-anchor':'middle',class:'val'});
+    const hit=el('rect',{x:m.l+i*bw,y:m.t,width:bw,height:H-m.t-m.b,fill:'transparent'},svg);
+    hit.onmousemove=e=>showTip(e,`<b>${d[0]}: ${fmt(d[1])}${d[3]?' ≈':''}</b>${d[2]||''}`);hit.onmouseleave=hideTip;});
+}
+
+B.bars=(b,host)=>{host.className='card';const tabs=b.tabs;let k=0;
+  host.innerHTML=(b.eyebrow?`<div class="eyebrow" style="margin-bottom:10px">${b.eyebrow}</div>`:'')+(tabs.length>1?`<div class="tabs">${tabs.map((t,i)=>`<button class="${i?'':'on'}" data-i="${i}">${t.label}</button>`).join('')}</div>`:'')+
+    `<div class="chartbox"></div><p class="note"></p><details><summary>Show data table</summary><div class="tblwrap"></div></details>`;
+  const box=host.querySelector('.chartbox');
+  const draw=()=>{const t=tabs[k],f=FMT[t.fmt];barChart(box,t.data,f);host.querySelector('.note').textContent=t.note||'';
+    host.querySelector('.tblwrap').innerHTML='<table><tr><th>Period</th><th class="r">Value</th><th>Detail</th></tr>'+t.data.map(d=>`<tr><td>${d[0]}</td><td class="r">${f(d[1])}${d[3]?' ≈':''}</td><td>${d[2]||''}</td></tr>`).join('')+'</table>';};
+  const tb=host.querySelector('.tabs');if(tb)tb.onclick=e=>{const x=e.target.closest('button');if(!x)return;k=+x.dataset.i;[...tb.children].forEach(y=>y.classList.toggle('on',y===x));draw();};
+  redraw.push(draw);};
+
+B.price=(b,host)=>{host.className='card';const P=R.prices[R.ticker].map(d=>[new Date(d[0]),d[1]]);const SPY=R.prices.SPY.map(d=>[new Date(d[0]),d[1]]);
+  const EV=b.events.map(e=>({d:new Date(e[0]),t:e[1],x:e[2]}));let mode='price',evSel=-1;
+  host.innerHTML=`<div class="tabs"><button class="on" data-m="price">Share price</button><button data-m="rel">vs. S&amp;P 500 (rebased to 100)</button></div><div class="chartbox"></div><div class="legend"></div><div class="evlist"></div><p class="note" style="margin-top:12px">${b.note}</p>`;
+  const box=host.querySelector('.chartbox'),lg=host.querySelector('.legend'),list=host.querySelector('.evlist');
+  const near=(S,d)=>S.reduce((a,p)=>Math.abs(p[0]-d)<Math.abs(a[0]-d)?p:a,S[0]);
+  EV.forEach(e=>{e.p=near(P,e.d)[1];});
+  const draw=()=>{box.innerHTML='';const W=Math.max(box.clientWidth,300),H=300,m={t:18,r:16,b:30,l:44};
+    const svg=el('svg',{viewBox:`0 0 ${W} ${H}`,width:'100%',height:H,role:'img','aria-label':'Price history'},box);
+    const t0=P[0][0].getTime(),t1=P[P.length-1][0].getTime();
+    const sp=SPY.filter(p=>p[0]>=P[0][0]);const base=P[0][1],sbase=sp[0][1];
+    const S1=mode==='price'?P:P.map(p=>[p[0],p[1]/base*100]);const S2=mode==='rel'?sp.map(p=>[p[0],p[1]/sbase*100]):null;
+    const all=[...S1,...(S2||[])].map(p=>p[1]);let ymax=Math.max(...all)*1.08,ymin=mode==='price'?0:Math.min(...all,100)*0.9;
+    const X=d=>m.l+(d.getTime()-t0)/(t1-t0)*(W-m.l-m.r),Y=v=>H-m.b-(v-ymin)/(ymax-ymin)*(H-m.t-m.b);
+    const step=niceStep((ymax-ymin)/4);for(let v=Math.ceil(ymin/step)*step;v<=ymax;v+=step){el('line',{x1:m.l,x2:W-m.r,y1:Y(v),y2:Y(v),stroke:'var(--grid)'},svg);txt(svg,m.l-6,Y(v)+4,(mode==='price'?'$':'')+Math.round(v),{'text-anchor':'end'});}
+    const y0=P[0][0].getFullYear(),y1=P[P.length-1][0].getFullYear();for(let y=y0+1;y<=y1;y++){const x=X(new Date(y+'-01-01'));if(x>m.l+10&&x<W-m.r-10){txt(svg,x,H-10,y,{'text-anchor':'middle'});el('line',{x1:x,x2:x,y1:H-m.b,y2:H-m.b+4,stroke:'var(--ink-3)'},svg);}}
+    if(mode==='rel')el('line',{x1:m.l,x2:W-m.r,y1:Y(100),y2:Y(100),stroke:'var(--ink-3)','stroke-dasharray':'4 4'},svg);
+    const path=S=>S.map((p,i)=>(i?'L':'M')+X(p[0]).toFixed(1)+','+Y(p[1]).toFixed(1)).join('');
+    if(S2)el('path',{d:path(S2),fill:'none',stroke:'var(--ink-3)','stroke-width':1.5,'stroke-dasharray':'5 3'},svg);
+    const d1=path(S1);el('path',{d:d1+`L${X(S1[S1.length-1][0])},${Y(ymin)}L${X(S1[0][0])},${Y(ymin)}Z`,fill:'var(--acc)',opacity:.09},svg);
+    el('path',{d:d1,fill:'none',stroke:'var(--acc)','stroke-width':2.2,'stroke-linejoin':'round'},svg);
+    const last=S1[S1.length-1];el('circle',{cx:X(last[0]),cy:Y(last[1]),r:4.5,fill:'var(--acc)'},svg);
+    txt(svg,X(last[0])-6,Y(last[1])-10,mode==='price'?'$'+last[1].toFixed(2):Math.round(last[1]),{'text-anchor':'end',class:'val'});
+    const cross=el('line',{y1:m.t,y2:H-m.b,stroke:'var(--ink-3)',opacity:0},svg),dot=el('circle',{r:4,fill:'var(--acc)',opacity:0},svg);
+    const ov=el('rect',{x:m.l,y:m.t,width:W-m.l-m.r,height:H-m.t-m.b,fill:'transparent'},svg);
+    ov.onmousemove=ev=>{const r=svg.getBoundingClientRect(),px=(ev.clientX-r.left)*W/r.width;let bi=0;S1.forEach((p,i)=>{if(Math.abs(X(p[0])-px)<Math.abs(X(S1[bi][0])-px))bi=i;});const p=S1[bi];
+      cross.setAttribute('x1',X(p[0]));cross.setAttribute('x2',X(p[0]));cross.setAttribute('opacity',.5);dot.setAttribute('cx',X(p[0]));dot.setAttribute('cy',Y(p[1]));dot.setAttribute('opacity',1);
+      const sv=S2?near(S2,p[0])[1]:null;
+      showTip(ev,mode==='price'?`<b>$${p[1].toFixed(2)}</b>${p[0].toLocaleDateString('en-US',{month:'short',year:'numeric'})} month-end close`:`<b>${R.ticker} ${Math.round(p[1])} · S&amp;P 500 ${Math.round(sv)}</b>${p[0].toLocaleDateString('en-US',{month:'short',year:'numeric'})}, both start at 100`);};
+    ov.onmouseleave=()=>{cross.setAttribute('opacity',0);dot.setAttribute('opacity',0);hideTip();};
+    EV.forEach((e,i)=>{const v=mode==='price'?e.p:e.p/base*100;const c=el('circle',{cx:X(e.d),cy:Y(v),r:i===evSel?8:5,fill:i===evSel?'var(--acc)':'var(--card)',stroke:'var(--acc)','stroke-width':2,style:'cursor:pointer'},svg);
+      c.onclick=()=>sel(i);c.onmousemove=ev=>showTip(ev,`<b>${e.t}</b>${e.x}`);c.onmouseleave=hideTip;});
+    lg.innerHTML=mode==='rel'?`<span><i style="background:var(--acc)"></i>${R.ticker}</span><span><i style="background:var(--ink-3)"></i>S&amp;P 500 (SPY), dashed</span>`:'';};
+  const sel=i=>{evSel=i;[...list.children].forEach((n,j)=>n.classList.toggle('on',i===j));draw();};
+  list.innerHTML=EV.map((e,i)=>`<button class="ev" data-i="${i}"><span class="p">$${e.p.toFixed(2)}</span><b>${e.t}</b>${e.d.toLocaleDateString('en-US',{month:'short',year:'numeric'})}</button>`).join('');
+  list.onclick=e=>{const x=e.target.closest('button');if(x)sel(+x.dataset.i);};
+  const tb=host.querySelector('.tabs');tb.onclick=e=>{const x=e.target.closest('button');if(!x)return;mode=x.dataset.m;[...tb.children].forEach(y=>y.classList.toggle('on',y===x));draw();};
+  redraw.push(draw);};
+function niceStep(r){const p=Math.pow(10,Math.floor(Math.log10(r)));const n=r/p;return (n<1.5?1:n<3?2:n<7?5:10)*p;}
+
+B.segments=(b,host)=>{host.className='grid2';host.innerHTML=b.items.map(s=>`<div class="card seg" style="--c:${s.color||'var(--acc)'}"><h3 style="margin:0 0 6px">${s.title}</h3><div class="big">${s.big}</div><div class="note" style="margin-bottom:8px">${s.sub}</div><p style="margin:0 0 8px;font-size:14px">${s.text}</p>${(s.pills||[]).map(p=>`<span class="pill ${p[0]}">${p[1]}</span>`).join('')}${s.more?`<details><summary>More</summary><p style="font-size:14px;color:var(--ink-2)">${s.more}</p></details>`:''}</div>`).join('');};
+
+B.hbars=(b,host)=>{host.className='card';host.innerHTML=`<div class="eyebrow">${b.eyebrow}</div><div class="chartbox" style="margin-top:8px"></div><p class="note">${b.note||''}</p>`;
+  const box=host.querySelector('.chartbox');const f=FMT[b.fmt||'pct1'];
+  const draw=()=>{box.innerHTML='';const W=Math.max(box.clientWidth,300),rh=28,m={t:6,l:Math.min(170,W*.4),r:56,b:6},H=m.t+b.items.length*rh+m.b;
+    const svg=el('svg',{viewBox:`0 0 ${W} ${H}`,width:'100%',height:H,role:'img'},box);const max=b.max||Math.max(...b.items.map(i=>i[1]))*1.05;const X=v=>m.l+v/max*(W-m.l-m.r);
+    b.items.forEach((p,i)=>{const y=m.t+i*rh+5;const r=el('rect',{x:m.l,y,width:Math.max(X(Math.abs(p[1]))-m.l,2),height:rh-10,rx:4,fill:p[3]||'var(--acc)'},svg);
+      txt(svg,m.l-8,y+13,p[0],{'text-anchor':'end',style:'fill:var(--ink-2);font-size:12px'});txt(svg,X(p[1])+6,y+13,f(p[1]),{class:'val'});
+      r.onmousemove=e=>showTip(e,`<b>${p[0]}: ${f(p[1])}</b>${p[2]||''}`);r.onmouseleave=hideTip;});};
+  redraw.push(draw);};
+
+B.facts=(b,host)=>{host.className='card';host.innerHTML=`<div class="eyebrow">${b.eyebrow||'Key facts'}</div><div class="tblwrap"><table>${b.items.map(r=>`<tr><th style="width:38%">${r[0]}</th><td>${r[1]}</td></tr>`).join('')}</table></div>`;};
+
+B.values=(b,host)=>{const id='v'+(++uid);host.className='stack';host.innerHTML=`<div class="grid3"></div><div class="card" aria-live="polite"></div>`;
+  const g=host.firstChild,det=host.lastChild;
+  const sel=i=>{[...g.children].forEach((x,j)=>x.classList.toggle('on',i===j));const v=b.items[i];det.innerHTML=`<div class="eyebrow">${b.label||'Priority'} 0${i+1}</div><h3 style="margin:4px 0">${v[0]}</h3><p style="margin:0 0 6px"><b>What it means:</b> ${v[1]}</p><p style="margin:0;color:var(--ink-2)"><b>In practice:</b> ${v[2]}</p>`;};
+  b.items.forEach((v,i)=>{const x=document.createElement('button');x.className='val-card';x.innerHTML=`<div class="n">0${i+1}</div><h4>${v[0]}</h4>`;x.onclick=()=>sel(i);g.appendChild(x);});sel(0);};
+
+B.callout=(b,host)=>{host.className='callout';host.innerHTML=b.html;};
+
+B.radar=(b,host)=>{const H_=R.holders,S=R.score;host.className='stack';
+  host.innerHTML=`<div class="grid2"><div class="card"><div class="eyebrow">Tracked funds holding ${R.ticker}, by quarter</div><div class="chartbox" style="margin-top:8px"></div><p class="note">Count of the ~20 tracked funds reporting a long position in their 13F filing for each quarter-end.</p></div>
+    <div class="card"><div class="eyebrow">Radar score breakdown</div><p style="margin:6px 0 12px;font-size:14px;color:var(--ink-2)">Each signal is a percentile among the ${R.kind==='ETF'?'ETF':'stock'} candidates (1.00 = best). Score = 45% performance + 35% breadth + 20% accumulation.</p>
+    <div class="sig">${[['Radar score',S.score],['Performance',S.performance],['Under-the-radar breadth',S.breadth],['Accumulation',S.accumulation]].map(s=>`<div><div class="note">${s[0]}</div><b>${s[1].toFixed(2)}</b><div class="meter"><div style="width:${Math.round(s[1]*100)}%"></div></div></div>`).join('')}</div>
+    <p class="note" style="margin-top:14px">${S.why}</p></div></div>
+    <div class="card"><div class="eyebrow">Who holds it (${H_.latest_label} 13F)</div><div class="tblwrap"><table><tr><th>Fund</th><th class="r">Position value</th><th class="r">Share of long book</th><th class="r">Shares</th><th>vs. prior quarter</th></tr>
+    ${H_.latest.map(h=>`<tr><td>${h.fund}</td><td class="r">${FMT.usdM(h.value/1e6)}</td><td class="r">${(h.weight*100).toFixed(2)}%${h.weight>=0.0005?' <span class="pill g">conviction</span>':''}</td><td class="r">${h.shares.toLocaleString('en-US')}</td><td>${h.change}</td></tr>`).join('')}</table></div>
+    <p class="note">A "conviction" position is at least 0.05% of the fund's 13F long book, the same cut the Insights tab uses. 13F filings show long US-listed positions only, up to 45 days after quarter-end, so these may have changed since.</p></div>`+(b.html?`<div class="callout">${b.html}</div>`:'');
+  const box=host.querySelector('.chartbox');redraw.push(()=>barChart(box,H_.by_quarter.map(q=>[q[0],q[1],q[2]]),FMT.num,{h:220}));};
+
+B.targets=(b,host)=>{host.className='card';host.innerHTML=`<div class="eyebrow">Where analysts put the stock (12-month targets)</div><div class="chartbox" style="margin-top:8px"></div><div class="legend"><span><i style="background:var(--s3)"></i>Above current price</span><span><i style="background:var(--s2)"></i>Below current price</span><span><i style="background:var(--acc)"></i>Current price</span><span><i style="background:var(--ink-3)"></i>Consensus, dashed</span></div><p class="note">${b.note}</p>`;
+  const box=host.querySelector('.chartbox');const cur=R.last_price;
+  const draw=()=>{box.innerHTML='';const W=Math.max(box.clientWidth,300),rh=28,m={t:10,l:120,r:46,b:22},H=m.t+b.items.length*rh+m.b;
+    const svg=el('svg',{viewBox:`0 0 ${W} ${H}`,width:'100%',height:H,role:'img'},box);const max=niceStep(Math.max(...b.items.map(p=>p[1]),cur)/4)*5;const X=v=>m.l+v/max*(W-m.l-m.r);
+    for(let v=0;v<=max;v+=max/5){el('line',{x1:X(v),x2:X(v),y1:m.t,y2:H-m.b,stroke:'var(--grid)'},svg);txt(svg,X(v),H-6,'$'+Math.round(v),{'text-anchor':'middle'});}
+    b.items.forEach((p,i)=>{const y=m.t+i*rh+5;const r=el('rect',{x:m.l,y,width:X(p[1])-m.l,height:rh-10,rx:4,fill:p[1]>=cur?'var(--s3)':'var(--s2)'},svg);
+      txt(svg,m.l-8,y+13,p[0],{'text-anchor':'end',style:'fill:var(--ink-2);font-size:12px'});txt(svg,X(p[1])+6,y+13,'$'+p[1],{class:'val'});
+      r.onmousemove=e=>showTip(e,`<b>${p[0]}: $${p[1]}</b>${p[2]}<br>${((p[1]/cur-1)*100).toFixed(0)}% vs $${cur.toFixed(2)}`);r.onmouseleave=hideTip;});
+    el('line',{x1:X(cur),x2:X(cur),y1:m.t-6,y2:H-m.b,stroke:'var(--acc)','stroke-width':2.5},svg);
+    if(b.avg)el('line',{x1:X(b.avg),x2:X(b.avg),y1:m.t-6,y2:H-m.b,stroke:'var(--ink-3)','stroke-dasharray':'4 3','stroke-width':1.5},svg);};
+  redraw.push(draw);};
+
+B.oppRisk=(b,host)=>{host.className='card';let k='opp';
+  host.innerHTML=`<div class="tabs"><button class="on" data-k="opp">Opportunities</button><button data-k="risk">Risks</button></div><div class="grid3"></div>`;
+  const g=host.querySelector('.grid3');const draw=()=>{g.innerHTML=b[k].map(o=>`<div class="card" style="border-top:4px solid ${k==='opp'?'var(--s3)':'var(--s2)'}"><h4 style="margin:0 0 6px">${o[0]}</h4><p style="margin:0;font-size:14px;color:var(--ink-2)">${o[1]}</p></div>`).join('');};
+  const tb=host.querySelector('.tabs');tb.onclick=e=>{const x=e.target.closest('button');if(!x)return;k=x.dataset.k;[...tb.children].forEach(y=>y.classList.toggle('on',y===x));draw();};draw();};
+
+B.bullbear=(b,host)=>{host.className='card';const id='bb'+(++uid);
+  host.innerHTML=`<label class="eyebrow" for="${id}">Bull vs. bear: drag to see each side's argument</label><input type="range" id="${id}" min="0" max="${b.items.length-1}" value="${Math.floor(b.items.length/2)}"><div style="display:flex;justify-content:space-between" class="note"><span>Most bearish</span><span>Neutral</span><span>Most bullish</span></div><div class="callout" style="margin-top:12px" aria-live="polite"></div>`;
+  const r=host.querySelector('input'),out=host.querySelector('.callout');const draw=()=>{const v=b.items[+r.value];out.innerHTML=`<b>${v[0]}</b><br>${v[1]}`;};r.oninput=draw;draw();};
+
+B.catalysts=(b,host)=>{host.className='card';host.innerHTML=`<div class="eyebrow">${b.eyebrow||'Catalysts to watch (next ~12 months)'}</div><div class="tblwrap"><table><tr><th>When</th><th>What</th><th>Why it matters</th></tr>${b.items.map(r=>`<tr><td style="white-space:nowrap">${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join('')}</table></div>`;};
+
+B.annual=(b,host)=>{host.className='card';host.innerHTML=`<div class="eyebrow">${b.eyebrow||'Calendar-year price return'}</div><div class="chartbox" style="margin-top:8px"></div><p class="note">${b.note||''}</p>`;
+  const P=R.prices[R.ticker],SP=R.prices.SPY;const yr=(S,y)=>{const prev=S.filter(p=>+p[0].slice(0,4)<y).pop(),end=S.filter(p=>+p[0].slice(0,4)===y).pop();return prev&&end?(end[1]/prev[1]-1)*100:null;};
+  const years=[...new Set(P.map(p=>+p[0].slice(0,4)))];const last=P[P.length-1][0];
+  const data=years.map(y=>{const v=yr(P,y),s=yr(SP,y);return v==null?null:[y===+last.slice(0,4)?y+' YTD':String(y),v,`S&amp;P 500 (SPY) ${s==null?'n/a':FMT.pct(s)} the same year`];}).filter(Boolean);
+  const box=host.querySelector('.chartbox');redraw.push(()=>barChart(box,data,FMT.pct,{h:240}));};
+
+B.row=(b,host)=>{host.className='grid2';b.items.forEach(x=>{const d=document.createElement('div');host.appendChild(d);B[x.type](x,d);});};
+
+/* ---------- chapters ---------- */
+const main=$('#main');
+chapters.forEach((c,i)=>{const s=document.createElement('section');s.id=c.id;
+  s.innerHTML=`<div class="eyebrow">Chapter ${i+1}</div><h2>${c.title}</h2><p class="lede">${c.lede}</p><div class="stack"></div>`;
+  const st=s.querySelector('.stack');c.blocks.forEach(b=>{const d=document.createElement('div');st.appendChild(d);B[b.type](b,d);});main.appendChild(s);});
+
+/* ---------- sources + glossary ---------- */
+const src=document.createElement('section');src.id='sources';
+src.innerHTML=`<h2>Sources</h2><ul class="src">${R.sources.map(s=>`<li>${s.map(x=>`<a href="${x[1]}" target="_blank" rel="noopener">${x[0]}</a>`).join(' · ')}</li>`).join('')}</ul>
+ <p class="note">Prices are month-end closes from Yahoo Finance; the final point is the ${R.prices_asof} close. 13F data comes from this project's SEC EDGAR pipeline. Figures marked "≈" are approximate or derived. Analyst targets were set on different dates in 2026. This report summarizes public information and is not investment advice.</p>`;
+main.appendChild(src);
+const gl=document.createElement('section');gl.id='glossary';
+gl.innerHTML=`<h2>Glossary of terms</h2><p class="lede">Plain-English definitions of the jargon used in this report. Search for a term or filter by topic.</p>
+ <div class="card"><label for="gSearch" class="note">Search the glossary</label><input id="gSearch" type="search" placeholder="Search terms, e.g. ${R.glossary.slice(0,3).map(g=>g[1].split(' (')[0]).join(', ')}…"><div class="tabs" id="gTabs"></div><div id="gCount" class="note" style="margin:4px 0 10px"></div><div class="grid2" id="gList"></div></div>
+ <footer class="note">Report generated ${R.generated_label}. Built for the 13F dashboard's Insights tab (under-the-radar picks as of ${R.picks_asof}).</footer>`;
+main.appendChild(gl);
+const GC=['All',...new Set(R.glossary.map(g=>g[0]))];let gCat='All';
+$('#gTabs').innerHTML=GC.map(c=>`<button data-c="${c}" class="${c==='All'?'on':''}">${c}</button>`).join('');
+$('#gTabs').onclick=e=>{const b=e.target.closest('button');if(!b)return;gCat=b.dataset.c;[...e.currentTarget.children].forEach(x=>x.classList.toggle('on',x===b));drawGL();};
+$('#gSearch').oninput=drawGL;
+function drawGL(){const q=$('#gSearch').value.trim().toLowerCase();const items=R.glossary.filter(g=>(gCat==='All'||g[0]===gCat)&&(!q||(g[1]+' '+g[2]).toLowerCase().includes(q))).sort((a,b)=>a[1].localeCompare(b[1]));
+  $('#gCount').textContent=`${items.length} term${items.length===1?'':'s'}`;
+  $('#gList').innerHTML=items.map(g=>`<div class="gitem"><div style="display:flex;justify-content:space-between;gap:8px;align-items:baseline"><b>${g[1]}</b><span class="pill">${g[0]}</span></div><div style="font-size:14px;color:var(--ink-2);margin-top:4px">${g[2]}</div></div>`).join('')||'<p class="note">No matches.</p>';}
+drawGL();
+
+const drawAll=()=>redraw.forEach(f=>f());drawAll();let rt;addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(drawAll,150)});
+const links=[...document.querySelectorAll('#nav a')];
+const obs=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting)links.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+en.target.id));}),{rootMargin:'-40% 0px -55% 0px'});
+document.querySelectorAll('section,header.hero').forEach(s=>obs.observe(s));
+</script>
+</body>
+</html>

@@ -160,3 +160,19 @@ src/
 app.py                        Streamlit dashboard
 .streamlit/config.toml        theme (used locally and on Streamlit Community Cloud)
 ```
+
+## Research reports for the Insights picks
+
+Each under-the-radar pick on the Insights tab links to an interactive research
+report, shown inside the app at `/report?ticker=<TICKER>` (`views/report.py`;
+`app.py` routes between it and the dashboard in `dashboard.py`).
+
+The narrative for each report (history, challenges, growth, 13F view, outlook,
+sources, glossary) lives in `reports/data/<TICKER>.json`. Running
+`.venv/bin/python reports/build_reports.py [TICKER ...]` fills
+`reports/template.html` with that narrative plus month-end prices (Yahoo
+Finance), the pick's radar score and its 13F holders, writes
+`reports/html/<TICKER>.html`, and stamps the generation time in
+`reports/manifest.json`. Commit `reports/` and push to update the deployed
+app. When the picks change, write a data file for each new ticker first: a
+pick without a report simply shows no report link.

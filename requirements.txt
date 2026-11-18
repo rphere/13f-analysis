@@ -1,6 +1,6 @@
 requests>=2.31
 pandas>=2.1
 pyarrow>=14.0
-streamlit>=1.50
+streamlit>=1.67
 plotly>=5.18
 yfinance>=0.2.40

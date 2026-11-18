@@ -1,0 +1,204 @@
+{
+  "title": "Royalty Pharma Research Report",
+  "name": "Royalty Pharma",
+  "exchange": "Nasdaq",
+  "accent": "#1d4ed8",
+  "accent_dark": "#7aa2ff",
+  "hero": "#172b5c",
+  "price_start": "2020-06-01",
+  "tagline": "Royalty Pharma is the largest buyer of biopharma royalties. It pays drug developers and universities up front for a share of future sales, so it earns from many blockbusters without running labs or sales forces. The stock went nowhere for four years after its 2020 IPO, then more than doubled from its late-2024 low.",
+  "kpis": [
+    ["$890M", "Q3 2026 portfolio receipts, +9%"],
+    ["$3.50–3.55B", "2026 receipts guidance (3rd raise)"],
+    ["10–11%", "expected 2026 royalty-receipts growth"],
+    ["5.6%", "operating costs as a share of receipts"],
+    ["$0.235", "quarterly dividend (+7% in 2026)"]
+  ],
+  "chapters": [
+    {
+      "id": "founding", "nav": "Founding", "title": "The founding story",
+      "lede": "Pablo Legorreta, a Mexican-born investment banker, saw that universities and small biotechs owned valuable royalty rights they couldn't easily turn into cash. In 1996 he started Royalty Pharma to buy them. For almost 30 years it was run by a separate management company that Legorreta owned, until shareholders voted in 2025 to bring management in-house.",
+      "blocks": [
+        {"type": "people", "items": [
+          ["PL", "Pablo Legorreta", "Founder and CEO. He was the sole owner of the external manager until 2024 and has led the company's dealmaking since 1996."],
+          ["MG", "Management team", "The executives who used to work for the external manager became Royalty Pharma employees in 2025 and received about half of the equity issued in the deal."],
+          ["SH", "Shareholders", "They voted 99.9% in favor of internalizing management in May 2025, ending the external fee structure."]
+        ]},
+        {"type": "timeline", "start": 0, "items": [
+          ["1996", "Founded", "Legorreta founds Royalty Pharma in New York to buy royalty interests from academic institutions and biotechs, run by an external manager."],
+          ["2014", "Cystic fibrosis deal", "Royalty Pharma buys the Cystic Fibrosis Foundation's royalties on Vertex's CF drugs for about $3.3B. The franchise becomes a cornerstone of the portfolio."],
+          ["Jun 2020", "IPO on Nasdaq", "It lists in the middle of the pandemic, one of the largest biopharma IPOs to that point."],
+          ["2020–24", "The long stall", "The shares drift from the high $40s to the mid $20s as rates rise and investors question the external-manager fees and patent expirations in the portfolio."],
+          ["Jan 2023", "Ionis funding", "A $500M agreement with Ionis puts $150M of value on pelacarsen royalties and $350M on Spinraza."],
+          ["May 2025", "Management internalized", "Shareholders approve acquiring the external manager with 99.9% of votes cast."],
+          ["2025", "Revolution Medicines", "A large funding partnership backs daraxonrasib, a Phase 3 pancreatic-cancer drug. Royalty Pharma buys back $1.2B of its own stock."],
+          ["Sep 2025", "Investor Day", "Royalty Pharma targets at least $4.7B of portfolio receipts by 2030 and a mid-teens average annual total shareholder return."],
+          ["Sep 4, 2026", "Pelacarsen fails", "Novartis's Lp(a) HORIZON outcomes trial misses its primary endpoint, and Royalty Pharma later takes a $150M non-cash impairment."],
+          ["Nov 4, 2026", "Third raise of the year", "Q3 receipts rise 9% to $890M, and 2026 guidance goes up to $3.50–3.55B."]
+        ]}
+      ]
+    },
+    {
+      "id": "challenges", "nav": "Early challenges", "title": "Early challenges",
+      "lede": "The model is simple, but buying royalties brings its own risks: clinical failures, patent expirations and a cost of capital that moves with interest rates. Public investors added a governance complaint. Tap a card to see how each played out.",
+      "blocks": [
+        {"type": "cards", "items": [
+          ["Governance", "The external-manager fee", "For decades the company paid a separate, Legorreta-owned manager, which critics said misaligned incentives.", "In 2025 Royalty Pharma acquired the manager with 99.9% shareholder support. Costs are now 5.5–6% of receipts, and many investors see the change as the turning point for the stock."],
+          ["Interest rates", "Rates up, royalties down", "Royalties are long-dated cash flows. When rates rose in 2022–23 they were worth less, and the company's own borrowing cost rose too.", "The stock bottomed near $25.50 in December 2024. Since then, faster growth and buybacks have mattered more than rates. Net interest paid is still rising: $167M in Q3 2026 against $123M a year earlier."],
+          ["Patent cliffs", "Royalties expire", "Every royalty ends when its drug loses exclusivity, so the company must keep buying new ones just to stand still.", "Royalty Pharma has kept committing billions to newer drugs, including more than $2.6B of deals in 2025 and over $1.25B in Q1 2026."],
+          ["Clinical risk", "Buying before approval", "Funding drugs still in development can pay off well, or go to zero.", "Pelacarsen failed in 2026. Royalty Pharma says the deal was structured to recover its capital plus a modest return, because Spinraza royalties came in the same package."],
+          ["Investor attention", "A hard-to-categorize stock", "It isn't a pharma company, a biotech or a bank, so few investors own it as a natural fit.", "It has turned to steady guidance raises, a growing dividend and large buybacks, retiring about 8.8% of its shares in one program."],
+          ["Competition", "Private credit wants in", "As royalty financing became popular, private funds and credit investors began competing for deals.", "Royalty Pharma's scale lets it write checks of $1–2B, and its synthetic royalties and R&D funding go beyond buying existing royalties."]
+        ]}
+      ]
+    },
+    {
+      "id": "growth", "nav": "Growth", "title": "Growth",
+      "lede": "Royalty Pharma's top line is portfolio receipts: the cash it collects from royalties and milestones. Growth sped up in early 2026 on new launches and then slowed in Q3, which is the main point of debate now.",
+      "blocks": [
+        {"type": "bars", "tabs": [
+          {"label": "Royalty-receipts growth", "fmt": "pct", "note": "Year-over-year growth in royalty receipts by quarter, plus the full-year 2026 guidance midpoint (10–11%). Year to date it was 12%.", "data": [["Q1 2026", 13, "Strong start"], ["Q2 2026", 14, "Peak growth"], ["Q3 2026", 9, "Deceleration: Tremfya, Voranigo, Evrysdi, Imdelltra still led"], ["FY 2026 guide", 10.5, "Raised from 7–10%"]]},
+          {"label": "Portfolio receipts", "fmt": "usdM", "note": "US$ millions. The FY 2026 bar is the midpoint of the raised $3.50–3.55B guidance, which excludes future deals. The 2030 bar is the company's target of at least $4.7B.", "data": [["Q3 2025", 814, "Prior-year quarter"], ["Q3 2026", 890, "+9% YoY"], ["FY 2026 guide", 3525, "Midpoint of $3.50–3.55B"], ["2030 target", 4700, "At least $4.7B, reiterated Sep 2026"]]}
+        ]},
+        {"type": "row", "items": [
+          {"type": "hbars", "eyebrow": "Q3 2026 cash flow, $M", "fmt": "usdM", "items": [["Portfolio receipts", 890, "+9%"], ["Royalty receipts", 883, "+9%"], ["Portfolio cash flow", 673, "+2%, held back by interest"], ["Net interest paid", 167, "Up from $123M", "var(--s2)"]], "note": "Portfolio cash flow grew much more slowly than receipts because interest costs rose."},
+          {"type": "facts", "eyebrow": "Capital returned", "items": [["2025 buybacks", "37M shares for $1.2B"], ["Program total", "About 8.8% of shares retired for about $1.28B"], ["Dividend", "$0.235 a quarter after a 7% raise in Q1 2026"], ["Q3 2026 EPS", "$1.21 against a $1.18 estimate"]]}
+        ]},
+        {"type": "callout", "html": "<b>Watch-out:</b> royalty-receipts growth slowed from 14% in Q2 to 9% in Q3, and interest costs are rising faster than receipts. Analysts disagree on whether the slowdown is a one-quarter blip or a trend."}
+      ]
+    },
+    {
+      "id": "stock", "nav": "Stock", "title": "Stock trajectory",
+      "lede": "The shares started trading in the high $40s in June 2020 and then fell for four years, bottoming near $25.50 in December 2024. Internalizing management, faster growth and buybacks then drove a re-rating to record highs. Hover over the line, switch to the S&P 500 comparison, or click an event.",
+      "blocks": [
+        {"type": "price", "events": [
+          ["2020-06-16", "IPO", "Listed on Nasdaq in the middle of the pandemic and traded well above its IPO price on day one."],
+          ["2023-01-09", "Ionis deal", "$500M for Spinraza and pelacarsen royalties."],
+          ["2024-12-31", "The low: ~$25.50", "Four years of underperformance, with rates and governance worries weighing."],
+          ["2025-05-12", "Internalization approved", "99.9% of votes cast in favor."],
+          ["2026-09-04", "Pelacarsen fails", "The Lp(a) outcomes trial misses, but the stock holds up because the deal was structured to recover its capital."],
+          ["2026-11-04", "Q3: third raise", "Guidance raised to $3.50–3.55B. Shares rose about 1.7%."]
+        ], "note": "Month-end closing prices from Yahoo Finance, not adjusted for dividends, with the last point at the latest close. Event dots sit on the nearest month-end. This is not investment advice."}
+      ]
+    },
+    {
+      "id": "portfolio", "nav": "Portfolio", "title": "What it owns",
+      "lede": "Royalty Pharma holds royalties on dozens of approved drugs, plus funding stakes in drugs still in trials. A few franchises do most of the work today, while newer launches are expected to carry growth toward 2030.",
+      "blocks": [
+        {"type": "segments", "items": [
+          {"title": "Cystic fibrosis (Vertex)", "big": "Since 2014", "sub": "the cornerstone royalty, bought for ~$3.3B", "color": "var(--s1)", "text": "These are royalties on Vertex's CF medicines, including Trikafta, bought from the Cystic Fibrosis Foundation.", "pills": [["g", "Long-dated"]], "more": "This is the biggest and most durable single franchise in the portfolio."},
+          {"title": "Tremfya (J&J)", "big": "$80M", "sub": "Q3 2026 royalties, +61%", "color": "var(--s3)", "text": "An immunology drug whose new bowel-disease indications are driving fast royalty growth.", "pills": [["g", "Top growth driver"]]},
+          {"title": "New launches", "big": "4 drivers", "sub": "Voranigo · Evrysdi · Imdelltra · Tremfya", "color": "var(--acc)", "text": "Management named these as the main contributors to Q3 royalty growth. Voranigo treats brain cancer, Evrysdi treats spinal muscular atrophy and Imdelltra treats lung cancer.", "pills": [["g", "Supports the 2030 target"]]},
+          {"title": "Development-stage bets", "big": "Phase 3", "sub": "daraxonrasib (Revolution Medicines)", "color": "var(--s2)", "text": "Royalty Pharma's largest R&D funding partnership is in pancreatic cancer, where a Phase 3 trial nearly doubled overall survival in second-line patients.", "pills": [["g", "Potential blockbuster"], ["w", "Approval pending"]], "more": "Pelacarsen showed the other side of this strategy when it failed its outcomes trial in September 2026, leading to a $150M impairment."},
+          {"title": "Q3 2026 additions", "big": "$200M", "sub": "two new royalty purchases", "color": "var(--ink-3)", "text": "It bought royalties on Arcutis's Zoryve and Takeda's Mimrylo for about $100M each.", "pills": [["g", "Steady deal flow"]]}
+        ]}
+      ]
+    },
+    {
+      "id": "priorities", "nav": "Priorities", "title": "What the company prizes",
+      "lede": "Royalty Pharma describes itself as funding innovation across the biopharma ecosystem. In practice, five principles show up again and again in its deals and its capital allocation. Tap one to see how each works.",
+      "blocks": [
+        {"type": "values", "label": "Principle", "items": [
+          ["Fund innovation, not just buy cash flows", "Provide capital at every stage, from academic royalties to Phase 3 funding and synthetic royalties.", "Deals include the Revolution Medicines partnership, J&J and Teva programs worth up to $1B, and the Ionis funding."],
+          ["Diversify across many drugs", "No single trial failure should break the company.", "When pelacarsen failed, the $150M impairment was small against $3.5B of annual receipts."],
+          ["Stay lean", "Keep a small team and low overhead.", "Operating and professional costs are 5.6% of receipts, with a full-year target of 5.5–6.0%."],
+          ["Align with shareholders", "End the external-manager structure.", "The 2025 internalization passed with 99.9% support, and management now owns equity directly."],
+          ["Return excess capital", "Buy back stock when it's cheap and grow the dividend.", "It repurchased $1.2B in 2025 and raised the dividend 7% in 2026."]
+        ]}
+      ]
+    },
+    {
+      "id": "radar", "nav": "13F view", "title": "Why it's on the radar: the 13F view",
+      "lede": "RPRX made the Insights tab because the number of tracked funds holding it grew from 5 to 8 in a year, four of them as conviction positions, while its total 13F footprint stays modest. It also has a full five-year track record, unlike the other two stock picks.",
+      "blocks": [
+        {"type": "radar", "html": "<b>Quant money is piling in:</b> AQR, Two Sigma and Renaissance all built up their RPRX positions through 2026. Renaissance's stake reached about $109M, or 0.15% of its book. Bridgewater opened a new position in Q2 2026."}
+      ]
+    },
+    {
+      "id": "outlook", "nav": "Outlook", "title": "Future outlook: opportunities & risks",
+      "lede": "Analysts rate the stock a Buy, but the price has already run past most published targets. Bulls point to the launch pipeline and the 2030 target. Bears point to slowing royalty growth, rising interest costs and binary clinical risk.",
+      "blocks": [
+        {"type": "targets", "avg": 63.29, "items": [
+          ["Street high", 78, "Highest target in MarketBeat's set"],
+          ["Citigroup", 66, "Buy · raised from $50 · May 2026"],
+          ["JPMorgan", 58, "Overweight · raised from $50 · May 2026"],
+          ["UBS", 57, "Buy · Apr 2026"],
+          ["Street low", 45, "Lowest target in MarketBeat's set"]
+        ], "note": "MarketBeat shows an average target of about $63.29 from 9 analysts. Most named targets date from spring 2026, before the stock's latest run, so the shares now trade above the consensus."},
+        {"type": "oppRisk",
+          "opp": [
+            ["Launch pipeline", "Tremfya (+61%), Voranigo, Evrysdi and Imdelltra are ramping up and underpin the target of at least $4.7B of receipts by 2030."],
+            ["Daraxonrasib", "A Phase 3 that nearly doubled overall survival in second-line pancreatic cancer could make it one of the largest royalties in the portfolio."],
+            ["A growing funding market", "Biotechs short of equity funding increasingly turn to royalty and R&D financing, where Royalty Pharma is the largest player."],
+            ["Buybacks + dividend", "Steady share count reduction and dividend growth support per-share returns."],
+            ["Lower rates", "Cheaper capital would raise the value of long-dated royalties and lower interest costs."],
+            ["Lean structure", "With costs at about 5.6% of receipts, most extra revenue turns into cash."]
+          ],
+          "risk": [
+            ["Slowing growth", "Royalty-receipts growth fell from 14% to 9% in a quarter, and a few more slow quarters would hurt the growth story."],
+            ["Clinical failures", "Pelacarsen showed that development-stage bets can fail. The impairment was $150M."],
+            ["Patent expirations", "Older royalties keep expiring, so the company must keep doing deals just to replace them."],
+            ["Interest costs", "Net interest paid rose to $167M in the quarter, which limits cash-flow growth."],
+            ["Drug-pricing policy", "Medicare price negotiation lowers the sales base for some royalties."],
+            ["Valuation", "The price has run above the average target, leaving less margin for error."]
+          ]},
+        {"type": "bullbear", "items": [
+          ["Bear case (~$45)", "Growth settles in the mid-single digits as older royalties expire, more pipeline bets fail and interest costs keep rising. The stock falls back toward a bond-like valuation."],
+          ["Cautious (UBS / JPM ~$57–58)", "The business is solid, but after the re-rating most of the internalization benefit is already in the price."],
+          ["Middle (consensus ~$63)", "Receipts grow about 10% a year toward the 2030 target, buybacks continue, and the stock trades roughly where it is."],
+          ["Constructive (Citi $66+)", "New launches keep growth in double digits, and daraxonrasib is approved."],
+          ["Bull case (Street high $78)", "Royalty Pharma becomes the default funder for biotech, beats its 2030 target early, and is valued as a compounder rather than a royalty trust."]
+        ]},
+        {"type": "catalysts", "items": [
+          ["~Feb 2027", "Q4 results and 2027 guidance", "Shows whether the Q3 slowdown continues. A dividend raise has usually come in Q1."],
+          ["2027", "Daraxonrasib regulatory path", "An approval in pancreatic cancer would be a major new royalty."],
+          ["Upcoming congress", "Full pelacarsen data", "This mostly closes out the impairment story."],
+          ["Ongoing", "New royalty and R&D funding deals", "Steady deal flow is needed to replace expiring royalties."],
+          ["Ongoing", "Interest-rate path", "Rates affect both royalty valuations and the company's own interest bill."]
+        ]},
+        {"type": "callout", "html": "This summarizes published analyst and media views. It is not investment advice."}
+      ]
+    }
+  ],
+  "sources": [
+    [["Royalty Pharma Q3 2026 results (SEC 8-K)", "https://www.sec.gov/Archives/edgar/data/0001802768/000180276826000026/rprx-20260930rpplcpressxre.htm"], ["Morningstar/GlobeNewswire: Q3 2026 release", "https://www.morningstar.com/news/globe-newswire/9869914/royalty-pharma-reports-third-quarter-2026-results"], ["Panabee: Q3 receipts and pelacarsen impairment", "https://www.panabee.com/news/royalty-earnings-q4-2026"], ["Q3 2026 call transcript", "https://www.mitrade.com/insights/news/live-news/article-8-2230151-20261105"]],
+    [["Royalty Pharma: completes acquisition of external manager", "https://www.royaltypharma.com/news/royalty-pharma-completes-the-acquisition-of-its-external-manager/"], ["Shareholder approval of internalization", "https://www.quantisnow.com/insight/royalty-pharma-announces-shareholder-approval-of-its-external-manager-acquisition-6033194"], ["Investor Day 2025", "https://www.royaltypharma.com/news/royalty-pharma-investor-day-highlights-strong-growth-outlook-and-companys-plans-to-drive-value-creation/"], ["Wikipedia (mirror): Royalty Pharma", "https://ipfs.ssi.eecc.de/ipns/en.wikipedia-on-ipfs.org/wiki/Royalty_Pharma"]],
+    [["Royalty Pharma: pelacarsen update", "https://www.royaltypharma.com/wp-content/uploads/2026/09/RPRX-Pelacarsen-Press-Release-vFINAL.pdf"], ["Healio: pelacarsen fails to reduce CV events", "https://www.healio.com/news/cardiology/20260908/not-the-results-we-hoped-for-lpalowering-drug-pelacarsen-fails-to-reduce-cv-events"], ["Royalty Pharma Q4 2025 release", "https://www.royaltypharma.com/wp-content/uploads/2026/02/RPRX-2025.12.31-RP-plc-Press-Release-vFinal.pdf"], ["Fintool: 2026 deals and buybacks", "https://fintool.com/app/research/companies/RPRX"]],
+    [["MarketBeat: price targets", "https://www.marketbeat.com/stocks/NASDAQ/RPRX/price-target"], ["MarketBeat: Citigroup raises to $66", "https://www.marketbeat.com/instant-alerts/citigroup-raises-royalty-pharma-nasdaqrprx-price-target-to-6600-2026-05-07/"], ["MarketBeat: JPMorgan raises target", "https://www.marketbeat.com/instant-alerts/jpmorgan-chase-co-issues-positive-forecast-for-royalty-pharma-nasdaqrprx-stock-price-2026-05-07/"], ["WallStSmart: targets", "https://wallstsmart.com/stock/RPRX/price-targets"]]
+  ],
+  "glossary": [
+    ["Royalties", "Royalty", "A right to a percentage of a product's sales, paid to whoever invented, licensed or funded it."],
+    ["Royalties", "Portfolio receipts", "All cash Royalty Pharma collects from its royalties, milestones and other contracts. It is the company's top-line measure."],
+    ["Royalties", "Royalty receipts", "The part of portfolio receipts that comes from royalties on product sales."],
+    ["Royalties", "Synthetic royalty", "A new royalty created by a deal: a drug maker sells a slice of future sales in exchange for cash now."],
+    ["Royalties", "R&D funding", "Capital that pays for a drug's trials in exchange for royalties or milestones if it succeeds."],
+    ["Royalties", "Milestone payment", "A lump sum paid when a drug reaches a goal, such as approval or a sales level."],
+    ["Royalties", "Impairment", "A write-down that cuts an asset's book value when its expected cash flows fall. It is non-cash."],
+    ["Royalties", "Portfolio cash flow", "Receipts minus operating costs and interest: the cash available for deals, dividends and buybacks."],
+    ["Royalties", "External manager", "A separate firm that runs a company for a fee. Royalty Pharma ended this arrangement in 2025."],
+    ["Royalties", "Internalization", "Bringing management in-house by acquiring the external manager."],
+    ["Drugs", "Tremfya", "J&J's immunology drug (guselkumab), used for psoriasis and inflammatory bowel disease."],
+    ["Drugs", "Trikafta", "Vertex's triple-combination cystic fibrosis medicine."],
+    ["Drugs", "Evrysdi", "Roche's oral treatment for spinal muscular atrophy."],
+    ["Drugs", "Voranigo", "Servier's treatment for a type of brain tumor (IDH-mutant glioma)."],
+    ["Drugs", "Imdelltra", "Amgen's treatment for small-cell lung cancer."],
+    ["Drugs", "Daraxonrasib", "Revolution Medicines' RAS-inhibitor in Phase 3 for pancreatic cancer."],
+    ["Drugs", "Pelacarsen", "Novartis and Ionis's Lp(a)-lowering heart drug. It failed its outcomes trial in 2026."],
+    ["Drugs", "Lp(a)", "Lipoprotein(a), a genetically determined blood fat linked to heart disease."],
+    ["Drugs", "Spinraza", "Biogen's spinal muscular atrophy drug, licensed from Ionis."],
+    ["Drugs", "Patent cliff", "The drop in a drug's sales when its patents expire and generics or biosimilars arrive."],
+    ["Drugs", "Biosimilar", "A near-copy of a biologic drug, sold after the original's exclusivity ends."],
+    ["Trials", "Phase 3", "The large, final trial stage before a drug is submitted for approval."],
+    ["Trials", "Primary endpoint", "The main outcome a trial is designed to test. Missing it usually means the trial failed."],
+    ["Trials", "Overall survival", "How long patients live after starting treatment. It is the gold-standard cancer trial outcome."],
+    ["Trials", "Outcomes trial", "A trial that measures real clinical events, such as heart attacks, rather than lab markers."],
+    ["Stock", "IPO", "Initial public offering. Royalty Pharma listed on Nasdaq in June 2020."],
+    ["Stock", "Total shareholder return (TSR)", "Share-price gain plus dividends over a period."],
+    ["Stock", "Buyback", "A company buying its own shares, which reduces the share count."],
+    ["Stock", "Re-rating", "When investors start paying a higher (or lower) multiple for the same earnings."],
+    ["Stock", "Price target", "An analyst's estimate of where the stock will trade in about 12 months."],
+    ["13F", "13F filing", "A quarterly SEC report in which investment managers with over $100M list their US-listed long equity positions."],
+    ["13F", "Conviction position", "In this dashboard, a holding that is at least 0.05% of a fund's 13F long book."],
+    ["13F", "Radar score", "This dashboard's pick score: 45% performance, 35% under-the-radar breadth and 20% accumulation, each a percentile."]
+  ]
+}

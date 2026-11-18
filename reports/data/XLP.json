@@ -1,0 +1,168 @@
+{
+  "title": "Consumer Staples Select Sector SPDR Research Report",
+  "name": "Consumer Staples Select Sector SPDR ETF",
+  "exchange": "NYSE Arca",
+  "accent": "#15803d",
+  "accent_dark": "#5fd38d",
+  "hero": "#123d24",
+  "price_start": "2019-01-01",
+  "tagline": "XLP is the low-cost, defensive classic: the S&P 500's grocery, household-goods, beverage and tobacco companies, led by Walmart, Costco, Coca-Cola and Procter & Gamble. After years of lagging, it has had a strong 2026, even as investors pulled money out of it.",
+  "kpis": [
+    ["0.08%", "expense ratio"],
+    ["+18%", "YTD return (Oct 22, 2026)"],
+    ["−$1.75B", "YTD net outflows (Oct 22, 2026)"],
+    ["~33%", "in Walmart, Costco, Coca-Cola, P&G"],
+    ["7 funds", "tracked 13F holders (Q2 2026)"]
+  ],
+  "chapters": [
+    {
+      "id": "about", "nav": "What it is", "title": "What XLP is and where it came from",
+      "lede": "XLP launched in December 1998 as one of the original Select Sector SPDRs, which split the S&P 500 into sector funds. It holds the S&P 500's consumer staples companies, about 37 of them, with weights capped for diversification. It is one of the cheapest and most heavily traded sector ETFs, which is why big funds use it.",
+      "blocks": [
+        {"type": "timeline", "start": 8, "items": [
+          ["Dec 1998", "Launch", "State Street launches the Select Sector SPDRs, including XLP, to slice the S&P 500 by sector."],
+          ["2000–02", "Dot-com bust", "Staples hold up while tech collapses, which establishes their defensive reputation."],
+          ["2008", "Financial crisis", "Staples fall far less than the market. People keep buying toothpaste."],
+          ["2010s", "Bond proxies", "With rates near zero, investors buy staples for their dividends, and valuations climb."],
+          ["2018–19", "Brand pressure", "Private labels and online upstarts squeeze big food and household brands."],
+          ["2022", "Inflation hedge", "Staples outperform as the market falls and brands push through price increases."],
+          ["2023–25", "GLP-1 & volume worries", "Weight-loss drugs, price fatigue and tariff fears weigh on packaged-food volumes, and staples lag the AI-led market."],
+          ["Aug 2026", "Holdings snapshot", "Walmart is about 9.7%, Costco about 8.9%, Coca-Cola about 7.4% and P&G about 7.1%. Target is up about 67% YTD while Walmart is down about 5%."],
+          ["Oct–Nov 2026", "Late-year surge", "XLP goes from +6.6% YTD in September to about +18% by late October as investors move toward defensives."]
+        ]},
+        {"type": "facts", "eyebrow": "Fund facts", "items": [
+          ["Issuer", "State Street (SPDR)"],
+          ["Index", "Consumer Staples Select Sector Index (the S&P 500's staples stocks, capped)"],
+          ["Expense ratio", "0.08%"],
+          ["Holdings", "About 37"],
+          ["Use by institutions", "Very liquid, often used for hedging, pair trades and defensive tilts"],
+          ["Name", "Now marketed as the State Street Consumer Staples Select Sector SPDR ETF"]
+        ]}
+      ]
+    },
+    {
+      "id": "inside", "nav": "What's inside", "title": "What's inside",
+      "lede": "XLP is about one-third retailers (Walmart, Costco and Target) and two-thirds brands: beverages, household products, food and tobacco. In 2026 those two groups have moved very differently.",
+      "blocks": [
+        {"type": "row", "items": [
+          {"type": "hbars", "eyebrow": "Top holdings (% of fund, Aug 24, 2026)", "fmt": "pct1", "max": 12, "items": [["Walmart", 9.7, "Retail; down about 5% YTD at the snapshot"], ["Costco", 8.9, "Membership warehouse retail"], ["Coca-Cola", 7.4, "Beverages"], ["Procter & Gamble", 7.1, "Household & personal care"]], "note": "Schwab snapshot, Aug 24, 2026. Weights change with prices and quarterly rebalances."},
+          {"type": "segments", "items": [
+            {"title": "Retailers vs. brands", "big": "+67% vs −5%", "sub": "Target vs. Walmart YTD (Aug 2026)", "color": "var(--s2)", "text": "Returns inside the sector have varied widely, so stock-level results drive the fund more than a single sector story would suggest.", "pills": [["w", "Wide dispersion"]]}
+          ]}
+        ]},
+        {"type": "callout", "html": "<b>Why funds hold XLP:</b> at 0.08% and with deep liquidity, it is a cheap way to add or hedge defensive exposure. That is why quant and multi-strategy funds dominate its 13F holders."}
+      ]
+    },
+    {
+      "id": "returns", "nav": "Year by year", "title": "Year by year",
+      "lede": "Staples rarely win a bull market, but they usually lose less in bad years. 2022 is the classic example.",
+      "blocks": [
+        {"type": "annual", "note": "Calendar-year price change from month-end closes, without dividends. Hover over a bar to see the S&P 500 (SPY) return for the same year. The current year is year-to-date."}
+      ]
+    },
+    {
+      "id": "stock", "nav": "Price", "title": "Price trajectory",
+      "lede": "XLP's chart rises slowly and steadily, with small drawdowns. The steep part at the end is the late-2026 move into defensives. Switch to the S&P 500 comparison to see how far behind the AI-led market staples fell before that.",
+      "blocks": [
+        {"type": "price", "events": [
+          ["2020-03-31", "COVID dip", "A shallow drawdown, since people still bought groceries."],
+          ["2022-12-30", "Defensive year", "Staples beat a falling market in 2022."],
+          ["2024-12-31", "Lagging the AI boom", "Staples trail the S&P 500 badly through 2023–24."],
+          ["2026-09-30", "+6.6% YTD", "A modest year through September."],
+          ["2026-10-30", "Defensive surge", "About +18% YTD by late October."]
+        ], "note": "Month-end closing prices from Yahoo Finance, not adjusted for dividends, with the last point at the latest close. This is not investment advice."}
+      ]
+    },
+    {
+      "id": "macro", "nav": "The macro story", "title": "What drives it: the macro story",
+      "lede": "Staples are supposed to be boring. This cycle has instead brought weight-loss drugs, tariffs and a sector valuation near a ten-year low. Tap a card for the current read on each.",
+      "blocks": [
+        {"type": "cards", "hint": "Tap for the 2026 read", "items": [
+          ["Demand", "GLP-1 weight-loss drugs", "People taking GLP-1s eat and snack less, which hurts packaged-food and beverage volumes.", "TD Cowen called GLP-1 expansion the most obvious headwind to accelerate in 2026. RBC says the drugs are reshaping categories."],
+          ["Trade", "Tariffs", "Staples face less direct tariff impact than most sectors because they tend to produce where they sell.", "Franklin Templeton worries more about second-order effects, where a new round of tariffs rekindles inflation. Some farm-product tariffs were rolled back."],
+          ["Valuation", "Near a 10-year low", "The sector's multiple relative to the market is near its lowest in a decade.", "Franklin Templeton sees limited downside from here. RBC notes the sector's premium to the S&P 500 has been eroding for over 20 years."],
+          ["Pricing power", "Volumes vs. price", "After years of price increases, shoppers are trading down to private labels.", "Volume recovery is the key ask. Barron's called rekindling demand in 2026 'a tall order' for food makers."],
+          ["Retail", "The winners are retailers", "Walmart and Costco gained share with value and scale, and Target rebounded sharply in 2026.", "Retailers now carry much of the index's return, so XLP is less of a pure brand play than it used to be."],
+          ["Rotation", "Defensive demand", "When growth stocks wobble, investors move to staples.", "XLP's late-2026 rally came alongside YTD outflows of $1.75B. The price gain came from the holdings rallying, not from new money into the fund."]
+        ]}
+      ]
+    },
+    {
+      "id": "radar", "nav": "13F view", "title": "Why it's on the radar: the 13F view",
+      "lede": "XLP made the Insights tab with 7 tracked holders, up from 5 a year earlier, and steady positive returns over every window. Its 13F story is about trading activity more than conviction.",
+      "blocks": [
+        {"type": "radar", "html": "<b>Huge swings, hedge-style:</b> Two Sigma held about $490M in Q3 2025, cut it to about $40M, and was back near $94M by Q2 2026. Millennium went from $18M to $265M and back to $27M. Swings like these are typical of hedge and pair-trade positions, so read the holder count as interest in the sector, not as stock-picking conviction."}
+      ]
+    },
+    {
+      "id": "outlook", "nav": "Outlook", "title": "Future outlook: opportunities & risks",
+      "lede": "Strategists disagree on staples. Some see cheap valuations and a defensive hedge late in the cycle. Others see a structural volume problem from GLP-1s and private labels. Wells Fargo stays unfavorable, while Franklin Templeton is adding exposure.",
+      "blocks": [
+        {"type": "oppRisk",
+          "opp": [
+            ["Cheap vs. history", "The sector's relative multiple is near a 10-year low, which Franklin Templeton says leaves limited downside."],
+            ["Defensive hedge", "If the AI-led market corrects, staples historically lose much less, as in 2022."],
+            ["Retail leaders", "Walmart and Costco keep taking share with scale and value."],
+            ["Low tariff exposure", "Local production limits the direct tariff hit."],
+            ["Very low cost", "At 0.08%, XLP is one of the cheapest ways to hold the sector."],
+            ["Dividends", "Mature cash-generating companies with long dividend records."]
+          ],
+          "risk": [
+            ["GLP-1 volume drag", "Analysts expect the weight-loss-drug effect on food and beverage volumes to persist."],
+            ["Private-label trade-down", "Shoppers resisting brand price increases cap pricing power."],
+            ["Second-order tariffs", "Broad new tariffs could revive inflation and squeeze margins."],
+            ["Long-run de-rating", "RBC: the sector's valuation premium has been eroding for more than 20 years."],
+            ["Outflows", "Investors pulled $1.75B YTD even as the price rose."],
+            ["Lags in rallies", "When growth stocks lead, staples usually trail."]
+          ]},
+        {"type": "bullbear", "items": [
+          ["Bear case (Wells Fargo: unfavorable)", "GLP-1s and private labels keep volumes falling, brands lose pricing power, and the late-2026 rally fades."],
+          ["Cautious", "Retailers keep winning but brands stagnate. XLP returns roughly its dividend."],
+          ["Middle", "Staples act as a steady, low-volatility part of a portfolio, with mid-single-digit returns."],
+          ["Constructive (Franklin Templeton)", "Cheap valuations plus a defensive rotation keep staples outperforming into 2027."],
+          ["Bull case", "A broader market correction sends money into staples, and valuations return to their long-run premium."]
+        ]},
+        {"type": "catalysts", "items": [
+          ["Mid-Nov 2026", "Walmart and Target Q3 results", "Read-through on consumer health and retail share gains."],
+          ["Dec 2026", "Costco November/December sales and Q1 FY27 results", "Costco is about 9% of the fund."],
+          ["Early 2027", "Holiday-season retail data", "Volume trends for brands vs. private label."],
+          ["Feb 2027", "CAGNY conference", "Staples companies set annual targets, the sector's main event."],
+          ["Ongoing", "Tariff and inflation news", "Second-order inflation is the main macro risk."]
+        ]},
+        {"type": "callout", "html": "This summarizes published strategist and media views. It is not investment advice."}
+      ]
+    }
+  ],
+  "sources": [
+    [["SSGA: XLP fund page", "https://www.ssga.com/us/en/individual/etfs/funds/consumer-staples-select-sector-spdr-fund-xlp"], ["StockAnalysis: XLP", "https://stockanalysis.com/etf/xlp/"], ["Schwab: XLP summary", "https://www.schwab.wallst.com/Prospect/Research/etfs/summary.asp?symbol=xlp"], ["ETF Central: XLP", "https://www.etfcentral.com/fund/XLP"], ["Fox Business: XLP quote", "https://www.foxbusiness.com/quote?stockTicker=XLP"]],
+    [["RBC Capital Markets: The Great Recalibration", "https://www.rbccm.com/en/insights/2026/08/the-great-recalibration-what-comes-next-for-consumer-staples"], ["Franklin Templeton: ramping up on staples", "https://www.franklintempleton.com/articles/2026/equity/global-equity-pulse-ramping-up-on-consumer-staples"], ["Wells Fargo: CAGNY 2026 review", "https://saf.wellsfargoadvisors.com/emx/dctm/Research/ASG/Equity_Strategy/cagny_2026_consumer_staples_030526.pdf"]],
+    [["Supermarket Perimeter: food outlook 2026", "https://www.supermarketperimeter.com/articles/13778-food-industry-outlook-improves-little-for-2026"], ["Barron's via Tiger: food makers need to rekindle demand", "https://www-web.itiger.com/news/2594224979"], ["Janus Henderson: ultra-processed to health-conscious", "https://www.janushenderson.com/en-gb/adviser/article/rethinking-food-the-shift-from-ultra-processed-to-health-conscious-choices/"], ["MarketBeat: staples giants showing strength", "https://www.marketbeat.com/articles/defensive-plays-3-consumer-staples-giants-showing-strength/"]]
+  ],
+  "glossary": [
+    ["ETF", "ETF", "Exchange-traded fund: a basket of securities that trades on an exchange like a single stock."],
+    ["ETF", "Select Sector SPDR", "State Street's family of ETFs that split the S&P 500 into its sectors."],
+    ["ETF", "Expense ratio", "The annual fee as a share of assets. 0.08% costs 80 cents a year per $1,000 invested."],
+    ["ETF", "Net flows", "Money added to minus money withdrawn from a fund. Outflows mean investors are selling shares back."],
+    ["ETF", "Liquidity", "How easily large amounts trade without moving the price. XLP is very liquid."],
+    ["ETF", "Capped weighting", "Limits on single-stock weights to meet diversification rules."],
+    ["Sector", "Consumer staples", "Companies selling necessities such as food, drinks, household goods and tobacco, which people buy in good times and bad."],
+    ["Sector", "Consumer discretionary", "Companies selling things people can put off buying, like cars and travel. It is the opposite of staples."],
+    ["Sector", "Defensive sector", "A sector whose earnings hold up in downturns, such as staples, utilities or healthcare."],
+    ["Sector", "Private label", "Store brands, like Costco's Kirkland, that compete with name brands on price."],
+    ["Sector", "Pricing power", "The ability to raise prices without losing many customers."],
+    ["Sector", "Volume vs. price/mix", "Sales growth from selling more units, as opposed to charging more or selling pricier products."],
+    ["Sector", "GLP-1", "Weight-loss and diabetes drugs like Ozempic and Wegovy that reduce appetite."],
+    ["Sector", "CAGNY", "The Consumer Analyst Group of New York conference, held each February, where staples companies set their targets."],
+    ["Markets", "Rotation", "Investors moving money from one sector or style to another, for example from growth stocks to defensives."],
+    ["Markets", "Bond proxy", "A stock bought mainly for steady dividends, so it trades partly like a bond."],
+    ["Markets", "Relative valuation", "A sector's price-to-earnings multiple compared with the overall market's."],
+    ["Markets", "De-rating", "When investors pay a lower multiple for the same earnings."],
+    ["Markets", "Drawdown", "The percentage drop from a peak to a later low."],
+    ["Markets", "Second-order effect", "An indirect impact, like tariffs raising inflation in general rather than a company's own costs."],
+    ["Markets", "Hedge", "A position meant to offset risk elsewhere in a portfolio."],
+    ["Markets", "Pair trade", "Buying one asset and shorting a related one to bet on the gap between them."],
+    ["13F", "13F filing", "A quarterly SEC report in which investment managers with over $100M list their US-listed long equity positions, including ETFs."],
+    ["13F", "Quant / multi-strategy fund", "Funds like Two Sigma, Citadel and Millennium that run many models or teams. Their ETF positions often swing quarter to quarter."],
+    ["13F", "Radar score", "This dashboard's pick score: 45% performance, 35% under-the-radar breadth and 20% accumulation, each a percentile."]
+  ]
+}

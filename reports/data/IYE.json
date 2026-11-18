@@ -1,0 +1,174 @@
+{
+  "title": "iShares U.S. Energy ETF Research Report",
+  "name": "iShares U.S. Energy ETF",
+  "exchange": "NYSE Arca",
+  "accent": "#b45309",
+  "accent_dark": "#f2a54a",
+  "hero": "#5a2d0c",
+  "price_start": "2019-01-01",
+  "tagline": "IYE is a capped, market-cap-weighted basket of about 40 US oil, gas and energy companies, and ExxonMobil and Chevron make up close to 40% of it. The 2026 US–Iran conflict sent oil above $100 and the fund up about 40% in a year. It has given back part of that gain as Brent slid toward $95 this month.",
+  "kpis": [
+    ["0.38%", "expense ratio (0.37–0.38% by source)"],
+    ["~41", "holdings; top 15 ≈ 83% of assets"],
+    ["~24%", "in ExxonMobil, the largest holding"],
+    ["~$1.75B", "fund assets (Jul 2026)"],
+    ["~$95", "Brent crude, mid-Nov 2026"]
+  ],
+  "chapters": [
+    {
+      "id": "about", "nav": "What it is", "title": "What IYE is and where it came from",
+      "lede": "IYE is one of the oldest US sector ETFs. It launched in 2000 as one of the first iShares sector funds, and it now tracks the Russell 1000 Energy RIC 22.5/45 Capped Index. Under that index's caps no single stock can exceed 22.5%, and stocks above 4.5% can't together exceed 45%. Those limits matter when two companies dominate the sector.",
+      "blocks": [
+        {"type": "timeline", "start": 7, "items": [
+          ["Jun 2000", "Launch", "iShares launches the fund as one of its first US sector ETFs, then tracking a Dow Jones energy index."],
+          ["2008", "Oil peaks near $147", "Crude spikes and then crashes in the financial crisis, and energy stocks fall with it."],
+          ["2014–16", "The shale glut", "US shale floods the market, OPEC fights for market share, and oil falls below $30."],
+          ["Apr 2020", "Negative oil", "COVID demand collapses, WTI futures briefly trade below zero, and IYE hits its low."],
+          ["2022", "Best sector in the market", "Russia invades Ukraine, oil and gas prices surge, and producers turn to buybacks and dividends."],
+          ["2023–25", "Range-bound", "Oil settles at $60–90. OPEC+ restraint and capital discipline keep producer profits high."],
+          ["Late 2025", "Surplus forecasts", "EIA and the big banks forecast Brent at $55–60 for 2026 as OPEC+ unwinds its cuts."],
+          ["Feb 28, 2026", "US–Iran conflict", "Hostilities begin, Strait of Hormuz traffic is disrupted in March, and Brent spikes above $110. Some reports put the peak above $120."],
+          ["Sep 2026", "Back above $100", "US strikes on Iranian tankers push Brent above $100 again. Exxon and Chevron hit 52-week highs, and IYE peaks in October."],
+          ["Nov 2026", "Peace-deal hopes", "Brent loses about 16% in a week and trades near $95. Goldman sees $78 by the end of 2027."]
+        ]},
+        {"type": "facts", "eyebrow": "Fund facts", "items": [
+          ["Issuer", "iShares (BlackRock)"],
+          ["Index", "Russell 1000 Energy RIC 22.5/45 Capped Index"],
+          ["Expense ratio", "0.38% (Schwab and Trackinsight list 0.37%)"],
+          ["Holdings", "About 41; the top 15 are about 83% of assets (Sep 30, 2026)"],
+          ["Assets", "About $1.75B (end of July 2026)"],
+          ["Cheaper alternatives", "Other energy sector ETFs track similar baskets at lower fees, so IYE's 0.38% is on the high side"]
+        ]}
+      ]
+    },
+    {
+      "id": "inside", "nav": "What's inside", "title": "What's inside",
+      "lede": "In practice IYE is a bet on the integrated oil majors with a tail of exploration and production companies, refiners, pipelines and oil-service firms. Its two biggest holdings make up almost 40% of the fund.",
+      "blocks": [
+        {"type": "row", "items": [
+          {"type": "hbars", "eyebrow": "Largest holdings (% of fund, ≈ late Oct 2026)", "fmt": "pct1", "max": 60, "items": [["ExxonMobil", 23.6, "Integrated major; at the 22.5% cap plus drift between rebalances"], ["Chevron", 16, "≈ 15–17% depending on source and date"], ["ConocoPhillips", 6.5, "≈ 6–7%; the largest pure exploration & production company"], ["~38 other holdings", 53.9, "Remainder: E&Ps, refiners, midstream, services (approximate)", "var(--ink-3)"]], "note": "Weights move daily and differ by data provider. Check iShares for official holdings."},
+          {"type": "segments", "items": [
+            {"title": "Integrated majors", "big": "≈ 40%", "sub": "Exxon + Chevron", "text": "Their production, refining and chemicals businesses partly cushion swings in oil prices, and they pay steady dividends.", "pills": [["g", "Lower beta to oil"]]}
+          ]}
+        ]},
+        {"type": "callout", "html": "<b>Concentration check:</b> owning IYE is largely owning Exxon and Chevron. If you already hold either one, IYE adds less diversification than its 41 names suggest."}
+      ]
+    },
+    {
+      "id": "returns", "nav": "Year by year", "title": "Year by year",
+      "lede": "Energy is a boom-and-bust sector. Its strong years come when oil spikes (2021–22, 2026), and it lags badly when oil is in surplus.",
+      "blocks": [
+        {"type": "annual", "note": "Calendar-year price change from month-end closes, without dividends. Hover over a bar to see the S&P 500 (SPY) return for the same year. The current year is year-to-date."}
+      ]
+    },
+    {
+      "id": "stock", "nav": "Price", "title": "Price trajectory",
+      "lede": "IYE's chart tracks the oil price closely: the 2020 crash, the 2022 surge, a long plateau, then the 2026 spike and this month's pullback. Hover over the line, switch to the S&P 500 comparison, or click an event.",
+      "blocks": [
+        {"type": "price", "events": [
+          ["2020-03-31", "COVID crash", "Oil demand collapses, and the fund bottoms near $15."],
+          ["2022-06-30", "Ukraine war surge", "Energy is the best-performing sector of 2022."],
+          ["2026-02-27", "US–Iran conflict begins", "Hostilities start Feb 28, and Hormuz disruption follows."],
+          ["2026-10-30", "Peak", "Brent above $100 after tanker strikes, and Exxon and Chevron hit highs."],
+          ["2026-11-18", "Peace-hope pullback", "Brent falls back to about $95, and IYE is about 12% off its October high."]
+        ], "note": "Month-end closing prices from Yahoo Finance, not adjusted for dividends, with the last point at the latest close. This is not investment advice."}
+      ]
+    },
+    {
+      "id": "macro", "nav": "The macro story", "title": "What drives it: the macro story",
+      "lede": "Six forces explain most of what energy stocks do. In 2026, geopolitics overwhelmed everything else. Tap a card for the current read on each.",
+      "blocks": [
+        {"type": "cards", "hint": "Tap for the 2026 read", "items": [
+          ["Supply shock", "Strait of Hormuz", "About a fifth of the world's oil passes through Hormuz, and the 2026 conflict disrupted it.", "Shipping disruptions in the strait remain the main upside risk to oil prices in 2027, even as peace talks progress."],
+          ["OPEC+", "Unwinding the cuts", "Late-2025 forecasts expected OPEC+ to add close to 1 million barrels a day in the second half of 2026, mainly from Saudi Arabia and the UAE.", "If peace holds and those barrels arrive, the market could swing back toward the surplus forecasters expected before the war."],
+          ["Forecast whiplash", "Forecasts missed badly", "EIA expected Brent at about $55 and BofA about $60 for 2026. Instead it spent much of the year above $90.", "Goldman's latest call is $78 by the end of 2027. Even that would be a big drop from today."],
+          ["Capital discipline", "Buybacks over drilling", "Since 2021, US producers have held back on growth spending and returned cash to shareholders.", "High prices with steady spending means very large free cash flow, which supports the stocks even if oil eases."],
+          ["Power demand", "Gas and electricity", "Data-center and AI power demand is lifting US natural-gas demand.", "Fidelity favored lower-cost producers with exposure to power demand, while Morningstar named Devon, Energy Transfer and Antero among its top picks."],
+          ["Sub-sectors diverge", "Not all energy moved together", "Integrated majors and refiners hit highs, while oil-services names like SLB lagged the commodity.", "That spread is a reason to look at what's inside an energy ETF, not just the oil price."]
+        ]}
+      ]
+    },
+    {
+      "id": "radar", "nav": "13F view", "title": "Why it's on the radar: the 13F view",
+      "lede": "IYE made the Insights tab on breadth: 5 tracked funds held it at June 30, up from 4 a year earlier, although total 13F value is only about $13M. It also had the best performance among the energy ETFs that passed the filters.",
+      "blocks": [
+        {"type": "radar", "html": "<b>Read this one carefully:</b> every position is tiny, under 0.01% of each fund's book, and all five holders are quant or multi-strategy firms. These are most likely trading, hedging or sector-tilt positions rather than conviction bets. The Insights tab doesn't require conviction holders for ETFs for this reason."}
+      ]
+    },
+    {
+      "id": "outlook", "nav": "Outlook", "title": "Future outlook: opportunities & risks",
+      "lede": "For an energy ETF the outlook is mostly the oil outlook. After a war-driven spike, the main question for 2027 is whether peace brings back the surplus everyone expected a year ago, or whether supply risk keeps prices high.",
+      "blocks": [
+        {"type": "hbars", "eyebrow": "Brent: where it is vs. what forecasters said ($/bbl)", "fmt": "usd", "items": [["Brent, mid-Nov 2026", 95.3, "Reuters, Nov 15, 2026", "var(--acc)"], ["Goldman: end-2027", 78, "Nov 15, 2026 forecast", "var(--s1)"], ["Morningstar: long-term", 65, "Long-term midcycle Brent view", "var(--s1)"], ["BofA: 2026 avg (made late 2025)", 60, "Pre-war forecast", "var(--ink-3)"], ["EIA: 2026 (made late 2025)", 55, "Pre-war forecast", "var(--ink-3)"]], "note": "The gray bars are forecasts made before the 2026 conflict. They show how far off consensus oil calls can be."},
+        {"type": "oppRisk",
+          "opp": [
+            ["Supply risk persists", "If Hormuz disruption or tanker strikes return, prices could spike again. That is the upside case for producers."],
+            ["Free cash flow", "Disciplined producers at $80–95 oil generate very large cash flows, which fund buybacks and dividends."],
+            ["Inflation hedge", "Energy often holds up when inflation surprises, which can diversify a stock portfolio."],
+            ["Natural gas & power", "AI data centers and LNG exports support long-term US gas demand."],
+            ["Integrated majors' cushion", "Exxon and Chevron's refining and chemicals businesses soften the hit when crude falls."],
+            ["Still not expensive", "Energy stocks typically trade at lower earnings multiples than the market, even after the rally."]
+          ],
+          "risk": [
+            ["Peace = surplus", "A durable Iran deal plus OPEC+ adding barrels could drive oil back toward pre-war forecasts of $55–65."],
+            ["Already falling", "Brent lost about 16% in one week in November, and IYE is about 12% off its high."],
+            ["Concentration", "About 40% of the fund is in two stocks."],
+            ["Fees", "0.38% is high for a sector ETF, and cheaper energy ETFs track similar baskets."],
+            ["Long-run demand", "EV adoption and efficiency gains cap long-term oil demand growth."],
+            ["Weak 13F signal", "The 13F interest comes from tiny quant positions, not conviction buying."]
+          ]},
+        {"type": "bullbear", "items": [
+          ["Bear case", "Peace holds, OPEC+ returns barrels, and Brent falls to $60–65. Energy gives back most of its 2026 gains."],
+          ["Cautious", "Oil drifts toward Goldman's $78. Earnings fall from peak levels and IYE drifts lower but keeps paying its dividend."],
+          ["Middle", "Brent stays at $80–90 with occasional supply scares, and IYE earns its dividend plus modest gains."],
+          ["Constructive", "The conflict simmers, shipping risk keeps a premium in prices, and producers keep up large buybacks."],
+          ["Bull case", "A new Hormuz disruption sends Brent back above $110, and energy leads the market again."]
+        ]},
+        {"type": "catalysts", "items": [
+          ["Ongoing", "US–Iran talks and Hormuz shipping", "The single biggest driver of the oil risk premium."],
+          ["Early Dec 2026", "OPEC+ meeting", "Decisions on returning more supply in 2027."],
+          ["Monthly", "IEA / EIA / OPEC oil market reports", "IEA's Q4 2026 supply forecast already leans bearish."],
+          ["Late Jan–Feb 2027", "Exxon and Chevron Q4 results", "Their 2027 spending and buyback plans affect about 40% of the fund."],
+          ["Winter 2026–27", "Natural-gas weather demand", "A cold winter would support gas-weighted producers."]
+        ]},
+        {"type": "callout", "html": "This summarizes published forecasts and media views. It is not investment advice."}
+      ]
+    }
+  ],
+  "sources": [
+    [["StockAnalysis: IYE", "https://stockanalysis.com/etf/iye/"], ["Benzinga: IYE holdings", "https://www.benzinga.com/quote/IYE/holdings"], ["Schwab: IYE summary", "https://www.schwab.wallst.com/Prospect/Research/etfs/summary.asp?symbol=iye"], ["Trackinsight: IYE", "https://www.trackinsight.com/en/fund/IYE"], ["P&I: IYE", "https://etf.pionline.com/fund/IYE"]],
+    [["Investing.com: Iran war shuts Hormuz", "https://www.investing.com/analysis/oil-surges-as-iran-war-shuts-the-strait-of-hormuz-5-energy-stocks-to-own-200675916"], ["24/7 Wall St: Brent spikes to $117", "https://247wallst.com/investing/2026/04/30/brent-crude-spikes-to-117-on-iran-military-option-reports/"], ["24/7 Wall St: oil past $100 (Sep 2026)", "https://247wallst.com/investing/2026/09/10/oil-just-blew-past-100-a-barrel-and-these-5-energy-stocks-are-in-the-line-of-fire/"], ["Webull: Exxon, Chevron 52-week highs", "https://www.webull.com/news/15779438324427776"]],
+    [["Nation Thailand: Brent falls Nov 3", "https://www.nationthailand.com/news/world/40073076"], ["BOE Report: Goldman sees $78 by end-2027", "https://boereport.com/2026/11/15/goldman-sees-brent-easing-to-78-a-barrel-by-end-2027-as-markets-adapt/amp/"], ["InvestingCube: IEA Q4 2026 supply forecast", "https://www.investingcube.com/commodities/bearish-brent-crude-outlook-follows-ieas-q4-2026-supply-forecast/"], ["Panda Forecast: Brent falls 18% in a week", "https://pandaforecast.com/financial-news/oil-prices-fall-trump-iran-strikes-midterms/"]],
+    [["Morningstar: oil & gas market overview", "https://www.morningstar.com/business/insights/blog/oil-and-gas-market-overview"], ["Khaleej Times: 2026 oil outlook (pre-war)", "https://www.khaleejtimes.com/business/energy/oil-outlook-2026-surplus-keeps-brent-near-58-but-long-term-supply-risks-loom"], ["Fidelity: energy sector", "https://clearingcustody.fidelity.com/app/item/SCIC_D00002597/energy-sector.html"], ["RSM: 2026 oil and gas outlook", "https://rsmus.com/insights/industries/energy/reconciling-industry-and-company-outlook.html"]]
+  ],
+  "glossary": [
+    ["ETF", "ETF", "Exchange-traded fund: a basket of securities that trades on an exchange like a single stock."],
+    ["ETF", "Expense ratio", "The annual fee as a share of assets. 0.38% costs $3.80 a year per $1,000 invested."],
+    ["ETF", "Capped index", "An index that limits how much any single stock can weigh, so one or two giants can't dominate it completely."],
+    ["ETF", "RIC 22.5/45 rule", "A diversification cap based on US tax rules for funds: no stock above 22.5%, and stocks above 4.5% together capped at 45%."],
+    ["ETF", "Market-cap weighted", "Holdings weighted by company size, so larger companies get larger weights."],
+    ["ETF", "Rebalance", "Periodic reset of index weights back within the caps."],
+    ["ETF", "Holdings concentration", "How much of a fund is in its top names. In IYE the top 15 are about 83%."],
+    ["Energy", "Brent", "The international crude-oil benchmark, priced from North Sea oil."],
+    ["Energy", "WTI", "West Texas Intermediate, the US crude benchmark."],
+    ["Energy", "Integrated major", "An oil company that produces, refines and sells, like ExxonMobil and Chevron."],
+    ["Energy", "E&P", "Exploration and production companies that find and pump oil and gas, like ConocoPhillips."],
+    ["Energy", "Refiner", "Turns crude into gasoline, diesel and jet fuel. Refiners profit from the spread between crude and fuel prices."],
+    ["Energy", "Midstream", "Pipelines, storage and processing companies, often paid fees regardless of the oil price."],
+    ["Energy", "Oilfield services", "Companies that drill and equip wells for producers, like SLB."],
+    ["Energy", "OPEC+", "OPEC plus allies such as Russia, which coordinate oil output."],
+    ["Energy", "Strait of Hormuz", "The narrow sea lane between Iran and Oman through which a large share of world oil exports pass."],
+    ["Energy", "Supply surplus / glut", "More oil produced than consumed, which pushes prices down."],
+    ["Energy", "Risk premium", "The extra price traders pay for oil because supply might be disrupted."],
+    ["Energy", "Capital discipline", "Producers holding back on growth spending and returning cash to shareholders."],
+    ["Energy", "LNG", "Liquefied natural gas, chilled to a liquid so it can be shipped overseas."],
+    ["Energy", "EIA / IEA", "The US Energy Information Administration and the International Energy Agency, which publish oil market forecasts."],
+    ["Markets", "Free cash flow", "Cash from operations minus capital spending: what's left for dividends and buybacks."],
+    ["Markets", "Beta", "How much an investment moves relative to a benchmark."],
+    ["Markets", "Inflation hedge", "An asset that tends to hold value when inflation rises."],
+    ["Markets", "Year-to-date (YTD)", "Performance from January 1 to now."],
+    ["13F", "13F filing", "A quarterly SEC report in which investment managers with over $100M list their US-listed long equity positions, including ETFs."],
+    ["13F", "Quant / multi-strategy fund", "Funds like Citadel, D. E. Shaw and Two Sigma that run many models or teams. Their ETF positions are often hedges."],
+    ["13F", "Radar score", "This dashboard's pick score: 45% performance, 35% under-the-radar breadth and 20% accumulation, each a percentile."]
+  ]
+}

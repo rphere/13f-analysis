@@ -1,0 +1,38 @@
+{
+  "BTSG": {
+    "title": "BrightSpring Health Services Research Report",
+    "generated": "2026-11-18T23:24:26+00:00",
+    "file": "reports/html/BTSG.html",
+    "url": "https://claude.ai/artifact/G6kdKxdRoUGrbqbLfrdvVg"
+  },
+  "EWP": {
+    "title": "iShares MSCI Spain ETF Research Report",
+    "generated": "2026-11-18T23:24:26+00:00",
+    "file": "reports/html/EWP.html",
+    "url": "https://claude.ai/artifact/D9nXiy9ygNVKSULvGeArFG"
+  },
+  "IYE": {
+    "title": "iShares U.S. Energy ETF Research Report",
+    "generated": "2026-11-18T23:24:26+00:00",
+    "file": "reports/html/IYE.html",
+    "url": "https://claude.ai/artifact/3PMwaaiTcceVFEfVsZNHoj"
+  },
+  "RPRX": {
+    "title": "Royalty Pharma Research Report",
+    "generated": "2026-11-18T23:24:26+00:00",
+    "file": "reports/html/RPRX.html",
+    "url": "https://claude.ai/artifact/6Ys53Rx3t2vV2zc3ydc3Er"
+  },
+  "TGTX": {
+    "title": "TG Therapeutics Research Report",
+    "generated": "2026-11-18T23:24:26+00:00",
+    "file": "reports/html/TGTX.html",
+    "url": "https://claude.ai/artifact/MbWZT4joMwyoAWgffNvCvz"
+  },
+  "XLP": {
+    "title": "Consumer Staples Select Sector SPDR Research Report",
+    "generated": "2026-11-18T23:24:26+00:00",
+    "file": "reports/html/XLP.html",
+    "url": "https://claude.ai/artifact/GH2WnS13yNpPHRkVzL5Xc1"
+  }
+}

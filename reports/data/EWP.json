@@ -1,0 +1,173 @@
+{
+  "title": "iShares MSCI Spain ETF Research Report",
+  "name": "iShares MSCI Spain ETF",
+  "exchange": "NYSE Arca",
+  "accent": "#b91c1c",
+  "accent_dark": "#f87171",
+  "hero": "#5c1414",
+  "price_start": "2019-01-01",
+  "tagline": "EWP is the main US-listed way to own Spain's stock market. About half of it is in three companies: Banco Santander, Iberdrola and BBVA. Spain has been the euro area's fastest-growing large economy, and the fund roughly doubled from early 2025 to its August 2026 peak.",
+  "kpis": [
+    ["0.50%", "expense ratio"],
+    ["+13.3%", "YTD NAV total return (Nov 11, 2026)"],
+    ["~44%", "in Santander, Iberdrola and BBVA"],
+    ["~2.1–2.4%", "Spain 2026 GDP growth forecasts"],
+    ["2.33%", "30-day SEC yield"]
+  ],
+  "chapters": [
+    {
+      "id": "about", "nav": "What it is", "title": "What EWP is and where it came from",
+      "lede": "EWP is one of the original single-country ETFs. It launched in 1996 as one of Morgan Stanley's WEBS (World Equity Benchmark Shares) and later became part of iShares. It tracks the MSCI Spain 25/50 Index, a market-cap-weighted index of Spanish large and mid caps, capped so the fund meets US diversification rules.",
+      "blocks": [
+        {"type": "timeline", "start": 7, "items": [
+          ["Mar 1996", "Launch as WEBS", "Spain is among the first country funds in the WEBS series, the forerunner of today's iShares country ETFs."],
+          ["2000", "Becomes iShares", "The WEBS funds are rebranded iShares MSCI country funds."],
+          ["2008–12", "Housing bust & euro crisis", "Spain's property bubble bursts, unemployment passes 25%, and Spain takes an EU loan to rescue its banks in 2012."],
+          ["2013–19", "Reform & recovery", "Labor reforms, a tourism boom and cleaned-up bank balance sheets support a slow recovery."],
+          ["2020", "COVID hits tourism", "Spain is one of Europe's hardest-hit economies as tourism stops."],
+          ["2022–24", "Higher rates help banks", "ECB rate hikes lift Spanish bank profits, and Santander and BBVA re-rate."],
+          ["2025", "Record year", "Spain's GDP grows 2.8%, employment hits a record 22.46M, and the IBEX 35 rises about 48% to pass its 2007 peak."],
+          ["2026", "Energy shock, still growing", "The US–Iran conflict raises energy prices and threatens tourism. Spain still grows about 2%, three times the euro-area rate in Goldman's forecast."],
+          ["Aug 2026", "Fund peaks", "EWP hits a high near $62.40, then eases as oil and geopolitics swing."]
+        ]},
+        {"type": "facts", "eyebrow": "Fund facts", "items": [
+          ["Issuer", "iShares (BlackRock)"],
+          ["Index", "MSCI Spain 25/50 Index"],
+          ["Expense ratio", "0.50%"],
+          ["Holdings", "About 22–30, depending on data provider"],
+          ["Net assets", "About $1.84B (Apr 2, 2026)"],
+          ["Distribution yield", "30-day SEC yield 2.33% (Nov 11, 2026)"],
+          ["Currency", "Holdings are in euros, so returns in dollars include EUR/USD moves"]
+        ]}
+      ]
+    },
+    {
+      "id": "inside", "nav": "What's inside", "title": "What's inside",
+      "lede": "EWP is a bet on Spanish banks and utilities more than on the Spanish economy as a whole. Banks alone are about 30% of the fund, and Iberdrola is a global renewables utility that earns much of its profit outside Spain.",
+      "blocks": [
+        {"type": "row", "items": [
+          {"type": "hbars", "eyebrow": "Top holdings (% of fund, Nov 13, 2026)", "fmt": "pct1", "items": [["Banco Santander", 16.83, "Global bank; Spain, UK, Brazil, US and more"], ["Iberdrola", 14.09, "Utility and renewables leader; big US & UK networks"], ["BBVA", 13.17, "Bank; Spain, Mexico and Turkey"], ["Repsol", 4.86, "Integrated oil & gas"], ["Inditex", 4.56, "Zara's parent; global fashion retail"]], "note": "From StockAnalysis (Nov 13, 2026). Schwab's Oct 26 snapshot shows Santander at 17.7% and Iberdrola at 13.9%. Some sources show much lower BBVA weights, so check iShares for official data."},
+          {"type": "segments", "items": [
+            {"title": "Three-stock fund", "big": "≈ 44%", "sub": "Santander + Iberdrola + BBVA", "color": "var(--acc)", "text": "Bank profits depend on ECB rates and Latin American exposure. Iberdrola depends on power regulation and grid investment.", "pills": [["w", "Concentrated"], ["g", "Global earners"]]}
+          ]}
+        ]},
+        {"type": "callout", "html": "<b>Not just Spain:</b> Santander, BBVA, Iberdrola and Inditex earn much of their profit abroad, in Brazil, Mexico, the UK, the US and global retail. EWP's return depends on more than the Spanish economy alone."}
+      ]
+    },
+    {
+      "id": "returns", "nav": "Year by year", "title": "Year by year",
+      "lede": "Spain lagged for a decade and then had two exceptional years. 2025 was the IBEX 35's best year in a generation.",
+      "blocks": [
+        {"type": "annual", "note": "Calendar-year price change in US dollars from month-end closes, without dividends. Hover over a bar to see the S&P 500 (SPY) return for the same year. The current year is year-to-date. iShares reports a +13.29% YTD NAV total return as of Nov 11, 2026, dividends included."}
+      ]
+    },
+    {
+      "id": "stock", "nav": "Price", "title": "Price trajectory",
+      "lede": "EWP spent 2019–2024 stuck between about $20 and $32, then broke out in 2025 as bank earnings surged and Spain outgrew its neighbors. Hover over the line, switch to the S&P 500 comparison, or click an event.",
+      "blocks": [
+        {"type": "price", "events": [
+          ["2020-03-31", "COVID crash", "Tourism stops and Spanish stocks fall sharply."],
+          ["2022-09-30", "The low: ~$19.80", "The energy crisis, a weak euro and recession fears weigh on the fund."],
+          ["2025-06-30", "Breakout", "Bank profits and growth leadership drive a re-rating."],
+          ["2025-12-31", "IBEX's record year", "The IBEX 35 ends 2025 up about 48%, above its 2007 peak."],
+          ["2026-08-31", "Peak near $62", "The fund's high so far, despite the energy shock."],
+          ["2026-11-18", "Latest", "About 8% below the August peak."]
+        ], "note": "Month-end closing prices in US dollars from Yahoo Finance, not adjusted for dividends, with the last point at the latest close. This is not investment advice."}
+      ]
+    },
+    {
+      "id": "macro", "nav": "The macro story", "title": "What drives it: the macro story",
+      "lede": "Spain has gone from euro-crisis problem case to the euro area's growth leader. Tap a card for the current read on each driver.",
+      "blocks": [
+        {"type": "cards", "hint": "Tap for the 2026 read", "items": [
+          ["Growth", "Europe's fastest large economy", "Spain grew 2.8% in 2025, and forecasts for 2026 are about 2.1–2.4%.", "Goldman says Spain is growing about three times as fast as the euro area. The IMF sees 2.1% in 2026 and 1.8% in 2027, settling near its 1.7% potential rate."],
+          ["Jobs", "Record employment", "2025 added about 605,000 jobs, taking employment to a record 22.46M.", "Immigration-driven labor-force growth is a big part of Spain's outperformance."],
+          ["Banks", "Rates and Latin America", "Santander and BBVA profited from higher ECB rates and strong Latin American businesses.", "ECB rate cuts narrow lending margins. Mexico (BBVA) and Brazil (Santander) add currency and political risk."],
+          ["Energy", "The 2026 energy shock", "Higher oil and gas prices hit air travel and tourism, Spain's big service exports.", "CaixaBank cut its 2026 growth forecast to 2.1% from 2.4% but still describes the economy as dynamic."],
+          ["EU funds", "NextGenerationEU fades", "EU recovery funds paid for a lot of recent investment.", "BBVA Research warns that as those funds end, it will become clear how much investment depended on them."],
+          ["Politics", "Political uncertainty", "Spain has had fragmented parliaments and minority governments.", "Goldman quotes analysts warning that long political uncertainty could weaken investor confidence in Spain's turnaround."]
+        ]}
+      ]
+    },
+    {
+      "id": "radar", "nav": "13F view", "title": "Why it's on the radar: the 13F view",
+      "lede": "EWP made the Insights tab on accumulation: tracked holders went from 1 to 4 in a year, the largest increase among ETF candidates, and it has the best five-year return of the three ETF picks.",
+      "blocks": [
+        {"type": "radar", "html": "<b>Small positions, rising interest:</b> Point72 holds the largest stake at about $10.3M, roughly 0.01% of its book. Citadel, Millennium and D. E. Shaw hold small positions. Multi-strategy funds use country ETFs like EWP for tactical tilts and hedges, so a rising holder count signals more interest in Spain rather than strong conviction."}
+      ]
+    },
+    {
+      "id": "outlook", "nav": "Outlook", "title": "Future outlook: opportunities & risks",
+      "lede": "The case for EWP is continued Spanish growth and well-capitalized, highly profitable banks. The case against it is that much of that recovery is already in the price after a doubling, and that a few large stocks carry the fund.",
+      "blocks": [
+        {"type": "hbars", "eyebrow": "Spain real GDP growth forecasts (%)", "fmt": "pct1", "max": 3.2, "items": [["2025 actual", 2.8, "CaixaBank Research", "var(--ink-3)"], ["2026 · BBVA Research (Jun)", 2.4, "BBVA Research"], ["2026 · IMF (Mar)", 2.1, "IMF Article IV"], ["2026 · CaixaBank", 2.1, "Cut from 2.4%"], ["2026 · Goldman Sachs", 2.1, "About 3x the euro area"], ["2027 · BBVA Research", 2.1, "BBVA Research", "var(--s1)"], ["2027 · IMF / CaixaBank", 1.8, "IMF and CaixaBank", "var(--s1)"]], "note": "Forecasts made between March and October 2026."},
+        {"type": "oppRisk",
+          "opp": [
+            ["Growth leadership", "Spain keeps outgrowing the euro area, helped by job gains, immigration and services exports."],
+            ["Bank capital returns", "Highly profitable Santander and BBVA keep paying large dividends and buybacks."],
+            ["Grid & renewables build-out", "Iberdrola benefits from heavy grid investment in Europe, the UK and the US."],
+            ["Still cheaper than the US", "European banks and utilities trade at lower multiples than US peers."],
+            ["Dividend income", "A 2.33% SEC yield, plus a share of earnings returned through buybacks."],
+            ["Diversification", "Gives a US-heavy portfolio exposure to euro-area and Latin American earnings."]
+          ],
+          "risk": [
+            ["Concentration", "About 44% in three stocks and about 30% in two banks."],
+            ["ECB rate cuts", "Lower rates squeeze bank lending margins, the biggest earnings driver in the fund."],
+            ["Energy & tourism", "A renewed oil spike would hit tourism and consumer spending."],
+            ["Emerging-market exposure", "BBVA's Mexico and Turkey businesses and Santander's Brazil unit bring currency and political swings."],
+            ["Currency", "A weaker euro lowers returns in dollars."],
+            ["Fees & valuation", "0.50% is costly for an index fund, and the fund has roughly doubled since early 2025."]
+          ]},
+        {"type": "bullbear", "items": [
+          ["Bear case", "The ECB cuts further, bank profits roll over, an oil shock hits tourism, and the euro weakens. EWP gives back a large part of its 2025–26 gains."],
+          ["Cautious", "Spain keeps growing, but earnings growth slows as bank margins narrow. Returns come mostly from dividends."],
+          ["Middle", "Growth near 2%, stable banks and steady Iberdrola earnings deliver dividends plus mid-single-digit price gains."],
+          ["Constructive", "Banks keep returning capital, and Iberdrola's grid build-out lifts earnings. Europe catches a rotation out of US stocks."],
+          ["Bull case", "Energy calms, tourism rebounds, the euro strengthens, and Spain's growth premium earns a higher valuation."]
+        ]},
+        {"type": "catalysts", "items": [
+          ["Dec 2026", "ECB policy meeting", "The rate path is the main driver of Spanish bank earnings."],
+          ["Late Jan–Feb 2027", "Santander, BBVA and Iberdrola full-year results", "These three are about 44% of the fund. Watch capital-return plans."],
+          ["Ongoing", "Oil prices and US–Iran talks", "Energy costs drive the tourism and consumer outlook."],
+          ["2027", "End of NextGenerationEU spending", "Shows how much investment growth depended on EU funds."],
+          ["Ongoing", "Spanish politics and budget", "Long uncertainty could weigh on investor confidence."]
+        ]},
+        {"type": "callout", "html": "This summarizes published forecasts and media views. It is not investment advice."}
+      ]
+    }
+  ],
+  "sources": [
+    [["iShares: EWP fund page", "https://www.ishares.com/us/products/239683/ishares-msci-spain-etf-ewp"], ["StockAnalysis: EWP holdings", "https://stockanalysis.com/etf/ewp/holdings"], ["Schwab: EWP summary", "https://www.schwab.wallst.com/Prospect/Research/etfs/summary.asp?symbol=ewp"], ["ChartRow: EWP holdings", "https://chartrow.com/quote/ewp/holdings"]],
+    [["CaixaBank Research: Spain 2026 outlook", "https://www.caixabankresearch.com/en/economics-markets/activity-growth/macroeconomic-outlook-spain-2026-resilience-uncertain-times"], ["CaixaBank Research: Spain in 2027", "https://www.caixabankresearch.com/en/economics-markets/activity-growth/spain-2027-robust-economy-more-challenging-environment"], ["IMF: 2026 Article IV statement", "https://www.imf.org/en/news/articles/2026/03/20/mcs032026-spain-2026-article-iv-mission"], ["Goldman Sachs: why Spain grows 3x the euro area", "https://www.goldmansachs.com/insights/articles/why-spains-economy-is-growing-three-times-faster-than-the-euro-area"]],
+    [["BBVA Research: Spain Economic Outlook (Jun 2026)", "https://www.bbvaresearch.com/wp-content/uploads/2026/06/Spain_Economic_Outlook_Jun-26.pdf"], ["BBVA Research: Spain Economic Outlook (Oct 2026)", "https://www.bbvaresearch.com/wp-content/uploads/2026/10/Spain_Economic_Outlook_Oct2026.pdf"], ["BME: Spain leads growth (2025)", "https://www.bolsasymercados.es/en/media/news/2025/spain--europe-s-leader-in-growth-in-a-year-of-resilience-and-tra.html"], ["Funcas: geopolitical risks", "https://www.funcas.es/articulos/geopolitical-risks-and-the-outlook-for-spainsgrowth-cycle/"]]
+  ],
+  "glossary": [
+    ["ETF", "ETF", "Exchange-traded fund: a basket of securities that trades on an exchange like a single stock."],
+    ["ETF", "Country ETF", "An ETF holding the stocks of one country's market."],
+    ["ETF", "WEBS", "World Equity Benchmark Shares, Morgan Stanley's 1996 country funds and the forerunners of iShares."],
+    ["ETF", "MSCI Spain 25/50 Index", "MSCI's Spain index with caps (no stock above 25%, and stocks above 5% together at most 50%) to meet US fund diversification rules."],
+    ["ETF", "Expense ratio", "The annual fee as a share of assets. 0.50% costs $5 a year per $1,000 invested."],
+    ["ETF", "NAV total return", "Return on the fund's net asset value with dividends reinvested."],
+    ["ETF", "30-day SEC yield", "A standardized yield based on the last 30 days of income, net of fees."],
+    ["Economy", "GDP", "Gross domestic product: the total value of goods and services an economy produces."],
+    ["Economy", "Potential growth", "The rate an economy can grow over time without overheating. The IMF puts Spain's at about 1.7%."],
+    ["Economy", "Article IV", "The IMF's regular health check of a member country's economy."],
+    ["Economy", "NextGenerationEU (NGEU)", "The EU's post-COVID recovery fund, a major source of Spanish public investment."],
+    ["Economy", "Euro area", "The countries that use the euro."],
+    ["Economy", "Energy shock", "A sudden rise in energy prices that squeezes consumers and businesses."],
+    ["Markets", "IBEX 35", "Spain's benchmark stock index of 35 large companies."],
+    ["Markets", "ECB", "European Central Bank, which sets euro-area interest rates."],
+    ["Markets", "Net interest margin", "The gap between what banks earn on loans and what they pay on deposits. It usually narrows when rates fall."],
+    ["Markets", "Re-rating", "When investors start paying a higher (or lower) multiple for the same earnings."],
+    ["Markets", "Currency risk", "Returns in dollars move with EUR/USD as well as with stock prices."],
+    ["Markets", "Bank bailout (2012)", "The EU loan of up to €100B that recapitalized Spanish savings banks."],
+    ["Companies", "Banco Santander", "Spain's largest bank, with big businesses in the UK, Brazil, the US and elsewhere."],
+    ["Companies", "BBVA", "Spain's second-largest bank, and the owner of Mexico's largest bank."],
+    ["Companies", "Iberdrola", "A Spanish utility and one of the world's largest renewables and grid operators."],
+    ["Companies", "Inditex", "Owner of Zara and other fashion brands."],
+    ["Companies", "Repsol", "Spain's integrated oil and gas company."],
+    ["13F", "13F filing", "A quarterly SEC report in which investment managers with over $100M list their US-listed long equity positions, including ETFs."],
+    ["13F", "Tactical tilt", "A short-term overweight in a country or sector, often made through ETFs."],
+    ["13F", "Radar score", "This dashboard's pick score: 45% performance, 35% under-the-radar breadth and 20% accumulation, each a percentile."]
+  ]
+}
