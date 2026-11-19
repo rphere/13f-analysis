@@ -277,8 +277,9 @@ def render_radar_picks():
     if snap is None or "pick_candidates" not in snap:
         st.info("No picks pool yet. Build it with `python src/build_performance.py --only picks`, then reload.")
         return
-    st.caption("Names many tracked funds hold **relative to how big they are**, with strong returns over 6 months "
-               "to 5 years. Mega-caps and well-known tech are excluded. Click a ticker to open its research report.")
+    st.caption("Stocks and ETFs that **more of the tracked funds own than their size would suggest**, and that have "
+               "performed well over 6 months to 5 years. Mega-caps and big tech are left out. Click a ticker to read "
+               "its research report.")
     top = picks.score_picks(snap["pick_candidates"])
     for col, (asset_type, title) in zip(st.columns(2), [("Stock", "Stocks"), ("ETF", "ETFs")]):
         with col:
